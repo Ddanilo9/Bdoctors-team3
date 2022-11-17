@@ -1,12 +1,13 @@
 <?php
 
 use App\Doctor;
-
+use App\Plan;
 use App\Specialization;
 use App\Star;
 use App\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 
 class DoctorSeeder extends Seeder
@@ -47,7 +48,7 @@ class DoctorSeeder extends Seeder
         $users = User::all();
         $stars = Star::all()->pluck('id');
         $specializations = Specialization::all()->pluck('id');
-        
+        $plans = Plan::all()->pluck('id');
 
 
         foreach ($users as $user) {
@@ -74,7 +75,18 @@ class DoctorSeeder extends Seeder
             $specializationIds = $specializations->shuffle()->take(2)->all();
             $doctor->specializations()->sync($specializationIds);
 
+
+            $durationArr = Plan::all()->pluck('duration');
+            $duration = $faker->randomElement($durationArr);
             
+            $currentDateTime = Carbon::now();
+            $newDateTime = Carbon::now()->addHour($duration);
+
+            $planIds = $plans->shuffle()->take(2)->all();
+            $doctor->plans()->attach($planIds, [
+                'starting_date' => $currentDateTime,
+                'expiration_date' => $newDateTime,
+            ]);
         }
     }
 }
