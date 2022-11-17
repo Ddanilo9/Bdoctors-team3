@@ -1,5 +1,6 @@
 <?php
 
+use App\Doctor;
 use App\Plan;
 use Illuminate\Database\Seeder;
 
@@ -12,7 +13,6 @@ class PlanSeeder extends Seeder
      */
     public function run()
     {
-        // $faker = \Faker\Factory::create('it_IT');
 
         for ($i = 0; $i < 50; $i++) {
             $plans = new Plan();
@@ -39,8 +39,6 @@ class PlanSeeder extends Seeder
             $plans->price = $price;
             $plans->type = $type;
             $plans->duration = $duration;
-            // $plans->duration = $faker->paragraphs(rand(10, 20), true);
-
 
             $plans->save();
         }

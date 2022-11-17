@@ -22,6 +22,5 @@ class DatabaseSeeder extends Seeder
             StarSeeder::class
 
         ]);
-        
     }
 }
