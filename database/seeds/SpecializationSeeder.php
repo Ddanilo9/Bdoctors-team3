@@ -20,7 +20,6 @@ class SpecializationSeeder extends Seeder
 
         $faker = \Faker\Factory::create('it_IT');
 
-
         for ($i = 0; $i < 50; $i++) {
             $s = new Specialization();
 

@@ -7,19 +7,52 @@ use Illuminate\Support\Str;
 
 class Doctor extends Model
 {
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
+    public function messages()
+    {
+        return $this->hasMany('App\Message');
+    }
+
+    public function reviews()
+    {
+        return $this->hasMany('App\Review');
+    }
+
+    public function specializations()
+    {
+        return $this->belongsToMany('App\Specialization');
+    }
+
+    public function stars()
+    {
+        return $this->belongsToMany('App\Star');
+    }
+
+    public function plans()
+    {
+        return $this->belongsToMany('App\Plan');
+    }
+
     static public function getUniqueSlugFrom($name, $surname)
     {
         // rigenerare lo slug
-        $slug_base = Str::slug($name,$surname);
+
+        $fullName = $name . ' ' . $surname;
+
+        $slug_base = Str::slug($fullName);
         $slug = $slug_base;
-        $post_esistente = Doctor::where('slug', $slug)->first();
+        $doctor = Doctor::where('slug', $slug)->first();
         $counter = 1;
 
-        while ($post_esistente) {
+        while ($doctor) {
 
             $slug = $slug_base . '-' . $counter;
 
-            $post_esistente = Doctor::where('slug', $slug)->first();
+            $doctor = Doctor::where('slug', $slug)->first();
             $counter++;
         }
 

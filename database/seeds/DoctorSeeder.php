@@ -1,6 +1,7 @@
 <?php
 
 use App\Doctor;
+use App\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
@@ -36,13 +37,16 @@ class DoctorSeeder extends Seeder
             'cv/6.pdf',
         ];
 
-        
-        
+
+
         $faker = \Faker\Factory::create('it_IT');
 
-        for ($i = 0; $i < 50; $i++) {
+        $users = User::all();
+
+        foreach ($users as $user) {
 
             $doctor = new Doctor();
+            $doctor->user_id = $user->id;
 
             $doctor->name = $faker->firstName();
             $doctor->surname = $faker->lastName();
@@ -51,8 +55,9 @@ class DoctorSeeder extends Seeder
             $doctor->photo = $faker->randomElement($avatars);
             $doctor->cv = $faker->randomElement($cvs);
             $doctor->telephone = $faker->phoneNumber();
-            // $fullName = ($doctor->name;
-            $doctor->slug = Str::slug($doctor->name . ' ' . $doctor->surname);
+
+            $fullName = $doctor->name . ' ' . $doctor->surname;
+            $doctor->slug = Str::slug($fullName);
 
             $doctor->save();
         }

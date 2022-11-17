@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMessagesTable extends Migration
+class CreateDoctorPlanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,17 @@ class CreateMessagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('messages', function (Blueprint $table) {
-            $table->id();
+        Schema::create('doctor_plan', function (Blueprint $table) {
             $table->unsignedBigInteger('doctor_id');
-            $table->string('name');
-            $table->text('message');
-            $table->string('email');
-            $table->timestamps();
+            $table->unsignedBigInteger('plan_id');
+
+            $table->dateTime('starting_date');
+            $table->dateTime('expiration_date');
+
             $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
+            $table->foreign('plan_id')->references('id')->on('plans')->onDelete('cascade');
+
+            $table->primary(['doctor_id', 'plan_id']);
         });
     }
 
@@ -31,6 +34,6 @@ class CreateMessagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('messages');
+        Schema::dropIfExists('doctor_plan');
     }
 }
