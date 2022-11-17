@@ -1,6 +1,9 @@
 <?php
 
 use App\Doctor;
+
+use App\Specialization;
+use App\Star;
 use App\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
@@ -42,6 +45,10 @@ class DoctorSeeder extends Seeder
         $faker = \Faker\Factory::create('it_IT');
 
         $users = User::all();
+        $stars = Star::all()->pluck('id');
+        $specializations = Specialization::all()->pluck('id');
+        
+
 
         foreach ($users as $user) {
 
@@ -60,6 +67,14 @@ class DoctorSeeder extends Seeder
             $doctor->slug = Str::slug($fullName);
 
             $doctor->save();
+
+            $starIds = $stars->shuffle()->all();
+            $doctor->stars()->sync($starIds);
+
+            $specializationIds = $specializations->shuffle()->take(2)->all();
+            $doctor->specializations()->sync($specializationIds);
+
+            
         }
     }
 }
