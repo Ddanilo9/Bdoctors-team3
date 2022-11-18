@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Doctor;
 use App\Http\Controllers\Controller;
+use App\Plan;
 use App\Specialization;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,10 @@ class DoctorController extends Controller
     {
         $doctors = Doctor::orderBy('created_at', 'desc')->get();
         $specializations = Specialization::all();
-        // dd($specializations);
+       
+        
+            
+        // dd($duration);
     
         return view('admin.doctors.index', compact('doctors', 'specializations'));
     }
@@ -56,7 +60,10 @@ class DoctorController extends Controller
      */
     public function show(Doctor $doctor)
     {
-        //
+        // $doctors = Doctor::orderBy('created_at', 'desc')->get();
+        // $specializations = Specialization::all();
+
+        return view('admin.doctors.show', compact('doctor'));
     }
 
     /**

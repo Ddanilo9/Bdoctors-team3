@@ -30,13 +30,5 @@ class SpecializationSeeder extends Seeder
 
             $s->save();
         }
-        // for ($i = 0; $i < count($specList); $i++) {
-        //     $s = new Specialization();
-        //     if (condition) {
-        //         # code...
-        //     }
-        //     $s->name = $faker->randomElement($specList);
-
-        //     $s->save();
     }
 }
