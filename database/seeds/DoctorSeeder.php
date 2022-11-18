@@ -72,7 +72,7 @@ class DoctorSeeder extends Seeder
             $starIds = $stars->shuffle()->all();
             $doctor->stars()->sync($starIds);
 
-            $specializationIds = $specializations->shuffle()->take(2)->all();
+            $specializationIds = $specializations->shuffle()->take(rand(1,3))->all();
             $doctor->specializations()->sync($specializationIds);
 
 

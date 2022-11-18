@@ -15,17 +15,28 @@ class SpecializationSeeder extends Seeder
         $specList = [
             'neurologia',
             'dentista',
-            'urologia'
+            'urologia',
+            'ginecologia',
+            'radiologia',
+            'cardiologia',
+            'pediatria'
         ];
 
         $faker = \Faker\Factory::create('it_IT');
 
-        for ($i = 0; $i < 50; $i++) {
+        foreach ($specList as $spec) {
             $s = new Specialization();
-
-            $s->name = $faker->randomElement($specList);
+            $s->name = $spec;
 
             $s->save();
         }
+        // for ($i = 0; $i < count($specList); $i++) {
+        //     $s = new Specialization();
+        //     if (condition) {
+        //         # code...
+        //     }
+        //     $s->name = $faker->randomElement($specList);
+
+        //     $s->save();
     }
 }

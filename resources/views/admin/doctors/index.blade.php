@@ -36,7 +36,14 @@
                                 <th scope="row">{{ $doctor->id }}</th>
                                 <td>{{ $doctor->name }}</td>
                                 <td>{{ $doctor->surname }}</td>
-                                <td>{{ $doctor->specializations()->first() }}</td>
+                                <td>
+                                  <ul>
+                                    @foreach($doctor->specializations as $s)
+                                      <li>{{ $s->name }}</li>
+                                    @endforeach
+                                  </ul>  
+                                </td>
+                                
                                 <td>{{ $doctor->address }}</td>
                                 {{-- <td>{{ $doctor->services }}</td> --}}
                                 <td>{{ $doctor->photo }}</td>
