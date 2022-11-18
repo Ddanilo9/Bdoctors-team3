@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Doctor;
 use App\Http\Controllers\Controller;
-use App\Specialization;
 use Illuminate\Http\Request;
 
-class DoctorController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +14,7 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        $doctors = Doctor::orderBy('created_at', 'desc')->get();
-        $specializations = Specialization::all();
-        // dd($specializations);
-    
-        return view('admin.doctors.index', compact('doctors', 'specializations'));
+        return view('admin.home');
     }
 
     /**
@@ -41,20 +35,16 @@ class DoctorController extends Controller
      */
     public function store(Request $request)
     {
-        $params = $request->validate([
-            'name' => 'required|max:255|min:5',
-            'surname' => 'required',
-        ]);
-        $params['slug'] = Doctor::getUniqueSlugFrom($params['name'],$params['surname']);
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Doctor  $doctor
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Doctor $doctor)
+    public function show($id)
     {
         //
     }
@@ -62,10 +52,10 @@ class DoctorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Doctor  $doctor
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Doctor $doctor)
+    public function edit($id)
     {
         //
     }
@@ -74,10 +64,10 @@ class DoctorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Doctor  $doctor
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Doctor $doctor)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -85,10 +75,10 @@ class DoctorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Doctor  $doctor
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Doctor $doctor)
+    public function destroy($id)
     {
         //
     }
