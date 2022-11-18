@@ -3,6 +3,8 @@
 use App\Doctor;
 use App\Plan;
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
+// use Illuminate\Support\Carbon;
 
 class PlanSeeder extends Seeder
 {
@@ -13,6 +15,8 @@ class PlanSeeder extends Seeder
      */
     public function run()
     {
+
+        // $doctors = Doctor::all()->pluck('id');
 
         for ($i = 0; $i < 50; $i++) {
             $plans = new Plan();
@@ -40,6 +44,15 @@ class PlanSeeder extends Seeder
             $plans->type = $type;
             $plans->duration = $duration;
 
+
+            // $currentDateTime = Carbon::now();
+            // $newDateTime = Carbon::now()->addHour($duration);
+            
+            // $doctorIds = $doctors->shuffle()->take(2)->all();
+            // $plans->doctors()->attach($doctorIds, [
+            //     'starting_date' => $currentDateTime,
+            //     'expiration_date' => $newDateTime,
+            // ]);
             $plans->save();
         }
     }

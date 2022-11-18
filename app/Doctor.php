@@ -34,7 +34,7 @@ class Doctor extends Model
 
     public function plans()
     {
-        return $this->belongsToMany('App\Plan');
+        return $this->belongsToMany('App\Plan')->withPivot('starting_date', 'expiration_date');
     }
 
     static public function getUniqueSlugFrom($name, $surname)

@@ -17,12 +17,12 @@ class CreateDoctorPlanTable extends Migration
             $table->unsignedBigInteger('doctor_id');
             $table->unsignedBigInteger('plan_id');
 
-            $table->dateTime('starting_date');
-            $table->dateTime('expiration_date');
-
             $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
             $table->foreign('plan_id')->references('id')->on('plans')->onDelete('cascade');
 
+            $table->dateTime('starting_date');
+            $table->dateTime('expiration_date');
+            
             $table->primary(['doctor_id', 'plan_id']);
         });
     }
