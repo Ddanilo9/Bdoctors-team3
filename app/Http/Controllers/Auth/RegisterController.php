@@ -59,6 +59,7 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'surname' => 'required',
             'address' => 'required|regex:/(^[-0-9A-Za-z.,\/ ]+$)/',
+            'spec_name' => ['required', 'array', 'max:255'],
         ]);
     }
 
@@ -70,38 +71,29 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        // return User::create([
-        //     'name' => $data['name'],
-        //     'email' => $data['email'],
-        //     'password' => Hash::make($data['password']),
-        // ]);
 
-        // $user = new User();
-        // $doctor = new Doctor();
-        // $specialization = new Specialization();
-        // $specialization->spec_name = $data['spec_name'];
-        $this->user->email = $data['email'];
-        $this->user->password = Hash::make($data['password']);
-        $this->user->name = $data['name'];
-        $this->user->save();
-        
+        $user = new User();
+        $user->email = $data['email'];
+        $user->password = Hash::make($data['password']);
+        $user->name = $data['name'];
+        $user->save();
 
-        $this->doctor->surname = $data['surname'];
-        $this->doctor->address = $data['address'];
-        $this->doctor->name = $data['name'];
-        $this->doctor->slug = $params['slug'] = Doctor::getUniqueSlugFrom($this->doctor->name,$this->doctor->surname);
-        $this->doctor->user_id = $this->user->id;
-        $this->doctor->save();
 
-        // $this->user->email = Input::get('email');
-        // $this->user->password = Hash::make(Input::get('password'));
-        // $this->something->users()->save($this->user);
-        
-        
-        // $user->doctors()->sync($doctor->id);
-        // $user->specializations()->sync($specialization->id);
-        // $user->specialization()->sync($data['specializations']);
+        $doctor = new Doctor();
+        $doctor->name = $data['name'];
+        $doctor->surname = $data['surname'];
+        $doctor->address = $data['address'];
+        $doctor->slug = $params['slug'] = Doctor::getUniqueSlugFrom($doctor->name,$doctor->surname);
+        $doctor->user_id = $user->id;
+        $doctor->save();
 
+        foreach($data['spec_name'] as $sn){
+            $specialization = new Specialization();
+            $specialization->spec_name = $sn;
+            $specialization->save();
+            $doctor->specializations()->attach($specialization->id);
+        }
+        return $user;
         
     }
 }
