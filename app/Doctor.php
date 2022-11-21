@@ -15,7 +15,6 @@ class Doctor extends Model
         'telephone',
         'services',
         'cv',
-        'specializations',
     ];
 
     public function user()
