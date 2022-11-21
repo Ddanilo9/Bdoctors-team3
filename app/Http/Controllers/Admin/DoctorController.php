@@ -59,7 +59,7 @@ class DoctorController extends Controller
             'telephone' => 'required',
             'services' => 'nullable',
             "cv" => 'nullable|mimes:pdf|max:10000',
-            'specializations' => 'required',
+            'specializations' => 'required|exists:specializations,id',
 
         ]);
 
@@ -73,8 +73,7 @@ class DoctorController extends Controller
         $doctor = Doctor::create($params);
         // if ('specializations') {
          $specializations = $params['specializations'];
-            // dd($tags);
-            $doctor->specializations()->sync($specializations);
+         $doctor->specializations()->sync($specializations);
         // }
 
         return redirect()->route('admin.doctors.show', $doctor);

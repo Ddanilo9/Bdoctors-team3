@@ -12,12 +12,10 @@ class StarSeeder extends Seeder
      */
     public function run()
     {
-        $faker = \Faker\Factory::create('it_IT');
 
-        for ($i=0; $i <50 ; $i++) { 
+        for ($i = 1; $i < 6 ; $i++) { 
             $star = new Star();
-
-            $star->number = $faker->numberBetween(0, 5);
+            $star->number = $i;
 
             $star->save();
         }

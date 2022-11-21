@@ -14,6 +14,7 @@ class CreateDoctorPlanTable extends Migration
     public function up()
     {
         Schema::create('doctor_plan', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('doctor_id');
             $table->unsignedBigInteger('plan_id');
 
@@ -23,7 +24,7 @@ class CreateDoctorPlanTable extends Migration
             $table->dateTime('starting_date');
             $table->dateTime('expiration_date');
             
-            $table->primary(['doctor_id', 'plan_id']);
+            // $table->primary(['doctor_id', 'plan_id']);
         });
     }
 

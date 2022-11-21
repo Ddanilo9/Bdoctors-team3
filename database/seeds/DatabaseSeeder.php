@@ -16,8 +16,8 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             SpecializationSeeder::class,
             StarSeeder::class,
-            DoctorSeeder::class,
             PlanSeeder::class,
+            DoctorSeeder::class,
             ReviewSeeder::class,
             MessageSeeder::class
 

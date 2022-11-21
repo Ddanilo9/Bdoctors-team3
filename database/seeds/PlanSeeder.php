@@ -18,49 +18,34 @@ class PlanSeeder extends Seeder
 
         $doctors = Doctor::all()->pluck('id');
 
-        for ($i = 0; $i < 50; $i++) {
-            $plans = new Plan();
 
-            
-            $startDate = Carbon::today()->subDays(rand(0, 179))->addSeconds(rand(0, 86400));
-            $sponsorType = rand(1, 3);
-
-            switch ($sponsorType) {
-                case 1:
-                    $price = 2.99;
-                    $type = 'Bronze';
-                    $duration = 24;
-                    $expireDate= Carbon::parse($startDate)->addHour(24);
-                    break;
-                case 2:
-                    $price = 5.99;
-                    $type = 'Silver';
-                    $duration = 72;
-                    $expireDate= Carbon::parse($startDate)->addHour(72);
-                    break;
-                case 3:
-                    $price = 9.99;
-                    $type = 'Gold';
-                    $duration = 144;
-                    $expireDate= Carbon::parse($startDate)->addHour(144);
-                    break;
-            }
-
-            $plans->price = $price;
-            $plans->type = $type;
-            $plans->duration = $duration;
-
-            $plans->save();
+        $plans = [
+            [
+                'type' => 'Bronze',
+                'price' => 2.99,
+                'duration' => 24
+            ],
+            [
+                'type' => 'Silver',
+                'price' => 5.99,
+                'duration' => 72
+            ],
+            [
+                'type' => 'Gold',
+                'price' => 9.99,
+                'duration' => 144
+            ]
+        ];
 
 
+        foreach ($plans as $plan) {
+            $p = new Plan();
 
-            $doctorIds = $doctors->shuffle()->take(rand(0, 5))->all();
-            $plans->doctors()->attach($doctorIds,
-                [
-                'starting_date' => $startDate,
-                'expiration_date' => $expireDate
-                ]);
-
+            $p->type = $plan['type'];
+            $p->price = $plan['price'];
+            $p->duration = $plan['duration'];
+            $p->save();
         }
+
     }
 }

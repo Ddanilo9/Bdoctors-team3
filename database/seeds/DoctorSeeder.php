@@ -1,9 +1,7 @@
 <?php
 
 use App\Doctor;
-use App\Plan;
 use App\Specialization;
-use App\Star;
 use App\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
@@ -46,8 +44,8 @@ class DoctorSeeder extends Seeder
         $faker = \Faker\Factory::create('it_IT');
 
         $users = User::all();
-        $stars = Star::all()->pluck('id');
         $specializations = Specialization::all()->pluck('id');
+
 
 
         foreach ($users as $user) {
@@ -68,11 +66,46 @@ class DoctorSeeder extends Seeder
 
             $doctor->save();
 
-            $starIds = $stars->shuffle()->all();
-            $doctor->stars()->sync($starIds);
 
+            // Stars vote
+            $starNumber = [];
+            for ($i = 0; $i < 4; $i++) {
+                $number = rand(1,5);
+
+                $starNumber[] = $number;
+            }
+            $doctor->stars()->attach($starNumber);
+
+            // Specialization
             $specializationIds = $specializations->shuffle()->take(rand(1, 2))->all();
             $doctor->specializations()->sync($specializationIds);
+
+
+            // Sponsor
+            for ($i = 0; $i < 4; $i++) {
+                $sponsorType= rand(1,3);
+                $startDate = Carbon::today()->subDays(rand(0, 179))->addSeconds(rand(0, 86400));
+
+                switch ($sponsorType) {
+                    case 1:
+                        $plan['plan_id'] = '1';
+                        $expireDate = Carbon::parse($startDate)->addHour(24);
+                        break;
+                    case 2:
+                        $plan['plan_id'] = '2';
+                        $expireDate = Carbon::parse($startDate)->addHour(72);
+                        break;
+                    case 3:
+                        $plan['plan_id'] = '3';
+                        $expireDate = Carbon::parse($startDate)->addHour(144);
+                        break;
+                }
+
+                $doctor->plans()->attach($plan['plan_id'],  [
+                    'starting_date' => $startDate,
+                    'expiration_date' => $expireDate
+                ]);
+            }
 
         }
     }
