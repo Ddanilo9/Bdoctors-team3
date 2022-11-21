@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Plan;
 use App\Specialization;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DoctorController extends Controller
 {
@@ -34,7 +35,10 @@ class DoctorController extends Controller
      */
     public function create()
     {
-        //
+        $doctors = Doctor::orderBy('created_at', 'desc')->get();
+        $specializations = Specialization::all();
+
+        return view('admin.doctors.create', compact('doctors', 'specializations'));
     }
 
     /**
@@ -45,11 +49,35 @@ class DoctorController extends Controller
      */
     public function store(Request $request)
     {
+        // dd(request()->all());
         $params = $request->validate([
+            
+            'photo' => 'nullable|image|max:2048',
             'name' => 'required|max:255|min:5',
             'surname' => 'required',
+            'address' => 'required|regex:/(^[-0-9A-Za-z.,\/ ]+$)/',
+            'telephone' => 'required',
+            'services' => 'nullable',
+            "cv" => 'nullable|mimes:pdf|max:10000',
+            'specializations' => 'required',
+
         ]);
+
         $params['slug'] = Doctor::getUniqueSlugFrom($params['name'],$params['surname']);
+
+        // if (array_key_exists('photos', $params)) {
+        //     $img_path = Storage::disk('photos')->put('post_covers', $params['image']);
+        //     $params['cover'] = $img_path;
+        // }
+
+        $doctor = Doctor::create($params);
+        // if ('specializations') {
+         $specializations = $params['specializations'];
+            // dd($tags);
+            $doctor->specializations()->sync($specializations);
+        // }
+
+        return redirect()->route('admin.doctors.show', $doctor);
     }
 
     /**
