@@ -39,7 +39,7 @@
                                 <td>
                                   <ul>
                                     @foreach($doctor->specializations as $s)
-                                      <li>{{ $s->name }}</li>
+                                      <li>{{ $s->spec_name }}</li>
                                     @endforeach
                                   </ul>  
                                 </td>

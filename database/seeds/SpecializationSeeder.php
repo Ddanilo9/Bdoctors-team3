@@ -75,7 +75,7 @@ class SpecializationSeeder extends Seeder
 
         foreach ($specList as $spec) {
             $s = new Specialization();
-            $s->name = $spec;
+            $s->spec_name = $spec;
 
             $s->save();
         }

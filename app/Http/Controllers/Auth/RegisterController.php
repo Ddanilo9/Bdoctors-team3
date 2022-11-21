@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Doctor;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\Specialization;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
@@ -64,10 +66,27 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        // return User::create([
+        //     'name' => $data['name'],
+        //     'email' => $data['email'],
+        //     'password' => Hash::make($data['password']),
+        // ]);
+
+        $user = new User();
+        $doctor = new Doctor();
+        $specialization = new Specialization();
+        $user->email = $data['email'];
+        $user->password = Hash::make($data['password']);
+        $specialization->spec_name = $data['spec_name'];
+        $user->name = $data['name'];
+        $doctor->surname = $data['surname'];
+        $doctor->address = $data['address'];
+        
+        $user->save();
+        $user->doctors()->sync($doctor->id);
+        $user->specializations()->sync($specialization->id);
+        // $user->specialization()->sync($data['specializations']);
+
+        return $user;
     }
 }
