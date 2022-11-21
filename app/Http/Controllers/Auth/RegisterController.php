@@ -38,9 +38,11 @@ class RegisterController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(User $user, Doctor $doctor)
     {
         $this->middleware('guest');
+        $this->user = $user;
+        $this->doctor = $doctor;
     }
 
     /**
@@ -55,6 +57,8 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'surname' => 'required',
+            'address' => 'required|regex:/(^[-0-9A-Za-z.,\/ ]+$)/',
         ]);
     }
 
@@ -72,21 +76,32 @@ class RegisterController extends Controller
         //     'password' => Hash::make($data['password']),
         // ]);
 
-        $user = new User();
-        $doctor = new Doctor();
-        $specialization = new Specialization();
-        $user->email = $data['email'];
-        $user->password = Hash::make($data['password']);
-        $specialization->spec_name = $data['spec_name'];
-        $user->name = $data['name'];
-        $doctor->surname = $data['surname'];
-        $doctor->address = $data['address'];
+        // $user = new User();
+        // $doctor = new Doctor();
+        // $specialization = new Specialization();
+        // $specialization->spec_name = $data['spec_name'];
+        $this->user->email = $data['email'];
+        $this->user->password = Hash::make($data['password']);
+        $this->user->name = $data['name'];
+        $this->user->save();
         
-        $user->save();
-        $user->doctors()->sync($doctor->id);
-        $user->specializations()->sync($specialization->id);
+
+        $this->doctor->surname = $data['surname'];
+        $this->doctor->address = $data['address'];
+        $this->doctor->name = $data['name'];
+        $this->doctor->slug = $params['slug'] = Doctor::getUniqueSlugFrom($this->doctor->name,$this->doctor->surname);
+        $this->doctor->user_id = $this->user->id;
+        $this->doctor->save();
+
+        // $this->user->email = Input::get('email');
+        // $this->user->password = Hash::make(Input::get('password'));
+        // $this->something->users()->save($this->user);
+        
+        
+        // $user->doctors()->sync($doctor->id);
+        // $user->specializations()->sync($specialization->id);
         // $user->specialization()->sync($data['specializations']);
 
-        return $user;
+        
     }
 }
