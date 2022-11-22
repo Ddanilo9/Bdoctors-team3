@@ -1,5 +1,40 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+.dashboard__navbar {
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  color: black;
+  font-size: 24px;
+  transition: all 0.5s linear;
+}
+
+.dashboard__link:hover {
+  text-decoration: none;
+  filter: brightness(0.9);
+}
+
+.messages-link {
+  background-color: lightcoral;
+}
+
+.reviews-link {
+  background-color: lightseagreen;
+}
+
+.stats-link {
+  background-color: lightgreen;
+}
+
 /*!
  * Bootstrap v4.6.2 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
