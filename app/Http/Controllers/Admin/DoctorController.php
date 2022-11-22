@@ -124,8 +124,8 @@ class DoctorController extends Controller
             'specializations' => 'required', 'array', 'max:255',
             'telephone' => 'nullable|max:15',
             'services' => 'nullable',
-            'cv' => 'nullable|max:2048',
-            'image' => 'nullable|max:2048'
+            'cv' => 'nullable|mimes:pdf|max:4096',
+            'image' => 'nullable|mimes:png,jpg,jpeg,svg|max:4096'
         ]);
         
 
@@ -135,8 +135,18 @@ class DoctorController extends Controller
             if ($doctor->photo) {
                 Storage::delete($doctor->photo);
             }
-            $img_path = Storage::put('avatar', $params['image']);
-            $params['photo'] = $img_path;
+            $img_path = Storage::disk('public')->put('avatar', $params['image']);
+            $params['image'] = $img_path;
+            $doctor->photo = $img_path;
+        }
+
+        if (array_key_exists('cv', $params)) {
+            if ($doctor->cv) {
+                Storage::delete($doctor->cv);
+            }
+            $cv_path = Storage::disk('public')->put('cvs', $request->file('cv'));
+            $params['cv'] = $cv_path;
+            $doctor->cv = $cv_path;
         }
 
         $doctor->update($params);

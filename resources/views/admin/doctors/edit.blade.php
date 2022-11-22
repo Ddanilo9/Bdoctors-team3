@@ -36,7 +36,7 @@
                     <div class="form-group">
                             <label for="name">Nome</label>
                             <input type="text" class="form-control @error('name') is-invalid @enderror" id="name"
-                                value="{{ old('name') }}" name="name" aria-describedby="helpTitle"
+                                value="{{ old('name', $doctor->name) }}" name="name" aria-describedby="helpTitle"
                                 placeholder="inserisci il nome">
                             <small id="helpName" class="form-text text-muted">Inserisci il tuo Nome.</small>
                             @error('name')
@@ -49,7 +49,7 @@
                         <div class="form-group">
                             <label for="surname">Cognome</label>
                             <input type="text" class="form-control @error('surname') is-invalid @enderror" id="surname"
-                                value="{{ old('surname') }}" name="surname" aria-describedby="helpSurname"
+                                value="{{ old('surname', $doctor->surname) }}" name="surname" aria-describedby="helpSurname"
                                 placeholder="inserisci il cognome">
                             <small id="helpSurname" class="form-text text-muted">Inserisci il tuo Cognome.</small>
                             @error('surname')

@@ -28,7 +28,7 @@
                     <div class="photo">
   
                         @if(!empty($doctor->photo))
-                            <img width="300" src="{{-- {{ asset('storage/' . $doctor->photo) }} --}}" alt="{{ $doctor->name }}">   
+                            <img width="300" src="{{ asset('storage/' . $doctor->photo) }}" alt="{{ $doctor->name }}">   
                         @else
                             <img width="250" src="{{ asset('img/no-image.png') }}" alt="{{ $doctor->name }}">
                         @endif
@@ -59,7 +59,7 @@
                     </div>
                     <div class="cv">
                         <a class="btn btn-outline-info" 
-                        href="{{ asset('cv/' . $doctor->cv) }}" 
+                        href="{{ asset('storage/'.$doctor->cv) }}" 
                         download="{{ $doctor->cv }}">
                         Download CV
                         </a>
