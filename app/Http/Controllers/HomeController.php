@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Doctor;
 use App\Home;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //
+
+        $doctors = Doctor::orderBy('created_at', 'desc')->limit(5)->get();
+        return view('guest.home', compact('doctors'));
     }
 
     /**
@@ -44,9 +47,10 @@ class HomeController extends Controller
      * @param  \App\Home  $home
      * @return \Illuminate\Http\Response
      */
-    public function show(Home $home)
+    public function show(Doctor $doctors)
     {
-        //
+        // $doctors = Doctor::orderBy('created_at', 'desc')->limit(5)->get();
+        return view('guest.doctors.show', compact('doctors'));
     }
 
     /**
