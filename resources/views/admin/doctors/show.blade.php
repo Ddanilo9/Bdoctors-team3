@@ -29,7 +29,7 @@
 
 
             </div>
-            <div class="col-4 text-left d-flex justify-content-end align-items-center">
+                <div class="col-4 text-left d-flex justify-content-end align-items-center">
                 <a href="{{ route('admin.doctors.edit', $doctor) }}" type="button" class="btn btn-primary btn-sm">Modifica</a>
                 <form action="{{ route('admin.doctors.destroy', $doctor) }}" method="POST">
 

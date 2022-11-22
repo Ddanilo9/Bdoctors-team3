@@ -6,16 +6,16 @@
 
     <div class="container">
         <div class="row">
-            {{-- @if ($post->cover)
+            @if ($doctor->cover)
         <div class="col-12">
-          <img src="{{asset('images/'.$post->cover)}}" width="400" alt="">
+          <img src="{{asset('images/'.$doctor->cover)}}" width="400" alt="">
         </div>
     @endif
-    @if ($post->cover)
+    @if ($user->cover)
       <div class="col-12">
-        <img src="{{ $post->cover_path }}" width="400" alt="">
+        <img src="{{ $doctor->cover_path }}" width="400" alt="">
       </div>
-    @endif --}}
+    @endif 
             <div class="col-8">
             <h2>{{ $doctor->name }} {{$doctor->surname}}</h2>
             <ul>
@@ -29,16 +29,7 @@
 
 
             </div>
-            <div class="col-4 text-left d-flex justify-content-end align-items-center">
-                <a href="{{ route('admin.doctors.edit', $doctor) }}" type="button" class="btn btn-primary btn-sm">Modifica</a>
-                <form action="{{ route('admin.doctors.destroy', $doctor) }}" method="POST">
-
-                    @csrf
-                    @method('DELETE')
-
-                    <input type="submit" value="Elimina" class="btn btn-danger btn-sm">
-                </form>
-            </div>
+             
         </div>
     </div>
 
