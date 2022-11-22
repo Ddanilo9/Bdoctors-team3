@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Doctor;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use App\Specialization;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
@@ -36,9 +38,11 @@ class RegisterController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(User $user, Doctor $doctor)
     {
         $this->middleware('guest');
+        $this->user = $user;
+        $this->doctor = $doctor;
     }
 
     /**
@@ -53,6 +57,9 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'surname' => 'required',
+            'address' => 'required|regex:/(^[-0-9A-Za-z.,\/ ]+$)/',
+            'spec_name' => ['required', 'array', 'max:255'],
         ]);
     }
 
@@ -64,10 +71,29 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+
+        $user = new User();
+        $user->email = $data['email'];
+        $user->password = Hash::make($data['password']);
+        // $user->name = $data['name'];
+        $user->save();
+
+
+        $doctor = new Doctor();
+        $doctor->name = $data['name'];
+        $doctor->surname = $data['surname'];
+        $doctor->address = $data['address'];
+        $doctor->slug = $params['slug'] = Doctor::getUniqueSlugFrom($doctor->name,$doctor->surname);
+        $doctor->user_id = $user->id;
+        $doctor->save();
+
+        foreach($data['spec_name'] as $sn){
+            $specialization = new Specialization();
+            $specialization->spec_name = $sn;
+            $specialization->save();
+            $doctor->specializations()->attach($specialization->id);
+        }
+        return $user;
+        
     }
 }

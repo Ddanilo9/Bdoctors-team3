@@ -1,3 +1,5 @@
+{{-- dashboard del medico --}}
+
 @extends('layouts.app')
 
 @section('content')

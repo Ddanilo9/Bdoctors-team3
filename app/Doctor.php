@@ -7,6 +7,16 @@ use Illuminate\Support\Str;
 
 class Doctor extends Model
 {
+    protected $fillable = [
+        'photo',
+        'name',
+        'surname',
+        'address',
+        'telephone',
+        'services',
+        'cv',
+    ];
+
     public function user()
     {
         return $this->belongsTo('App\User');
