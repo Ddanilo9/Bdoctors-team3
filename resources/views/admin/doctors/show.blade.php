@@ -12,12 +12,17 @@
             </a>
             <div class=" text-left d-flex justify-content-end align-items-center">
                 <a href="{{ route('admin.doctors.edit', $doctor) }}" type="button" class="btn btn-info btn-sm text-white mr-2">Modifica</a>
-                <form action="{{ route('admin.doctors.destroy', $doctor) }}" method="POST">
+                {{-- <form action="{{ route('admin.doctors.destroy', $doctor) }}"  method="POST">
                     @csrf
                     @method('DELETE')
 
                     <input type="submit" value="Elimina" class="btn btn-danger btn-sm">
-                </form>
+                </form> --}}
+                <form action="{{route('admin.doctors.destroy', $doctor)}}" method="POST" class="d-inline-block" onsubmit="return confirm('Stai per eliminare il tuo account e i relativi dati. SEI SICURO?')">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger btn-sm" type="submit">Elimina</button>
+                  </form>
             </div>
         </div>
         <div class="row">
@@ -28,14 +33,14 @@
                     <div class="photo">
   
                         @if(!empty($doctor->photo))
-                            <img width="300" src="{{ asset('storage/' . $doctor->photo) }}" alt="{{ $doctor->name }}">   
+                            <img width="250" src="{{ asset('storage/' . $doctor->photo) }}" alt="{{ $doctor->name }}">   
                         @else
                             <img width="250" src="{{ asset('img/no-image.png') }}" alt="{{ $doctor->name }}">
                         @endif
-            
                     </div>
                     <section class="specs ml-4 mt-3">
                     <h2>Dott.{{ $doctor->name }} {{ $doctor->surname }}</h2>
+                        <div>Media voto: </div>
                         <div class="specialization mt-4">
                             <div class="font-weight-bold">Le tue specializzazioni: </div>
                             @foreach ($doctor->specializations as $s)

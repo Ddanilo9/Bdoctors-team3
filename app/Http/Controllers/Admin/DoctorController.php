@@ -6,6 +6,7 @@ use App\Doctor;
 use App\Http\Controllers\Controller;
 use App\Plan;
 use App\Specialization;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -167,8 +168,25 @@ class DoctorController extends Controller
      * @param  \App\Doctor  $doctor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Doctor $doctor)
+    public function destroy()
     {
-        //
+        $doctor = Doctor::where('id', Auth::user()->id)->first();
+        $user = User::where('id', Auth::user()->id)->first();
+        $deleted = $doctor->delete();
+        
+        if($deleted) {
+            if (!empty($doctor->photo)) {
+                Storage::disk('public')->delete($doctor->photo);
+            }
+            if (!empty($doctor->cv)) {
+                Storage::disk('public')->delete($doctor->cv);
+            }
+        } 
+        
+        
+        $user->delete();
+        
+        return redirect()->route('welcome');
+    
     }
 }
