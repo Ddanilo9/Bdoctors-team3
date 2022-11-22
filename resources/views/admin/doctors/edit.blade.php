@@ -1,3 +1,5 @@
+{{-- Modifica dei dati del dottore --}}
+
 @extends('layouts.app')
 
 @section('content')
@@ -13,8 +15,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <form action="{{ route('admin.doctors.store') }}" method="POST" {{-- enctype="multipart/form-data" --}}>
-                    @csrf
+                <form action="{{ route('admin.doctors.update') }}" method="POST" {{-- enctype="multipart/form-data" --}}>
+                    @csrf @method('PUT')
 
                     <div class="form-group">
                         <label for="image">Foto Profilo</label>
@@ -22,12 +24,12 @@
                         <div class="custom-file ">
                             <input type="file" name="image"
                                 class="custom-file-input @error('image') is-invalid @endif" id="image">
-                          <label class="custom-file-label" for="image">Scegli immagine...</label>
-                          @error('image')
+                        <label class="custom-file-label" for="image">Scegli immagine...</label>
+                            @error('image')
                             <div id="image" class="invalid-feedback">
-                              {{ $message }}
+                                {{ $message }}
                             </div>
-                          @enderror
+                            @enderror
                         </div>
                     </div>
 

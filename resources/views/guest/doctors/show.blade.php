@@ -1,4 +1,4 @@
-{{-- Profilo privato del medico--}}
+{{-- Pagina show del dottore per l'utente --}}
 
 @extends('layouts.app')
 
