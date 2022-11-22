@@ -14,7 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home');
+// Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::name('guest.')->group(
     function () {
@@ -38,6 +42,8 @@ Route::middleware('auth')
         // Route::get('/stats', 'StatsController@stats')->name('stats');
 
         Route::resource('messages', 'MessageController');
+
+        Route::resource('stats', 'StatsController');
 
         Route::resource('reviews', 'ReviewController');
 
