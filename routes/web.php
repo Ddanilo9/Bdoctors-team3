@@ -17,15 +17,33 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::get('/', 'HomeController@index')->name('home');
+
+
+Route::name('guest.')->group(
+    function () {
+        Route::get('/show{slug}', 'HomeController@show')->name('doctors.show');
+    }
+);
+
+
+
 Auth::routes();
 
 Route::middleware('auth')
-->prefix('admin')
-->name('admin.')
-->namespace('Admin')
-->group(function (){
-    Route::get('/home', 'HomeController@index')->name('home');
+    ->prefix('admin')
+    ->name('admin.')
+    ->namespace('Admin')
+    ->group(function () {
+        Route::get('/home', 'HomeController@index')->name('home');
 
-    Route::resource('doctors', 'DoctorController');
+        Route::get('/plans', 'PlanController@plan')->name('plans');
 
-});
+        // Route::get('/stats', 'StatsController@stats')->name('stats');
+
+        Route::resource('messages', 'MessageController');
+
+        Route::resource('reviews', 'ReviewController');
+
+        Route::resource('doctors', 'DoctorController');
+    });

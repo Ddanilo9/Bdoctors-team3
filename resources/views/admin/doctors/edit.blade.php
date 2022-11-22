@@ -15,7 +15,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <form action="{{ route('admin.doctors.update') }}" method="POST" {{-- enctype="multipart/form-data" --}}>
+                <form action="{{ route('admin.doctors.update' , $doctor) }}" method="POST" enctype="multipart/form-data">
                     @csrf @method('PUT')
 
                     <div class="form-group">
@@ -76,31 +76,25 @@
                             @enderror
                         </div> --}}
  
-                        <div class="form-group col-6">
-                            <h5>Specializzazioni<span class="mb-2">*</span></h5>
-                            <div class="form-check mr-3 d-flex flex-wrap">
-                            @forelse ($specializations as $spec)
-                                <div class="col-6">
-                                    <input 
-                                    name="specializations[]" 
-                                    type="checkbox" 
-                                    class="form-check-input" 
-                                    id="specialty-{{ $spec->id }}" 
-                                    value="{{ $spec->id }}"
-                                    @if(old('specialization') == $spec->id) selected @endif
-                                    >
-                                    <label for="specializations-{{ $spec->name }}" class="form-check-label">{{ $spec->name }}</label>
-                                </div>
-                                @empty
-                                    <p>-</p>
-                                @endforelse
-                            </div>
-                        </div>
+        
+
+                        <div class="form-group">
+                            <label for="specialization" class="font-weight-bold">Specializzazioni</label>
+                  
+                            @foreach($specializations as $key => $spec)
+                              <div class="form-check form-check-inline">
+                                <input  class="form-check-input" name="specializations[]" 
+                                @if( in_array($spec->id, old('specializations', $doctor->specializations->pluck('id')->all()))) checked @endif
+                                type="checkbox" id="spec-{{$spec->id}}" value="{{ $spec->id }}">
+                                <label class="form-check-label" for="spec-{{$spec->id}}">{{ $spec->spec_name }}</label>
+                              </div>
+                            @endforeach                         
+                          </div>
 
                         <div class="form-group">
                             <label for="address">Indirizzo</label>
                             <input type="text" class="form-control @error('address') is-invalid @enderror" id="address"
-                                value="{{ old('address') }}" name="address" aria-describedby="helpAddress"
+                                value="{{ old('address', $doctor->address) }}" name="address" aria-describedby="helpAddress"
                                 placeholder="inserisci il tuo indirizzo">
                             <small id="helpAddress" class="form-text text-muted">Inserisci il tuo indirizzo.</small>
                             @error('address')
@@ -113,7 +107,7 @@
                         <div class="form-outline">
                             <label for="address">Numero di telefono</label>
                             <input type="tel" class="form-control @error('telephone') is-invalid @enderror" id="telephone"
-                                value="{{ old('telephone') }}" name="telephone" aria-describedby="helpTelephone"
+                                value="{{ old('telephone', $doctor->telephone) }}" name="telephone" aria-describedby="helpTelephone"
                                 placeholder="inserisci il tuo numero">
                             <small id="helpTelephone" class="form-text text-muted">Inserisci il tuo umero di telefono.</small>
                             @error('telephone')
@@ -124,11 +118,14 @@
                           </div>
 
                         <div class="form-group">
-                            
-                            <label for="services">Prestazioni che offo</label>
-                            <textarea class="form-control" name="content" id="services"
-                             placeholder="Contenuto dei servizi" rows="4">{{ old('services') }}</textarea>
+                            <label for="services" class="font-weight-bold">Contenuto</label>
+                            <textarea class="form-control" id="services" name="services" rows="20" placeholder="Inserisci il contenuto del post" required @error('services') is-invalid @enderror>{{ old('services', $doctor->services) }}</textarea>
                         </div>
+                        @error('services')
+                            <div id="services" class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                         @enderror
 
                         
                         <div class="form-group">
