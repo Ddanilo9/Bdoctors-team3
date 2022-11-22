@@ -1,12 +1,9 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Doctor;
 use App\Home;
 use App\Specialization;
 use Illuminate\Http\Request;
-
 class HomeController extends Controller
 {
     /**
@@ -16,13 +13,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-
         $doctors = Doctor::orderBy('created_at', 'desc')->limit(5)->get();
         $specializations = Specialization::orderBy('created_at', 'desc')->limit(5)->get();
-        
         return view('guest.home', compact('doctors', 'specializations'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -32,7 +26,6 @@ class HomeController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -43,19 +36,19 @@ class HomeController extends Controller
     {
         //
     }
-
     /**
      * Display the specified resource.
      *
      * @param  \App\Home  $home
      * @return \Illuminate\Http\Response
      */
-    public function show(Doctor $doctors)
+    public function show($doctor)
     {
-        // $doctors = Doctor::orderBy('created_at', 'desc')->limit(5)->get();
+        $doctors = Doctor::where('slug',$doctor)->get();
         return view('guest.doctors.show', compact('doctors'));
+        // })->where('id', '[0-9]+') ->name('comics');
+        // return view('guest.doctors.show/', compact('doctor.slug'));
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -66,7 +59,6 @@ class HomeController extends Controller
     {
         //
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -78,7 +70,6 @@ class HomeController extends Controller
     {
         //
     }
-
     /**
      * Remove the specified resource from storage.
      *

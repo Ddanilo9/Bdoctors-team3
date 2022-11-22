@@ -18,7 +18,7 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::name('guest.')->group(
     function () {
-        Route::get('/show{slug}', 'HomeController@show')->name('doctors.show');
+        Route::get('/show/{slug}', 'HomeController@show')->name('doctors.show');
     }
 );
 
