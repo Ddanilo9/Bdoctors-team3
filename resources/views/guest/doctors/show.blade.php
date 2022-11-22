@@ -20,7 +20,7 @@
             <h2>{{ $doctor->name }} {{$doctor->surname}}</h2>
             <ul>
                 @foreach ($doctor->specializations as $s)
-                <li>{{ $s->name }}</li>
+                <li>{{ $s->spec_name }}</li>
                 @endforeach
             </ul>
             <h5>{{ $doctor->address }}</h5>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Doctor;
 use App\Home;
+use App\Specialization;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -17,7 +18,9 @@ class HomeController extends Controller
     {
 
         $doctors = Doctor::orderBy('created_at', 'desc')->limit(5)->get();
-        return view('guest.home', compact('doctors'));
+        $specializations = Specialization::orderBy('created_at', 'desc')->limit(5)->get();
+        
+        return view('guest.home', compact('doctors', 'specializations'));
     }
 
     /**
