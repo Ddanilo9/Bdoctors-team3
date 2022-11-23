@@ -1,9 +1,13 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use App\Doctor;
-use App\Home;
+use App\Review;
 use App\Specialization;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 class HomeController extends Controller
 {
     /**
@@ -17,6 +21,7 @@ class HomeController extends Controller
         $specializations = Specialization::orderBy('created_at', 'desc')->limit(5)->get();
         return view('guest.home', compact('doctors', 'specializations'));
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -26,6 +31,7 @@ class HomeController extends Controller
     {
         //
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -36,47 +42,59 @@ class HomeController extends Controller
     {
         //
     }
+
     /**
      * Display the specified resource.
      *
-     * @param  \App\Home  $home
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($doctor)
+    public function show($slug)
     {
-        $doctors = Doctor::where('slug',$doctor)->get();
-        return view('guest.doctors.show', compact('doctors'));
-        // })->where('id', '[0-9]+') ->name('comics');
-        // return view('guest.doctors.show/', compact('doctor.slug'));
+        $doctor = Doctor::where('slug', $slug)->first();
+        $reviews = Review::where('doctor_id', $doctor->id )->orderBy('created_at', 'desc')->get();
+        $avg =DB::table('stars')
+            ->select(DB::raw('round(avg(doctor_star.star_id), 1) as avg'))
+            ->join('doctor_star', 'doctor_star.star_id', '=', 'stars.id')
+            ->where('doctor_star.doctor_id', $doctor->id)
+            ->get();
+
+        $doctor->avg = $avg[0]->avg;
+
+
+        return view('guest.doctors.show', compact('doctor'));
     }
+
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Home  $home
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Home $home)
+    public function edit($id)
     {
         //
     }
+
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Home  $home
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Home $home)
+    public function update(Request $request, $id)
     {
         //
     }
+
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Home  $home
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Home $home)
+    public function destroy($id)
     {
         //
     }

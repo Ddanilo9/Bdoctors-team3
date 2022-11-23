@@ -6,15 +6,17 @@ use App\Doctor;
 use App\Http\Controllers\Controller;
 use App\Plan;
 use App\Specialization;
+use App\Star;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class DoctorController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource.np
      *
      * @return \Illuminate\Http\Response
      */
@@ -86,9 +88,17 @@ class DoctorController extends Controller
     public function show()
     {
         $doctor = Auth::user()->doctor;
+        $stars = Star::all();
+        $avg =DB::table('stars')
+            ->select(DB::raw('round(avg(doctor_star.star_id), 1) as avg'))
+            ->join('doctor_star', 'doctor_star.star_id', '=', 'stars.id')
+            ->where('doctor_star.doctor_id', $doctor->id)
+            ->get();
+
+        $doctor->avg = $avg[0]->avg;
 
 
-        return view('admin.doctors.show', compact('doctor'));
+        return view('admin.doctors.show', compact('doctor', 'stars'));
     }
 
     /**
@@ -117,12 +127,12 @@ class DoctorController extends Controller
         $doctor = Auth::user()->doctor;
         
         $params = $request->validate([
-            'name' => 'required|max:150|min:2',
-            'surname' => 'required',
+            'name' => 'required|max:50|min:2',
+            'surname' => 'required|max:50|min:1',
             'address'=> 'required',
             'specializations' => 'required', 'array', 'max:255',
             'telephone' => 'nullable|max:15',
-            'services' => 'nullable',
+            'services' => 'nullable|max:300',
             'cv' => 'nullable|mimes:pdf|max:4096',
             'image' => 'nullable|mimes:png,jpg,jpeg,svg|max:4096'
         ]);
@@ -184,7 +194,7 @@ class DoctorController extends Controller
         
         $user->delete();
         
-        return redirect()->route('welcome');
+        return redirect()->route('home');
     
     }
 }

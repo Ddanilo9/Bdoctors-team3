@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Doctor;
 use App\Http\Controllers\Controller;
 use App\Review;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReviewController extends Controller
 {
@@ -15,7 +17,11 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        return view('admin.reviews.index');
+        $reviews = Review::where('doctor_id', Auth::user()->doctor['id'])->orderBy('created_at', 'desc')->get();
+        $doctor = Doctor::find(Auth::user()->doctor['id']);
+
+        return view('admin.reviews.index', compact('reviews', 'doctor'));
+        
     }
 
     /**

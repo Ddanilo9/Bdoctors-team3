@@ -31,12 +31,12 @@ class DoctorSeeder extends Seeder
             'avatar/10.png',
         ];
         $cvs = [
-            '1.pdf',
-            '2.pdf',
-            '3.pdf',
-            '4.pdf',
-            '5.pdf',
-            '6.pdf',
+            'cvs/1.pdf',
+            'cvs/2.pdf',
+            'cvs/3.pdf',
+            'cvs/4.pdf',
+            'cvs/5.pdf',
+            'cvs/6.pdf',
         ];
 
 
@@ -56,7 +56,7 @@ class DoctorSeeder extends Seeder
             $doctor->name = $faker->firstName();
             $doctor->surname = $faker->lastName();
             $doctor->address = $faker->address();
-            $doctor->services = $faker->paragraphs(rand(10, 20), true);
+            $doctor->services = $faker->paragraphs(rand(1, 2), true);
             $doctor->photo = $faker->randomElement($avatars);
             $doctor->cv = $faker->randomElement($cvs);
             $doctor->telephone = $faker->phoneNumber();
