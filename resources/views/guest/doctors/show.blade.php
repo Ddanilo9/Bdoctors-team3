@@ -56,7 +56,7 @@
                         {{ $doctor->services }}
                     </div>
                 </div>
-                <div class="cv">
+                <div class="cv my-2">
                     <a class="btn btn-outline-info" href="{{ asset('storage/' . $doctor->cv) }}"
                         download="{{ $doctor->cv }}">
                         Download CV
@@ -66,10 +66,10 @@
         </div>
 
         {{-- Send Message --}}
-        <div class="container">
+        <div class="container my-3">
             <div class="row">
                 <div class="col-8">
-                    <h1>Contatta il medico privatamente:</h1>
+                    <h2>Contatta il medico privatamente:</h2>
                 </div>
                 <div class="col-4 text-left d-flex justify-content-end align-items-center">
                 </div>
@@ -128,27 +128,30 @@
 
 
         {{-- Review index --}}
-        <div class="reviews-received border p-3">
-           
-            @forelse ($reviews as $review)
-                <div class="review">
+        <div class="my-4">
+            <h2>Recensioni:</h2>
+            <div style="height: 500px; overflow-y:scroll" class="reviews-received border my-1 p-3">
+            
+                @forelse ($reviews as $review)
+                    <div class="review">
 
-                    <h4><span class="font-weight-bold">{{ $review->name }}</span> ha scritto:</h4>
-                    <div class="mess d-flex border">
-                        <div class="recensione font-italic px-3 pb-2 ml-3">{{ $review->comment }}"</div>
+                        <h4><span class="font-weight-bold">{{ $review->name }}</span> ha scritto:</h4>
+                        <div class="mess d-flex border">
+                            <div class="recensione font-italic px-3 pb-2 ml-3">{{ $review->comment }}"</div>
+                        </div>
+                        <p class="mb-4">{{ $review->created_at->diffForHumans() }}.</p>
                     </div>
-                    <p class="mb-4">{{ $review->created_at->diffForHumans() }}.</p>
-                </div>
-            @empty
-                <h4>Nessun messaggio</h4>
-            @endforelse
+                @empty
+                    <h4>Nessuna recensione</h4>
+                @endforelse
+            </div>
         </div>
 
         {{-- Review create --}}
         <div class="container">
             <div class="row">
                 <div class="col-8">
-                    <h1>Lascia una Recensione</h1>
+                    <h2>Lascia una Recensione</h2>
                 </div>
                 <div class="col-4 text-left d-flex justify-content-end align-items-center">
                 </div>
@@ -174,8 +177,10 @@
                                     <option value="5">5</option>
                                 </select>
                             </div>
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-primary">Invia</button>
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Invia</button>
                     </form>
                 </div>
             </div>
