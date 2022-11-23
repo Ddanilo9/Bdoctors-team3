@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Doctor;
 use App\Http\Controllers\Controller;
 use App\Review;
+use App\Star;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -52,7 +53,7 @@ class ReviewController extends Controller
         $request->validate([
             'name' => 'required|max:255|min:5',
             'comment' => 'required|max:400',
-            'doctor_id'=>'required|exists:doctors,id'
+            'doctor_id'=>'required|exists:doctors,id',
         ]);      
         
         $doctor = Doctor::findOrFail($data['doctor_id']);
@@ -64,30 +65,8 @@ class ReviewController extends Controller
         $review->doctor_id = $data['doctor_id'];
 
         $review->save();
-        
-            // dd($doctor);
- 
             
         return redirect()->route('guest.doctors.show', $doctor->slug);
-        // return redirect()->route('guest.doctors.show', $doctor);
-       
-       
-        // $data = $request->validate([
-        // 'name' => 'required|max:255|min:5',
-        // 'comment' => 'required|max:400',
-        // 'doctor_id'=>'required|exists:doctors,id'
-        // ]);  
-
-        // $id = $request->doctor_id;
-        // $data['doctor_id'] = $id;
-
-        // Review::create($data);
-
-        // return redirect()->route('guest.doctors.show', $id);
-
-        
-        
-        
 
     }
 

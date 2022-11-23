@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Doctor;
 use App\Review;
 use App\Specialization;
+use App\Star;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -54,6 +55,7 @@ class HomeController extends Controller
     {
 
         $doctor = Doctor::where('slug', $slug)->first();
+        $stars = Star::all();
         $reviews = Review::where('doctor_id', $doctor->id )->orderBy('created_at', 'desc')->get();
         //  dd($doctor);
         $avg =DB::table('stars')
@@ -65,7 +67,7 @@ class HomeController extends Controller
         $doctor->avg = $avg[0]->avg;
 
 
-        return view('guest.doctors.show', compact('doctor', 'reviews'));
+        return view('guest.doctors.show', compact('doctor', 'reviews', 'stars'));
     }
 
     /**

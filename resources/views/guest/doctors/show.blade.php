@@ -119,7 +119,7 @@
                             </div>
                         @enderror
                         <input hidden type="number" name="doctor_id" value="{{ $doctor->id }}">    
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Invia</button>
                     </form>
                 </div>
             </div>
@@ -154,6 +154,33 @@
                 </div>
             </div>
         </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <form action="{{ route('store.vote', $doctor->id) }}" method="post">
+                        @csrf
+                        @method('POST')
+
+                        <div class="form-row align-items-center">
+                            <div class="col-auto my-1">
+                                <label class="mr-sm-2 sr-only" for="number">Inserisci il voto</label>
+                                <select name="number" class="custom-select mr-sm-2 font-weight-bold" id="number">
+                                    <option disabled selected value>Voto</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Invia</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -185,7 +212,7 @@
                             </div>
                         @enderror
                         <input hidden type="number" name="doctor_id" value="{{ $doctor->id }}">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Invia</button>
                     </form>
                 </div>
             </div>
