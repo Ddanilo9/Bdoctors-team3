@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Storage;
 class DoctorController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource.np
      *
      * @return \Illuminate\Http\Response
      */
@@ -184,7 +184,7 @@ class DoctorController extends Controller
         
         $user->delete();
         
-        return redirect()->route('welcome');
+        return redirect()->route('home');
     
     }
 }
