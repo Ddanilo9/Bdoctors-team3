@@ -6,9 +6,11 @@ use App\Doctor;
 use App\Http\Controllers\Controller;
 use App\Plan;
 use App\Specialization;
+use App\Star;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class DoctorController extends Controller
@@ -86,9 +88,17 @@ class DoctorController extends Controller
     public function show()
     {
         $doctor = Auth::user()->doctor;
+        $stars = Star::all();
+        $avg =DB::table('stars')
+            ->select(DB::raw('round(avg(doctor_star.star_id), 1) as avg'))
+            ->join('doctor_star', 'doctor_star.star_id', '=', 'stars.id')
+            ->where('doctor_star.doctor_id', $doctor->id)
+            ->get();
+
+        $doctor->avg = $avg[0]->avg;
 
 
-        return view('admin.doctors.show', compact('doctor'));
+        return view('admin.doctors.show', compact('doctor', 'stars'));
     }
 
     /**

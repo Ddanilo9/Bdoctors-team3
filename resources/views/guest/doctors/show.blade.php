@@ -17,6 +17,7 @@
                 @endif
                 <div class="col-8">
                     <h2>{{ $doctor->name }} {{ $doctor->surname }}</h2>
+                    
                     <ul>
                         @foreach ($doctor->specializations as $s)
                             <li>{{ $s->spec_name }}</li>
@@ -31,6 +32,7 @@
                     </div>
                 </div>
             @endforeach
+            
             <div class="cv">
                 <a class="btn btn-outline-info" href="{{ asset('storage/' . $doctor->cv) }}" download="{{ $doctor->cv }}">
                     Download CV

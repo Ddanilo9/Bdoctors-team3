@@ -40,7 +40,12 @@
                     </div>
                     <section class="specs ml-4 mt-3">
                     <h2>Dott.{{ $doctor->name }} {{ $doctor->surname }}</h2>
-                        <div>Media voto: </div>
+                    <div class="vote mt-4 font-weight-bold">Voto Medio: {{ $doctor->avg }}</div>
+                        
+                        {{-- @foreach ($doctor->stars as star)
+                                <div class="badge badge-info p-2 my-2 text-white">{{ $star->number}}</div> 
+                        @endforeach --}}
+                        
                         <div class="specialization mt-4">
                             <div class="font-weight-bold">Le tue specializzazioni: </div>
                             @foreach ($doctor->specializations as $s)

@@ -6,6 +6,7 @@ use App\Message;
 use App\Specialization;
 use App\User;
 use Illuminate\Http\Request;
+
 class HomeController extends Controller
 {
     /**
@@ -47,6 +48,7 @@ class HomeController extends Controller
     public function show($doctor)
     {
         $doctors = Doctor::where('slug',$doctor)->get();
+       
 
         // $user = User::where('id', $d->user_id)->first();
         return view('guest.doctors.show', compact('doctors'));
@@ -84,4 +86,5 @@ class HomeController extends Controller
     {
         //
     }
+
 }
