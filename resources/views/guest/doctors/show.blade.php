@@ -5,7 +5,7 @@
     <h1>Informazioni Medico</h1>
       <div class="row">
           @foreach ($doctors as $doctor)
-            @if ($doctor->cover)
+            @if ($doctor->photo)
         <div class="col-12">
           <img src="{{asset('images/'.$doctor->photo)}}" width="400" alt="">
         </div>
@@ -26,6 +26,9 @@
             {{-- <h5>{{ $doctor->email }}</h5> --}}
             <h5>{{ $doctor->telephone }}</h5>
              {{-- inserire cv --}}
+             <div>
+                <p>{{ $doctor->services }}</p>
+             </div>
             </div>
           @endforeach
       </div>
