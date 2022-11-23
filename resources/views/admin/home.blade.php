@@ -10,9 +10,9 @@
 
         <div class="dashboard__links">
             <a class="dashboard__link"
-        href="{{ route('admin.messages.index') }}">Messaggi</a>
+        href="{{ route('messages.index') }}">Messaggi</a>
             <a class="dashboard__link"
-        href="{{ route('admin.reviews.index') }}">Recensioni</a>
+        href="{{ route('reviews.index') }}">Recensioni</a>
             <a class="dashboard__link"
         href="{{ route('admin.stats.index') }}">Statistiche</a>
         </div>
@@ -36,7 +36,7 @@
                 <h4 class="font-weight-bold">Nessun messaggio</h4>
                 @endif
 
-                <a href="{{ route('admin.messages.index') }}">vedi altri</a>
+                <a href="{{ route('messages.index') }}">vedi altri</a>
 
             </div>
             <div class="dashboard-card">
@@ -48,7 +48,7 @@
                 <h4 class="font-weight-bold">Nessun messaggio</h4>
                 @endif
 
-                <a href="{{ route('admin.reviews.index') }}">vedi altri</a></div>
+                <a href="{{ route('reviews.index') }}">vedi altri</a></div>
             <div class="dashboard-card">ciao</div>
 
         </div>

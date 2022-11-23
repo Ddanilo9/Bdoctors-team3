@@ -22,6 +22,9 @@ Route::name('guest.')->group(
     }
 );
 
+Route::resource('messages', 'MessageController');
+
+Route::resource('reviews', 'ReviewController');
 
 
 Auth::routes();
@@ -35,13 +38,13 @@ Route::middleware('auth')
 
         Route::get('/plans', 'PlanController@plan')->name('plans');
 
-        // Route::get('/stats', 'StatsController@stats')->name('stats');
+        Route::get('/stats', 'StatsController@stats')->name('stats');
 
-        Route::resource('messages', 'MessageController');
+        // Route::resource('messages', 'MessageController');
 
         Route::resource('stats', 'StatsController');
 
-        Route::resource('reviews', 'ReviewController');
+        // Route::resource('reviews', 'ReviewController');
 
 
         Route::resource('doctors', 'DoctorController');

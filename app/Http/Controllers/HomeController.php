@@ -18,6 +18,7 @@ class HomeController extends Controller
     public function index()
     {
         $doctors = Doctor::orderBy('created_at', 'desc')->limit(5)->get();
+        
         $specializations = Specialization::orderBy('created_at', 'desc')->limit(5)->get();
         return view('guest.home', compact('doctors', 'specializations'));
     }
@@ -38,9 +39,9 @@ class HomeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store( Request $request)
     {
-        //
+        
     }
 
     /**
@@ -51,8 +52,10 @@ class HomeController extends Controller
      */
     public function show($slug)
     {
+
         $doctor = Doctor::where('slug', $slug)->first();
         $reviews = Review::where('doctor_id', $doctor->id )->orderBy('created_at', 'desc')->get();
+        //  dd($doctor);
         $avg =DB::table('stars')
             ->select(DB::raw('round(avg(doctor_star.star_id), 1) as avg'))
             ->join('doctor_star', 'doctor_star.star_id', '=', 'stars.id')
@@ -62,7 +65,7 @@ class HomeController extends Controller
         $doctor->avg = $avg[0]->avg;
 
 
-        return view('guest.doctors.show', compact('doctor'));
+        return view('guest.doctors.show', compact('doctor', 'reviews'));
     }
 
     /**

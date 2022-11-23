@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Doctor;
 use App\Http\Controllers\Controller;
@@ -42,7 +42,27 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $message = new Message();
+        $data = $request->all();
+        $request->validate([
+            'name'=> 'required',
+            'email' => 'required',
+            'message' => 'required',
+            'doctor_id' => 'required'
+        ]);
+        
+        $doctor = Doctor::findOrFail($data['doctor_id']);
+    
+        $message = new Message();
+        $message->name = $data['name'];
+        $message->email = $data['email'];
+        $message->message = $data['message'];
+        $message->doctor_id = $data['doctor_id'];
+
+        $message->save();
+
+        return redirect()->route('guest.doctors.show', $doctor->slug);
+ 
     }
 
     /**
