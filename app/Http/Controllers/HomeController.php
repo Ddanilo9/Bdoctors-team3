@@ -1,14 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Doctor;
-use App\Http\Controllers\Controller;
-use App\Specialization;
-use App\Star;
-use DoctorSeeder;
+use App\Home;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -19,9 +14,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-        $doctor = Auth::user()->doctor;
-        return view('admin.home', compact('doctor'));
+        return view('guest.home');
     }
 
     /**
@@ -48,23 +41,21 @@ class HomeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Home  $home
      * @return \Illuminate\Http\Response
      */
-    public function show(Doctor $doctor)
+    public function show(Home $home)
     {
-
-        $doctor->load('specializations', 'stars');
-        return view('admin.home', compact('doctor'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Home  $home
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Home $home)
     {
         //
     }
@@ -73,10 +64,10 @@ class HomeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Home  $home
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Home $home)
     {
         //
     }
@@ -84,10 +75,10 @@ class HomeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Home  $home
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Home $home)
     {
         //
     }
