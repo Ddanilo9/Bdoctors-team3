@@ -2,7 +2,9 @@
 namespace App\Http\Controllers;
 use App\Doctor;
 use App\Home;
+use App\Message;
 use App\Specialization;
+use App\User;
 use Illuminate\Http\Request;
 class HomeController extends Controller
 {
@@ -45,6 +47,8 @@ class HomeController extends Controller
     public function show($doctor)
     {
         $doctors = Doctor::where('slug',$doctor)->get();
+
+        // $user = User::where('id', $d->user_id)->first();
         return view('guest.doctors.show', compact('doctors'));
         // })->where('id', '[0-9]+') ->name('comics');
         // return view('guest.doctors.show/', compact('doctor.slug'));

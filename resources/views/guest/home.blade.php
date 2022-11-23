@@ -30,6 +30,14 @@
                 <div class="col-12 col-md-6 col-lg-3 text-center">
                     <a href="{{ route('guest.doctors.show', ['slug' => $doctor->slug]) }}">
                         <h2 class="font-weight-bold pb-3">{{ $doctor->name }} {{ $doctor->surname }}</h2>
+                        <div class="photo">
+  
+                            @if(!empty($doctor->photo))
+                                <img width="250" src="{{ asset('storage/' . $doctor->photo) }}" alt="{{ $doctor->name }}">   
+                            @else
+                                <img width="250" src="{{ asset('img/no-image.png') }}" alt="{{ $doctor->name }}">
+                            @endif
+                        </div>
                         <p class="text-secondary">{{ $doctor->address }}</p>
                     </a>
                 </div>
