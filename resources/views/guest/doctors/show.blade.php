@@ -10,7 +10,7 @@
           <img src="{{asset('images/'.$doctor->photo)}}" width="400" alt="">
         </div>
     @endif
-    @if ($doctor->cover)
+    @if ($doctor->photo)
       <div class="col-12">
         <img src="{{ $doctor->cover_path }}" width="400" alt="">
       </div>
