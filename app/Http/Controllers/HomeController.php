@@ -52,6 +52,7 @@ class HomeController extends Controller
      */
     public function show($slug)
     {
+        
         $doctor = Doctor::where('slug', $slug)->first();
         $reviews = Review::where('doctor_id', $doctor->id )->orderBy('created_at', 'desc')->get();
         $avg =DB::table('stars')

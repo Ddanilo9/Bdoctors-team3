@@ -67,6 +67,7 @@
 
         {{-- Review index --}}
         <div class="reviews-received border p-3">
+           
             @forelse ($reviews as $review)
                 <div class="review">
 
@@ -94,7 +95,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <form action="{{ route('reviews.create', $review) }}" method="POST">
+                    <form action="{{ route('reviews.store') }}" method="POST">
                         @csrf
 
                         <div class="form-group">

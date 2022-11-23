@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Doctor;
 use App\Http\Controllers\Controller;
 use App\Review;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -42,21 +43,41 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        $params = $request->validate([
+        // $params = $request->validate([
+        //     'name' => 'required|max:255|min:5',
+        //     'comment' => 'required|max:400',
+        // ]);
+
+       
+        // $doctor = new Doctor();
+        // $review = new Review();
+        // $review->name = $params['name'];
+        // $review->name = $params['comment'];
+        // $review->doctor_id = $doctor->id;
+        // dd($review->doctor_id);
+        // $review->save();
+
+        
+        $params = $request->all();
+        $request->validate([
             'name' => 'required|max:255|min:5',
             'comment' => 'required|max:400',
-        ]);
+        ]);      
 
-        $doctor = new Doctor();
         $review = new Review();
-        $review->name = $params['name'];
-        $review->name = $params['comment'];
-        $review->doctor_id = $doctor->id;
-
+        $review->fill($params);
         $review->save();
-        $doctor->review()->attach($review->id);
-
+        
+        $doctor = Doctor::where('id', $review->doctor_id)->first();
+        // $review = Review::where('doctor_id', $doctor->id )->first();
+        // dd($params);
+       
+        
+        
+        
+        
         return view('guest.doctors.show', $review, $doctor);
+
     }
 
     /**
