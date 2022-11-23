@@ -8,6 +8,7 @@ use App\Review;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ReviewController extends Controller
 {
@@ -32,7 +33,7 @@ class ReviewController extends Controller
      */
     public function create()
     {
-
+      
     }
 
     /**
@@ -43,40 +44,50 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
-        // $params = $request->validate([
-        //     'name' => 'required|max:255|min:5',
-        //     'comment' => 'required|max:400',
-        // ]);
-
-       
-        // $doctor = new Doctor();
-        // $review = new Review();
-        // $review->name = $params['name'];
-        // $review->name = $params['comment'];
-        // $review->doctor_id = $doctor->id;
-        // dd($review->doctor_id);
-        // $review->save();
+        
 
         
-        $params = $request->all();
+        $data = $request->all();
+        
         $request->validate([
             'name' => 'required|max:255|min:5',
             'comment' => 'required|max:400',
+            'doctor_id'=>'required|exists:doctors,id'
         ]);      
-
+        
+        $doctor = Doctor::findOrFail($data['doctor_id']);
+        // $doctor = DB::table('doctors')->find($data['doctor_id']);
+    
         $review = new Review();
-        $review->fill($params);
+        $review->name = $data['name'];
+        $review->comment = $data['comment'];
+        $review->doctor_id = $data['doctor_id'];
+
         $review->save();
         
-        $doctor = Doctor::where('id', $review->doctor_id)->first();
-        // $review = Review::where('doctor_id', $doctor->id )->first();
-        // dd($params);
+            // dd($doctor);
+ 
+            
+        return redirect()->route('guest.doctors.show', $doctor->slug);
+        // return redirect()->route('guest.doctors.show', $doctor);
        
+       
+        // $data = $request->validate([
+        // 'name' => 'required|max:255|min:5',
+        // 'comment' => 'required|max:400',
+        // 'doctor_id'=>'required|exists:doctors,id'
+        // ]);  
+
+        // $id = $request->doctor_id;
+        // $data['doctor_id'] = $id;
+
+        // Review::create($data);
+
+        // return redirect()->route('guest.doctors.show', $id);
+
         
         
         
-        
-        return view('guest.doctors.show', $review, $doctor);
 
     }
 

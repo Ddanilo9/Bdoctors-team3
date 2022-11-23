@@ -105,7 +105,7 @@
                         </div>
 
                         <div class="form-outline">
-                            <label for="address">Numero di telefono</label>
+                            <label for="telephone">Numero di telefono</label>
                             <input type="tel" class="form-control @error('telephone') is-invalid @enderror" id="telephone"
                                 value="{{ old('telephone', $doctor->telephone) }}" name="telephone" aria-describedby="helpTelephone"
                                 placeholder="inserisci il tuo numero">

@@ -52,9 +52,10 @@ class HomeController extends Controller
      */
     public function show($slug)
     {
-        
+
         $doctor = Doctor::where('slug', $slug)->first();
         $reviews = Review::where('doctor_id', $doctor->id )->orderBy('created_at', 'desc')->get();
+        //  dd($doctor);
         $avg =DB::table('stars')
             ->select(DB::raw('round(avg(doctor_star.star_id), 1) as avg'))
             ->join('doctor_star', 'doctor_star.star_id', '=', 'stars.id')

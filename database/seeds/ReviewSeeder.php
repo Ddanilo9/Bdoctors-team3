@@ -21,8 +21,7 @@ class ReviewSeeder extends Seeder
             $reviews = new Review();
 
             $reviews->name = $faker->firstName();
-            $reviews->comment = $faker->paragraphs(rand(10, 20), true);
-            $reviews->email = $faker->email();
+            $reviews->comment = $faker->paragraphs(rand(3, 4), true);
             $reviews->doctor_id = $faker->randomElement($doctors);
 
             $reviews->save();

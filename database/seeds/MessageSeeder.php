@@ -21,7 +21,7 @@ class MessageSeeder extends Seeder
             $messages = new Message();
 
             $messages->name = $faker->firstName();
-            $messages->message = $faker->paragraphs(rand(10, 20), true);
+            $messages->message = $faker->paragraphs(rand(3, 4), true);
             $messages->email = $faker->email();
             $messages->doctor_id = $faker->randomElement($doctors);
 

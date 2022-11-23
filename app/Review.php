@@ -10,6 +10,7 @@ class Review extends Model
     protected $fillable = [
         'name',
         'comment',
+        'doctor_id'
     ];
 
     public function doctor()

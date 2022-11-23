@@ -65,6 +65,68 @@
             </div>
         </div>
 
+        {{-- Send Message --}}
+        <div class="container">
+            <div class="row">
+                <div class="col-8">
+                    <h1>Contatta il medico privatamente:</h1>
+                </div>
+                <div class="col-4 text-left d-flex justify-content-end align-items-center">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <form action="{{ route('messages.store') }}" method="POST">
+                        @csrf
+                        @method('POST')
+
+                        <div class="form-group">
+                            <label for="name">Nome</label>
+                            <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                id="name" value="" name="name"
+                                aria-describedby="helpTitle" placeholder="inserisci il nome">
+                            <small id="helpName" class="form-text text-muted">Inserisci il tuo Nome.</small>
+                            @error('name')
+                                <div id="name" class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control @error('email') is-invalid @enderror"
+                                id="email" value="" name="email"
+                                aria-describedby="helpTitle" placeholder="inserisci il nome">
+                            <small id="helpemail" class="form-text text-muted">Inserirsci la Mail</small>
+                            @error('email')
+                                <div id="email" class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="font-weight-bold">messaggio</label>
+                            <textarea class="form-control" id="message" name="message" rows="10"
+                                placeholder="Scrivi qui il tuo messaggio" required @error('message') is-invalid @enderror></textarea>
+                        </div>
+                        @error('message')
+                            <div id="message" class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                        <input hidden type="number" name="doctor_id" value="{{ $doctor->id }}">    
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+
+
         {{-- Review index --}}
         <div class="reviews-received border p-3">
            
@@ -97,6 +159,7 @@
                 <div class="col-12">
                     <form action="{{ route('reviews.store') }}" method="POST">
                         @csrf
+                        @method('POST')
 
                         <div class="form-group">
                             <label for="name">Nome</label>
@@ -110,6 +173,7 @@
                                 </div>
                             @enderror
                         </div>
+
                         <div class="form-group">
                             <label for="comment" class="font-weight-bold">Commento</label>
                             <textarea class="form-control" id="comment" name="comment" rows="10"
@@ -120,7 +184,7 @@
                                 {{ $message }}
                             </div>
                         @enderror
-
+                        <input hidden type="number" name="doctor_id" value="{{ $doctor->id }}">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>

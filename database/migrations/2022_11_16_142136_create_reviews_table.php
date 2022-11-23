@@ -18,7 +18,6 @@ class CreateReviewsTable extends Migration
             $table->unsignedBigInteger('doctor_id');
             $table->string('name');
             $table->text('comment');
-            $table->string('email');
             $table->timestamps();
             $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
         });
