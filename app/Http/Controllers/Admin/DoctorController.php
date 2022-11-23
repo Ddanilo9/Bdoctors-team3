@@ -132,7 +132,7 @@ class DoctorController extends Controller
             'address'=> 'required',
             'specializations' => 'required', 'array', 'max:255',
             'telephone' => 'nullable|max:15',
-            'services' => 'nullable|max:300',
+            'services' => 'nullable|max:750',
             'cv' => 'nullable|mimes:pdf|max:4096',
             'image' => 'nullable|mimes:png,jpg,jpeg,svg|max:4096'
         ]);

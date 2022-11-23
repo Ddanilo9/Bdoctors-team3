@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    {{$stars->number}}
+    {{-- {{$stars->number}} --}}
 
     <div class="dashboard__main">
         <div class="dashboard__header">
@@ -30,7 +30,11 @@
             <div class="dashboard-card">
                 <h5>Ultimo Messaggio</h5>
 
+                @if (!empty($lastMessage->message))
                 <p>{{ $lastMessage->message }}</p>
+                @else
+                <h4 class="font-weight-bold">Nessun messaggio</h4>
+                @endif
 
                 <a href="{{ route('admin.messages.index') }}">vedi altri</a>
 
@@ -38,7 +42,11 @@
             <div class="dashboard-card">
                 <h5>Ultima Recensione</h5>
 
+                @if (!empty($lastReview->comment))
                 <p>{{ $lastReview->comment }}</p>
+                @else
+                <h4 class="font-weight-bold">Nessun messaggio</h4>
+                @endif
 
                 <a href="{{ route('admin.reviews.index') }}">vedi altri</a></div>
             <div class="dashboard-card">ciao</div>
