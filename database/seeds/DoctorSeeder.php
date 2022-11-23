@@ -56,7 +56,7 @@ class DoctorSeeder extends Seeder
             $doctor->name = $faker->firstName();
             $doctor->surname = $faker->lastName();
             $doctor->address = $faker->address();
-            $doctor->services = $faker->paragraphs(rand(10, 20), true);
+            $doctor->services = $faker->paragraphs(rand(1, 2), true);
             $doctor->photo = $faker->randomElement($avatars);
             $doctor->cv = $faker->randomElement($cvs);
             $doctor->telephone = $faker->phoneNumber();

@@ -127,12 +127,12 @@ class DoctorController extends Controller
         $doctor = Auth::user()->doctor;
         
         $params = $request->validate([
-            'name' => 'required|max:150|min:2',
-            'surname' => 'required',
+            'name' => 'required|max:50|min:2',
+            'surname' => 'required|max:50|min:1',
             'address'=> 'required',
             'specializations' => 'required', 'array', 'max:255',
             'telephone' => 'nullable|max:15',
-            'services' => 'nullable',
+            'services' => 'nullable|max:300',
             'cv' => 'nullable|mimes:pdf|max:4096',
             'image' => 'nullable|mimes:png,jpg,jpeg,svg|max:4096'
         ]);
