@@ -20,8 +20,8 @@ class CreateDoctorsTable extends Migration
             $table->string('surname');
             $table->string('address');
             $table->text('services')->nullable();
-            $table->text('photo')->nullable();
-            $table->text('cv')->nullable();
+            $table->string('photo')->nullable();
+            $table->string('cv')->nullable();
             $table->string('telephone')->nullable()->unique();
             $table->string('slug');
             $table->timestamps();

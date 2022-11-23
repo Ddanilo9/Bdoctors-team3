@@ -6,7 +6,9 @@ use App\Doctor;
 use App\Http\Controllers\Controller;
 use App\Plan;
 use App\Specialization;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class DoctorController extends Controller
@@ -20,10 +22,6 @@ class DoctorController extends Controller
     {
         $doctors = Doctor::orderBy('created_at', 'desc')->get();
         $specializations = Specialization::all();
-
-
-
-        // dd($duration);
 
         return view('admin.doctors.index', compact('doctors', 'specializations'));
     }
@@ -85,10 +83,10 @@ class DoctorController extends Controller
      * @param  \App\Doctor  $doctor
      * @return \Illuminate\Http\Response
      */
-    public function show(Doctor $doctor)
+    public function show()
     {
-        // $doctors = Doctor::orderBy('created_at', 'desc')->get();
-        // $specializations = Specialization::all();
+        $doctor = Auth::user()->doctor;
+
 
         return view('admin.doctors.show', compact('doctor'));
     }
@@ -99,9 +97,12 @@ class DoctorController extends Controller
      * @param  \App\Doctor  $doctor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Doctor $doctor)
+    public function edit()
     {
-        //
+        $doctor = Auth::user()->doctor;
+        $specializations = Specialization::all();
+
+        return view('admin.doctors.edit', compact('doctor', 'specializations'));
     }
 
     /**
@@ -111,9 +112,52 @@ class DoctorController extends Controller
      * @param  \App\Doctor  $doctor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Doctor $doctor)
+    public function update(Request $request)
     {
-        //
+        $doctor = Auth::user()->doctor;
+        
+        $params = $request->validate([
+            'name' => 'required|max:150|min:2',
+            'surname' => 'required',
+            'address'=> 'required',
+            'specializations' => 'required', 'array', 'max:255',
+            'telephone' => 'nullable|max:15',
+            'services' => 'nullable',
+            'cv' => 'nullable|mimes:pdf|max:4096',
+            'image' => 'nullable|mimes:png,jpg,jpeg,svg|max:4096'
+        ]);
+        
+
+        $params['slug'] = Doctor::getUniqueSlugFrom($params['name'],$params['surname']);
+
+        if (array_key_exists('image', $params)) {
+            if ($doctor->photo) {
+                Storage::delete($doctor->photo);
+            }
+            $img_path = Storage::disk('public')->put('avatar', $params['image']);
+            $params['image'] = $img_path;
+            $doctor->photo = $img_path;
+        }
+
+        if (array_key_exists('cv', $params)) {
+            if ($doctor->cv) {
+                Storage::delete($doctor->cv);
+            }
+            $cv_path = Storage::disk('public')->put('cvs', $request->file('cv'));
+            $params['cv'] = $cv_path;
+            $doctor->cv = $cv_path;
+        }
+
+        $doctor->update($params);
+
+        if (array_key_exists('specializations', $params)) {
+            $doctor->specializations()->sync($params['specializations']);
+        } else {
+            $doctor->specializations()->sync([]);
+        }
+       
+
+        return redirect()->route('admin.doctors.show', $doctor);
     }
 
     /**
@@ -122,8 +166,25 @@ class DoctorController extends Controller
      * @param  \App\Doctor  $doctor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Doctor $doctor)
+    public function destroy()
     {
-        //
+        $doctor = Doctor::where('id', Auth::user()->id)->first();
+        $user = User::where('id', Auth::user()->id)->first();
+        $deleted = $doctor->delete();
+        
+        if($deleted) {
+            if (!empty($doctor->photo)) {
+                Storage::disk('public')->delete($doctor->photo);
+            }
+            if (!empty($doctor->cv)) {
+                Storage::disk('public')->delete($doctor->cv);
+            }
+        } 
+        
+        
+        $user->delete();
+        
+        return redirect()->route('welcome');
+    
     }
 }

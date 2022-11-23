@@ -31,12 +31,12 @@ class DoctorSeeder extends Seeder
             'avatar/10.png',
         ];
         $cvs = [
-            'cv/1.pdf',
-            'cv/2.pdf',
-            'cv/3.pdf',
-            'cv/4.pdf',
-            'cv/5.pdf',
-            'cv/6.pdf',
+            '1.pdf',
+            '2.pdf',
+            '3.pdf',
+            '4.pdf',
+            '5.pdf',
+            '6.pdf',
         ];
 
 

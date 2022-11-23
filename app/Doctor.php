@@ -68,4 +68,11 @@ class Doctor extends Model
 
         return $slug;
     }
+
+
+    public function getCoverPathAttribute(){
+        return $this->photo ? asset('storage/'. $this->photo) : null;
+    }
+
+    protected $appends = ['avatar'];
 }

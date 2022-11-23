@@ -18,7 +18,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
+
+// Route::get('/', 'HomeController@index')->name('home');
+
+
+Route::name('guest.')->group(
+    function () {
+        Route::get('/show/{slug}', 'HomeController@show')->name('doctors.show');
+    }
+);
+
+
 
 Route::name('guest.')->group(
     function () {
@@ -46,6 +57,7 @@ Route::middleware('auth')
         Route::resource('stats', 'StatsController');
 
         Route::resource('reviews', 'ReviewController');
+
 
         Route::resource('doctors', 'DoctorController');
     });
