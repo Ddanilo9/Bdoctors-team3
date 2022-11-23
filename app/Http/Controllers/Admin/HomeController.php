@@ -54,8 +54,10 @@ class HomeController extends Controller
     public function show(Doctor $doctor)
     {
 
-        $doctor->load('specializations', 'stars');
-        return view('admin.home', compact('doctor'));
+        $doctor = Auth::user()->doctor;
+        $specializations = Specialization::all();
+
+        return view('admin.home', compact('doctor', 'specializations'));
     }
 
     /**
