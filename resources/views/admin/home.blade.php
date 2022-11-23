@@ -26,7 +26,7 @@
         {{-- <p>{{ $doctor->stars->number }}</p> --}}
         <ul>
             @foreach($doctor->specializations as $s)
-                <li>{{ $s->name }}</li>
+                <li>{{ $s->spec_name }}</li>
             @endforeach
         </ul>
     </div>
