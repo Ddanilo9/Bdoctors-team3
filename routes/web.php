@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,11 +14,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', 'HomeController@index')->name('home');
+
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
 // Route::get('/', 'HomeController@index')->name('home');
+
+
+Route::name('guest.')->group(
+    function () {
+        Route::get('/show/{slug}', 'HomeController@show')->name('doctors.show');
+    }
+);
+
 
 
 Route::name('guest.')->group(
@@ -43,7 +54,10 @@ Route::middleware('auth')
 
         Route::resource('messages', 'MessageController');
 
+        Route::resource('stats', 'StatsController');
+
         Route::resource('reviews', 'ReviewController');
+
 
         Route::resource('doctors', 'DoctorController');
     });
