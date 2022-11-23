@@ -22,6 +22,9 @@ Route::name('guest.')->group(
     }
 );
 
+Route::resource('messages', 'MessageController');
+
+Route::resource('reviews', 'ReviewController');
 
 
 Auth::routes();

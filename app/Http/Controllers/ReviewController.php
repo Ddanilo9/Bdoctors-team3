@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use App\Doctor;
 use App\Http\Controllers\Controller;
@@ -31,7 +31,7 @@ class ReviewController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**
@@ -54,6 +54,7 @@ class ReviewController extends Controller
         $review->doctor_id = $doctor->id;
 
         $review->save();
+        $doctor->review()->attach($review->id);
 
         return view('guest.doctors.show', $review, $doctor);
     }
