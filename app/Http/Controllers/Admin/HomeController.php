@@ -4,11 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use App\Doctor;
 use App\Http\Controllers\Controller;
-use App\Specialization;
+use App\Message;
+use App\Review;
 use App\Star;
-use DoctorSeeder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -19,9 +20,16 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $lastMessage = Message::where('doctor_id', Auth::user()->doctor['id'])->orderBy('created_at', 'desc')->first();
 
-        $doctor = Auth::user()->doctor;
-        return view('admin.home', compact('doctor'));
+        $lastReview = Review::where('doctor_id', Auth::user()->doctor['id'])->orderBy('created_at', 'desc')->first();
+
+        $doctor = Doctor::find(Auth::user()->doctor['id']);
+
+
+        return view('admin.home', compact('doctor', 'lastMessage', 'lastReview'));
+        // $doctor = Auth::user()->doctor;
+        // return view('admin.home', compact('doctor'));
     }
 
     /**
@@ -51,13 +59,16 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Doctor $doctor)
+    public function show()
     {
+        // $lastMessage = Message::where('doctor_id', Auth::user()->doctor['id'])->orderBy('created_at', 'desc')->first();
 
-        $doctor = Auth::user()->doctor;
-        $specializations = Specialization::all();
+        // $messages = Message::where('doctor_id', Auth::user()->doctor['id'])->orderBy('created_at', 'desc')->get();
 
-        return view('admin.home', compact('doctor', 'specializations'));
+        // $doctor = Doctor::find(Auth::user()->doctor['id']);
+
+
+        // return view('admin.home', compact('doctor', 'messages'));
     }
 
     /**

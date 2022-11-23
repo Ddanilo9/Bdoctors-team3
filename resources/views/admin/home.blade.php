@@ -6,28 +6,52 @@
 
 <div class="dashboard__body">
     <div class="dashboard__navbar">
-        <a class="dashboard__link messages-link"
+        <h4>Gestisci</h4>
+
+        <div class="dashboard__links">
+            <a class="dashboard__link"
         href="{{ route('admin.messages.index') }}">Messaggi</a>
-        <a class="dashboard__link reviews-link"
+            <a class="dashboard__link"
         href="{{ route('admin.reviews.index') }}">Recensioni</a>
-        <a class="dashboard__link stats-link"
+            <a class="dashboard__link"
         href="{{ route('admin.stats.index') }}">Statistiche</a>
+        </div>
     </div>
+
+    {{$stars->number}}
 
     <div class="dashboard__main">
         <div class="dashboard__header">
             <h1 class="dashboard__title">Benvenuto, {{ $doctor->name }} {{$doctor->surname}}</h1>
             <a class="dashboard__button" href="">Effettua l'upgrade</a>
+        </div>
 
-            <a class="dashboard__button button--edit" href="">Modifica Profilo</a>
-            {{-- <a class="dashboard__button" href="{{ route('admin/doctors/{doctor}/edit') }}">Modifica Profilo</a> --}}
+        <div class="dashboard-grid">
+            <div class="dashboard-card">
+                <h5>Ultimo Messaggio</h5>
+
+                <p>{{ $lastMessage->message }}</p>
+
+                <a href="{{ route('admin.messages.index') }}">vedi altri</a>
+
+            </div>
+            <div class="dashboard-card">
+                <h5>Ultima Recensione</h5>
+
+                <p>{{ $lastReview->comment }}</p>
+
+                <a href="{{ route('admin.reviews.index') }}">vedi altri</a></div>
+            <div class="dashboard-card">ciao</div>
+
         </div>
 
         {{-- <p>{{ $doctor->stars->number }}</p> --}}
         <ul>
-            @foreach($doctor->specializations as $s)
-                <li>{{ $s->spec_name }}</li>
-            @endforeach
+
+    
+            {{-- @foreach($messages as $m)
+                <li>{{ $m->message }}</li>
+            @endforeach --}}
         </ul>
     </div>
 </div>
