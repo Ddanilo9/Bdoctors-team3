@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Doctor;
 use App\Http\Controllers\Controller;
 use App\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MessageController extends Controller
 {
@@ -15,7 +17,11 @@ class MessageController extends Controller
      */
     public function index()
     {
-        //
+        
+        $messages = Message::where('doctor_id', Auth::user()->doctor['id'])->orderBy('created_at', 'desc')->get();
+        $doctor = Doctor::find(Auth::user()->doctor['id']);
+
+        return view('admin.messages.index', compact('messages', 'doctor'));
     }
 
     /**
