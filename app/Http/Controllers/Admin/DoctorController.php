@@ -20,11 +20,11 @@ class DoctorController extends Controller
     {
         $doctors = Doctor::orderBy('created_at', 'desc')->get();
         $specializations = Specialization::all();
-       
-        
-            
+
+
+
         // dd($duration);
-    
+
         return view('admin.doctors.index', compact('doctors', 'specializations'));
     }
 
@@ -51,7 +51,7 @@ class DoctorController extends Controller
     {
         // dd(request()->all());
         $params = $request->validate([
-            
+
             'photo' => 'nullable|image|max:2048',
             'name' => 'required|max:255|min:5',
             'surname' => 'required',
@@ -63,7 +63,7 @@ class DoctorController extends Controller
 
         ]);
 
-        $params['slug'] = Doctor::getUniqueSlugFrom($params['name'],$params['surname']);
+        $params['slug'] = Doctor::getUniqueSlugFrom($params['name'], $params['surname']);
 
         // if (array_key_exists('photos', $params)) {
         //     $img_path = Storage::disk('photos')->put('post_covers', $params['image']);
@@ -72,8 +72,8 @@ class DoctorController extends Controller
 
         $doctor = Doctor::create($params);
         // if ('specializations') {
-         $specializations = $params['specializations'];
-         $doctor->specializations()->sync($specializations);
+        $specializations = $params['specializations'];
+        $doctor->specializations()->sync($specializations);
         // }
 
         return redirect()->route('admin.doctors.show', $doctor);

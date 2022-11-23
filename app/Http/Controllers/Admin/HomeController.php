@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Doctor;
 use App\Http\Controllers\Controller;
+use App\Specialization;
+use App\Star;
+use DoctorSeeder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,6 +19,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+
         $doctor = Auth::user()->doctor;
         return view('admin.home', compact('doctor'));
     }
@@ -46,9 +51,11 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($doctor)
+    public function show(Doctor $doctor)
     {
-        return view('admin.home', $doctor);
+
+        $doctor->load('specializations', 'stars');
+        return view('admin.home', compact('doctor'));
     }
 
     /**

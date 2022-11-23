@@ -23,8 +23,9 @@
             {{-- <a class="dashboard__button" href="{{ route('admin/doctors/{doctor}/edit') }}">Modifica Profilo</a> --}}
         </div>
 
+        {{-- <p>{{ $doctor->stars->number }}</p> --}}
         <ul>
-            @foreach($doctor->specialization as $s)
+            @foreach($doctor->specializations as $s)
                 <li>{{ $s->name }}</li>
             @endforeach
         </ul>
