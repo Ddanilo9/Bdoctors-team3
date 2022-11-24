@@ -1909,8 +1909,11 @@ module.exports = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
+  data: function data() {
+    return {
+      listMenu: ['Chi siamo', 'Dicono di noi', 'Condizioni d\'uso', 'Privacy', 'Cookie Policy', 'Contatti', 'Blog'],
+      listSocials: ['images/facebook.jpg', 'images/instagram.jpg', 'images/twitter.jpg', 'images/youtube.png']
+    };
   }
 });
 
@@ -1947,24 +1950,72 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _vm._m(0);
+  return _c("footer", [_c("div", {
+    staticClass: "container"
+  }, [_c("ul", {
+    staticClass: "linkfooter"
+  }, _vm._l(_vm.listMenu, function (link) {
+    return _c("li", {
+      key: link
+    }, [_c("a", {
+      attrs: {
+        href: "#"
+      }
+    }, [_vm._v(_vm._s(link))])]);
+  }), 0), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "socials_credits d-flex flex-column justify-content-center align-items-center"
+  }, [_c("span", {
+    staticClass: "credits"
+  }, [_vm._v("Created by : Alberto Dore | Alessio Petrullo | Danilo Annunziata | Mirco Sansone | Michele Porcaro")]), _vm._v(" "), _c("span", {
+    staticClass: "update"
+  }, [_vm._v("Ultimo aggiornamento: 25/11/2022")]), _vm._v(" "), _c("ul", {
+    staticClass: "d-flex list-unstyled justify-content-center align-items-center"
+  }, _vm._l(_vm.listSocials, function (social) {
+    return _c("li", {
+      key: social,
+      staticClass: "icons d-flex justify-content-center align-items-center"
+    }, [_c("img", {
+      attrs: {
+        src: social,
+        alt: "Photo's Social"
+      }
+    })]);
+  }), 0)])])]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
-    staticClass: "container"
+    staticClass: "certifications d-flex justify-content-between align-items-center"
   }, [_c("div", {
-    staticClass: "row justify-content-center"
-  }, [_c("div", {
-    staticClass: "col-md-8"
-  }, [_c("div", {
-    staticClass: "card"
-  }, [_c("div", {
-    staticClass: "card-header"
-  }, [_vm._v("Example Component")]), _vm._v(" "), _c("div", {
-    staticClass: "card-body"
-  }, [_vm._v("\n                    I'm an example component 2222222.\n                ")])])])])]);
+    staticClass: "standard d-flex"
+  }, [_c("img", {
+    attrs: {
+      src: "images/cod.gif",
+      alt: "Hon Cod"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "hon_cod d-flex flex-column"
+  }, [_c("span", [_vm._v("Aderiamo allo standard HONcode per l'affidabilità dell'informazione medica.")]), _vm._v(" "), _c("a", {
+    attrs: {
+      href: "#"
+    }
+  }, [_vm._v("Verifica qui")])])]), _vm._v(" "), _c("a", {
+    staticClass: "rec_form d-flex",
+    attrs: {
+      href: "#"
+    }
+  }, [_c("img", {
+    staticClass: "rec_doctor",
+    attrs: {
+      src: "images/contatti_dottori.png",
+      alt: "Doctors"
+    }
+  }), _vm._v(" "), _c("div", {
+    staticClass: "d-flex flex-column justify-content-center"
+  }, [_c("div", [_vm._v("Sei un medico?")]), _vm._v(" "), _c("div", {
+    staticClass: "font-weight-bold"
+  }, [_vm._v("Iscriviti ora!")])])])]);
 }];
 render._withStripped = true;
 
@@ -49857,8 +49908,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\BooleanDevelopement\Bdoctors-team3\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\BooleanDevelopement\Bdoctors-team3\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\jamir\Desktop\Projects\Bdoctors-team3\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\jamir\Desktop\Projects\Bdoctors-team3\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

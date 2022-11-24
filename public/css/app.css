@@ -100,9 +100,66 @@
 }
 
 footer {
-  background-color: #0a0f1c;
-  color: #f5f5fb;
-  padding: 32px;
+  background-color: #F9F9F9;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+footer .container {
+  margin: 0 auto;
+}
+footer .container .linkfooter {
+  color: #235290;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.5rem 0;
+}
+footer .container .certifications {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 2rem;
+}
+footer .container .certifications .standard {
+  gap: 0.5rem;
+  width: 400px;
+}
+footer .container .certifications .standard img {
+  height: 50%;
+  filter: grayscale(100%);
+}
+footer .container .certifications .standard .hon_cod {
+  font-size: 0.75rem;
+  color: #999999;
+}
+footer .container .certifications .rec_form {
+  gap: 0.75rem;
+}
+footer .container .certifications .rec_form .rec_doctor {
+  width: 40%;
+}
+footer .container .socials_credits {
+  gap: 0.5rem;
+  padding: 1rem 0;
+}
+footer .container .socials_credits span {
+  font-size: 0.75rem;
+}
+footer .container .socials_credits .update {
+  color: #999999;
+}
+footer .container .socials_credits ul {
+  gap: 2rem;
+  margin: 0;
+  padding: 0.5rem 0;
+}
+footer .container .socials_credits ul .icons {
+  width: 30px;
+}
+footer .container .socials_credits ul img {
+  max-width: 100%;
 }
 
 nav {

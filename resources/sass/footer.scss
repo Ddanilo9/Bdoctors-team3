@@ -1,5 +1,97 @@
 footer {
-    background-color: $bd-black;
-    color: $bd-white;
-    padding: 32px;
+    background-color: #F9F9F9;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+
+    .container {
+        margin: 0 auto;
+
+        .linkfooter {
+            color: #235290;
+            margin: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            padding: 1.5rem 0;
+        }
+
+        .certifications {
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            padding: 2rem;
+
+            .standard {
+                gap: 0.5rem;
+                width: 400px;
+    
+                img {
+                    height: 50%;
+                    filter: grayscale(100%);
+                }
+    
+                .hon_cod {
+                    font-size: 0.75rem;
+                    color: #999999;
+                    
+                }
+    
+            }
+
+            .rec_form {
+                gap: 0.75rem;
+
+                .rec_doctor {
+                    width: 40%;
+                }
+
+            }
+    
+            
+
+        }
+
+        .socials_credits {
+            gap: 0.5rem;
+            padding: 1rem 0;
+
+            span {
+                font-size: 0.75rem;
+            }
+
+            .update {
+                color: #999999;
+            }
+
+            ul {
+                gap: 2rem;
+                margin: 0;
+                padding: 0.5rem 0;
+
+                 
+
+                
+                
+                
+
+                .icons {
+                    width: 30px;
+                }
+
+                img {
+                    max-width: 100%;
+                }
+            
+
+            }
+            
+
+            
+        }
+
+        
+    }
 }
+
+
