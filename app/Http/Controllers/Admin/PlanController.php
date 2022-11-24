@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Plan;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PlanController extends Controller
 {
@@ -15,7 +17,11 @@ class PlanController extends Controller
      */
     public function index()
     {
-        //
+        // $sponsors = Plan::all();
+
+        // $doctor = Auth::user()->doctor;
+
+        // return view('admin.plans', compact('sponsors','user'));
     }
 
     /**
@@ -25,7 +31,11 @@ class PlanController extends Controller
      */
     public function create()
     {
-        //
+
+        $plans = Plan::all();
+        $doctor = Auth::user()->doctor;
+
+        return view('admin.plans.create', compact('plans','doctor'));
     }
 
     /**
@@ -36,7 +46,29 @@ class PlanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $doctor = Auth::user()->doctor;
+
+        $startDate = Carbon::now();
+
+
+        switch ($request['plan']) {
+            case 1:
+                $expireDate = Carbon::parse($startDate)->addHour(24);
+                break;
+            case 2:
+                $expireDate = Carbon::parse($startDate)->addHour(72);
+                break;
+            case 3:
+                $expireDate = Carbon::parse($startDate)->addHour(144);
+                break;
+        }
+        
+        $doctor->plans()->attach($request['plan'], [
+            'starting_date' => $startDate,
+            'expiration_date' => $expireDate
+        ]);
+
+        return redirect()->route('admin.home');
     }
 
     /**
@@ -47,7 +79,9 @@ class PlanController extends Controller
      */
     public function show(Plan $plan)
     {
-        //
+        $doctor = Auth::user()->doctor;
+
+        return view('admin.plans.show', compact('plan','doctor'));
     }
 
     /**

@@ -2,6 +2,12 @@
 
 @extends('layouts.app')
 
+@php
+use Carbon\Carbon;
+    
+$now = Carbon::now()->format('Y-m-d H:i:s')
+@endphp
+
 @section('content')
 
 <div class="dashboard__body">
@@ -23,7 +29,16 @@
     <div class="dashboard__main">
         <div class="dashboard__header">
             <h1 class="dashboard__title">Benvenuto, {{ $doctor->name }} {{$doctor->surname}}</h1>
-            <a class="dashboard__button" href="">Effettua l'upgrade</a>
+            @php
+            // dd($dates);
+            // dd($lastSponsor);
+            @endphp
+    	    @if (count($doctor->plans) == 0 || $lastSponsor < $now)
+            <a class="dashboard__button" href="{{ route('admin.plans.create') }}">Effettua l'upgrade</a>
+            @else{{--(count($doctor->plans) > 0  && $lastSponsor > Carbon::now())--}}
+                <div class="badge badge-info p-2 font-weight-bold text-white ">Sponsorizzazione attiva fino al {{$lastSponsor}}</div>
+            @endif
+
         </div>
 
         <div class="dashboard-grid">

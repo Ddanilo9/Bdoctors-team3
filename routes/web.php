@@ -39,16 +39,13 @@ Route::middleware('auth')
     ->group(function () {
         Route::get('/home', 'HomeController@index')->name('home');
 
-        Route::get('/plans', 'PlanController@plan')->name('plans');
+        // Route::get('/plans', 'PlanController@show')->name('plans');
 
         Route::get('/stats', 'StatsController@stats')->name('stats');
 
-        // Route::resource('messages', 'MessageController');
-
         Route::resource('stats', 'StatsController');
 
-        // Route::resource('reviews', 'ReviewController');
-
+        Route::resource('plans', 'PlanController');
 
         Route::resource('doctors', 'DoctorController');
     });

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Doctor;
 use App\Http\Controllers\Controller;
 use App\Message;
+use App\Plan;
 use App\Review;
 use App\Star;
 use Illuminate\Http\Request;
@@ -27,7 +28,17 @@ class HomeController extends Controller
         $doctor = Doctor::find(Auth::user()->doctor['id']);
 
 
-        return view('admin.home', compact('doctor', 'lastMessage', 'lastReview'));
+        $docPlan = $doctor->plans()->get();
+
+        $dates = [];
+        foreach($docPlan as $dp){
+                array_push($dates, $dp->pivot->expiration_date,);
+        }
+        asort($dates);
+        // dd($dates);
+        $lastSponsor = end($dates);
+
+        return view('admin.home', compact('doctor', 'lastMessage', 'lastReview', 'lastSponsor', 'dates'));
         // $doctor = Auth::user()->doctor;
         // return view('admin.home', compact('doctor'));
     }
