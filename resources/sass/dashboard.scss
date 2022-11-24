@@ -4,12 +4,12 @@
 
     .dashboard__navbar {
         width: 250px;
-        background-color: #031737;
+        background-color: $main;
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 100px 16px 400px;
-        color: #3964ae;
+        padding: 40px 0 476px;
+        color: $secondary;
 
         h4 {
             margin-bottom: 32px;
@@ -19,50 +19,74 @@
         .dashboard__links {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            padding: 0 16px;
-            border-top: 1px solid currentColor;
-            border-bottom: 1px solid currentColor;
+            width: 100%;
+            list-style-type: none;
+            padding: 0;
 
-            .dashboard__link {
-                font-size: 18px;
-                padding: 16px;
-                color: currentColor;
-                transition: all 0.3s linear;
-            }
+            li {
+                width: 100%;
 
-            .dashboard__link:hover {
-                text-decoration: none;
-                filter: brightness(1.9);
+                &:first-of-type {
+                    border-top: 1px solid currentColor;
+                }
+
+                .dashboard__link {
+                    border-bottom: 1px solid currentColor;
+                    font-size: 18px;
+                    padding: 16px 0;
+                    color: currentColor;
+                    transition: all 0.3s linear;
+                    width: 100%;
+                    text-align: center;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 8px;
+
+                    &:hover {
+                        text-decoration: none;
+                        background-color: $bd-lighthover;
+                        color: $main;
+                    }
+                }
             }
         }
     }
 }
 
 .dashboard__main {
-    padding: 32px;
+    padding: 20px;
     width: 100%;
-    background-color: #eff1f3;
+    background-color: $bd-grey;
 
     .dashboard__header {
         display: flex;
         align-items: center;
         gap: 16px;
         margin-bottom: 16px;
+        padding: 12px 0;
 
         .dashboard__title {
+            color: $bd-black;
             margin: 0;
         }
 
         .dashboard__button {
             padding: 8px;
-            background-color: #3964ae;
-            color: white;
+            background-color: $main;
+            color: $secondary;
             text-decoration: none;
             display: inline-block;
             border-radius: 4px;
             min-width: 220px;
             text-align: center;
+            transition: all 0.3s linear;
+            font-weight: 600;
+
+            &:hover {
+                background-color: $bd-lighthover;
+                color: $main;
+            }
         }
     }
 
@@ -72,12 +96,17 @@
         gap: 16px;
 
         .dashboard-card {
-            background-color: white;
+            background-color: $bd-white;
             border-radius: 4px;
             padding: 48px 32px 100px;
+            color: $bd-black;
+
+            a {
+                color: $secondary;
+            }
 
             h5 {
-                color: #3964ae;
+                color: $secondary;
                 margin-bottom: 32px;
             }
         }
