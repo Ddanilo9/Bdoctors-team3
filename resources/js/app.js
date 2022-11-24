@@ -4,10 +4,15 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+window.axios = require('axios');
+
+
 require('./bootstrap');
 
-// window.Vue = require('vue');
+window.Vue = require('vue');
 
+
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -19,7 +24,8 @@ require('./bootstrap');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('carousel', require('./components/Carousel').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -28,3 +34,8 @@ require('./bootstrap');
  */
 
 
+ const app = new Vue({
+    el: '#app',
+    // render: h => h(App),
+    
+});

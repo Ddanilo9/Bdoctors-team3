@@ -21,6 +21,10 @@
         </div>
     </section>
 
+    {{-- tag per importare i componenti vue --}}
+    <carousel></carousel>
+  
+
     <section class="container-fluid mt-5 pb-3 border-0">
         <div class="title text-center">
             <h2 class="text-dark font-weight-bold text-pop-up-top">Doctors</h2>
