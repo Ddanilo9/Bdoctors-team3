@@ -49,3 +49,9 @@ Route::middleware('auth')
 
         Route::resource('doctors', 'DoctorController');
     });
+
+    // Route::get('{any?}', function(){
+    //     return view('layouts.app-vue');
+    // })->where('any', '.*');
+
+    
