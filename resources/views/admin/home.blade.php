@@ -4,41 +4,47 @@
 
 @php
 use Carbon\Carbon;
-    
+
 $now = Carbon::now()->format('Y-m-d H:i:s')
 @endphp
 
 @section('content')
 
 <div class="dashboard__body">
-    <div class="dashboard__navbar">
-        <h4>Gestisci</h4>
+    <nav class="dashboard__navbar">
+        <h4>Area Personale</h4>
 
-        <div class="dashboard__links">
-            <a class="dashboard__link"
-        href="{{ route('messages.index') }}">Messaggi</a>
-            <a class="dashboard__link"
-        href="{{ route('reviews.index') }}">Recensioni</a>
-            <a class="dashboard__link"
-        href="{{ route('admin.stats.index') }}">Statistiche</a>
-        </div>
-    </div>
-
-    {{-- {{$stars->number}} --}}
+        <ul class="dashboard__links">
+            <li>
+                <a class="dashboard__link" href="{{ route('messages.index') }}">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span>Messaggi</span>
+                </a>
+            </li>
+            <li>
+                <a class="dashboard__link" href="{{ route('reviews.index') }}">
+                    <i class="fa-regular fa-star"></i>
+                    <span>Recensioni</span>
+                </a>
+            </li>
+            <li>
+                <a class="dashboard__link" href="{{ route('admin.stats.index') }}">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <span>Statistiche</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 
     <div class="dashboard__main">
         <div class="dashboard__header">
             <h1 class="dashboard__title">Benvenuto, {{ $doctor->name }} {{$doctor->surname}}</h1>
-            @php
-            // dd($dates);
-            // dd($lastSponsor);
-            @endphp
-    	    @if (count($doctor->plans) == 0 || $lastSponsor < $now)
-            <a class="dashboard__button" href="{{ route('admin.plans.create') }}">Effettua l'upgrade</a>
-            @else{{--(count($doctor->plans) > 0  && $lastSponsor > Carbon::now())--}}
+
+            @if (count($doctor->plans) == 0 || $lastSponsor < $now)
+                <a class="dashboard__button" href="{{ route('admin.plans.create') }}">Effettua l'upgrade</a>
+            @else
                 <div class="badge badge-info p-2 font-weight-bold text-white ">Sponsorizzazione attiva fino al {{$lastSponsor}}</div>
             @endif
-
         </div>
 
         <div class="dashboard-grid">
@@ -46,12 +52,12 @@ $now = Carbon::now()->format('Y-m-d H:i:s')
                 <h5>Ultimo Messaggio</h5>
 
                 @if (!empty($lastMessage->message))
-                <p>{{ $lastMessage->message }}</p>
+                    <p>{{ $lastMessage->message }}</p>
                 @else
-                <h4 class="font-weight-bold">Nessun messaggio</h4>
+                    <h4 class="font-weight-bold">Nessun messaggio</h4>
                 @endif
 
-                <a href="{{ route('messages.index') }}">vedi altri</a>
+                <a href="{{ route('messages.index') }}">vedi tutti</a>
 
             </div>
             <div class="dashboard-card">
@@ -63,19 +69,9 @@ $now = Carbon::now()->format('Y-m-d H:i:s')
                 <h4 class="font-weight-bold">Nessun messaggio</h4>
                 @endif
 
-                <a href="{{ route('reviews.index') }}">vedi altri</a></div>
+                <a href="{{ route('reviews.index') }}">vedi tutti</a></div>
             <div class="dashboard-card">ciao</div>
-
         </div>
-
-        {{-- <p>{{ $doctor->stars->number }}</p> --}}
-        <ul>
-
-    
-            {{-- @foreach($messages as $m)
-                <li>{{ $m->message }}</li>
-            @endforeach --}}
-        </ul>
     </div>
 </div>
 
