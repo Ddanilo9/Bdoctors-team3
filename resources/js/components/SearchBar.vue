@@ -17,12 +17,18 @@ import state from "../store.js";
 export default {
     methods: {
         fetchDoctor() {
-            axios.get("http://localhost:8000/api/doctors", {}).then((res) => {
-                state.originals_doctors = res.data.result;
+            const anchor = document.location.href;
+            const queryString = anchor.search("=");
+            const ciccio = anchor.substring(queryString + 1);
 
-                console.log(state.originals_doctors);
-            });
+            const ciccio2 = ciccio.replace("+", " ");
+
+            console.log(ciccio2);
         },
+    },
+
+    mounted() {
+        this.fetchDoctor();
     },
 };
 </script>

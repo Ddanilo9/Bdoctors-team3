@@ -22,7 +22,7 @@
     </section>
 
     {{-- tag per importare i componenti vue --}}
-    <search-bar></search-bar>
+
     <carousel></carousel>
     <about-us></about-us>
     
