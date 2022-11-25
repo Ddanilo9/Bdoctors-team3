@@ -70,7 +70,7 @@ class Doctor extends Model
     }
 
 
-    public function getCoverPathAttribute(){
+    public function getAvatarAttribute(){
         return $this->photo ? asset('storage/'. $this->photo) : null;
     }
 
