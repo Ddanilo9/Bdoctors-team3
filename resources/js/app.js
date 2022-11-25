@@ -12,9 +12,9 @@ window.Vue = require("vue");
 
 window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 
-const dayjs = require('dayjs')
+const dayjs = require("dayjs");
 //import dayjs from 'dayjs' // ES 2015
-dayjs().format()
+dayjs().format();
 
 /**
  * The following block of code may be used to automatically register your
@@ -33,6 +33,7 @@ Vue.component(
 );
 Vue.component("carousel", require("./components/Carousel").default);
 Vue.component("about-us", require("./components/AboutUs").default);
+Vue.component("search-bar", require("./components/SearchBar").default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
