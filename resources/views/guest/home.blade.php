@@ -22,7 +22,8 @@
     </section>
 
     {{-- tag per importare i componenti vue --}}
-    <footercomponent></footercomponent>
+   
+    
   
 
     <section class="container-fluid mt-5 pb-3 border-0">
@@ -50,3 +51,4 @@
         </div>
     </section>
 @endsection
+
