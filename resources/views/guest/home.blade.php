@@ -23,6 +23,7 @@
 
     {{-- tag per importare i componenti vue --}}
     <carousel></carousel>
+    <about-us></about-us>
 
     <section class="container-fluid mt-5 pb-3 border-0">
         <div class="title text-center">
