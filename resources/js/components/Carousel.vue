@@ -1,27 +1,48 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Example Component</div>
-
-                    <div class="card-body">
-                        I'm an example component 2222222.
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div>
+        <slider animation="fade">
+            <slider-item
+                v-for="(i, index) in list"
+                :key="index"
+                :style="i"
+                @click="hello"
+            >
+                <p
+                    style="
+                        line-height: 280px;
+                        font-size: 5rem;
+                        text-align: center;
+                    "
+                >
+                    Page{{ index + 1 }}
+                </p>
+            </slider-item>
+        </slider>
     </div>
 </template>
 
 <script>
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
-    }
+import { Slider, SliderItem } from "vue-easy-slider";
+export default {
+    components: {
+        Slider,
+        SliderItem,
+    },
+    data() {
+        return {
+            list: [
+                { backgroundColor: "#3f51b5", width: "100%", height: "100%" },
+                { backgroundColor: "#eee", width: "100%", height: "100%" },
+                { backgroundColor: "#f44336", width: "100%", height: "100%" },
+            ],
+        };
+    },
+    methods: {
+        hello($event) {
+            console.log(`hello index: ${$event}`);
+        },
+    },
+};
 </script>
 
-<style lang="sass" scoped>
-
-</style>
+<style lang="scss" scoped></style>

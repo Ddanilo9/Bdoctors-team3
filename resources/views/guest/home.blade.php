@@ -23,7 +23,6 @@
 
     {{-- tag per importare i componenti vue --}}
     <carousel></carousel>
-  
 
     <section class="container-fluid mt-5 pb-3 border-0">
         <div class="title text-center">
@@ -35,9 +34,9 @@
                     <a href="{{ route('guest.doctors.show', ['slug' => $doctor->slug]) }}">
                         <h2 class="font-weight-bold pb-3">{{ $doctor->name }} {{ $doctor->surname }}</h2>
                         <div class="photo">
-  
+
                             @if(!empty($doctor->photo))
-                                <img width="250" src="{{ asset('storage/' . $doctor->photo) }}" alt="{{ $doctor->name }}">   
+                                <img width="250" src="{{ asset('storage/' . $doctor->photo) }}" alt="{{ $doctor->name }}">
                             @else
                                 <img width="250" src="{{ asset('img/no-image.png') }}" alt="{{ $doctor->name }}">
                             @endif
