@@ -1,6 +1,13 @@
 @extends('layouts.app-vue')
 
-@section('content')
+{{-- Header Component Blade --}}
+
+@include('partials.header')
+
+
+
+{{-- Content --}}
+
     <section class="hero">
         <div class="container">
             <h2 class="text-center">Come possiamo aiutarti?</h2>
@@ -20,11 +27,6 @@
             </div>
         </div>
     </section>
-
-    {{-- tag per importare i componenti vue --}}
-   
-
-  
 
     <section class="container-fluid mt-5 pb-3 border-0">
         <div class="title text-center">
@@ -50,5 +52,11 @@
         </div>
         </div>
     </section>
-@endsection
+
+    {{-- Footer Component VUE --}}
+
+    <div id="app">
+        <footer-component></footer-component>
+     </div>
+    
 
