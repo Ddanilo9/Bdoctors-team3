@@ -18,4 +18,4 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::resource('doctor','Api\SearchController@index');
+Route::get('doctors','Api\SearchController@index');

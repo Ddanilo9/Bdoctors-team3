@@ -1932,6 +1932,11 @@ __webpack_require__.r(__webpack_exports__);
       }]
     };
   },
+  mounted: function mounted() {
+    axios.get('/api/doctors', {}).then(function (res) {
+      console.log(res.data);
+    });
+  },
   methods: {
     hello: function hello($event) {
       console.log("hello index: ".concat($event));
@@ -50806,8 +50811,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Many\Desktop\BDoctors\Bdoctors-team3\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Many\Desktop\BDoctors\Bdoctors-team3\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\BooleanDevelopement\Bdoctors-team3\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\BooleanDevelopement\Bdoctors-team3\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

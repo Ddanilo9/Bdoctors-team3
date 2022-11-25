@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Doctor;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,10 @@ class SearchController extends Controller
      */
     public function index()
     {
-        //
+        $result = Doctor::with('specializations', 'messages','stars','reviews','plans')->get();
+        $success = true;
+
+        return response()->json(compact('result', 'success'));
     }
 
     /**

@@ -37,6 +37,12 @@ export default {
             ],
         };
     },
+    mounted() {
+            axios.get('/api/doctors', {})
+            .then((res) => {
+                console.log(res.data);
+            });
+        },
     methods: {
         hello($event) {
             console.log(`hello index: ${$event}`);
