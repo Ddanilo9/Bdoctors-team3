@@ -11,6 +11,11 @@ require("./bootstrap");
 window.Vue = require("vue");
 
 window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
+
+const dayjs = require('dayjs')
+//import dayjs from 'dayjs' // ES 2015
+dayjs().format()
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

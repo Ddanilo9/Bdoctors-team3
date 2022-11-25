@@ -13,12 +13,13 @@ class SearchController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function __invoke()
     {
         $result = Doctor::with('specializations', 'messages','stars','reviews','plans')->get();
         $success = true;
 
         return response()->json(compact('result', 'success'));
+
     }
 
     /**
