@@ -1,7 +1,5 @@
-@extends('layouts.app-vue')
-
-@section('footer')
-
-<footer-component></footer-component>
-
-@endsection
+<footer>
+    <div id="app">
+        <footer-component></footer-component>
+    </div>
+</footer>

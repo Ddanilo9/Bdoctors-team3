@@ -20,7 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
+
    
         @include('partials.header')
 
@@ -30,8 +30,6 @@
     </main>
 
         @include('partials.footer')
-    </div>
-
-    <script src="{{ asset('js/app.js') }}"></script>
+  
 </body>
 </html>

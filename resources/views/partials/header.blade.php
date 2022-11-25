@@ -1,5 +1,5 @@
 <header>
-    <div id=app>
+    <div id="app">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div>
                 <a class="navbar-brand" href="{{ route('home') }}">LOGO</a>  
@@ -79,6 +79,7 @@
                                 </div>
                             </li>
                         @endguest --}}
-       
+
+                        
     </div>
 </header>

@@ -23,7 +23,7 @@
 
     {{-- tag per importare i componenti vue --}}
    
-    
+
   
 
     <section class="container-fluid mt-5 pb-3 border-0">
