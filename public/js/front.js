@@ -14490,7 +14490,11 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 module.exports = __webpack_require__(/*! C:\Users\Many\Desktop\BDoctors\Bdoctors-team3\resources\js\front.js */"./resources/js/front.js");
+=======
+module.exports = __webpack_require__(/*! C:\BooleanDevelopement\Bdoctors-team3\resources\js\front.js */"./resources/js/front.js");
+>>>>>>> develop
 
 
 /***/ })

@@ -2015,6 +2015,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+<<<<<<< HEAD
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SearchBar.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SearchBar.vue?vue&type=script&lang=js& ***!
@@ -2042,6 +2043,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+=======
+>>>>>>> develop
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AboutUs.vue?vue&type=template&id=19b32af0&scoped=true&":
 /*!****************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AboutUs.vue?vue&type=template&id=19b32af0&scoped=true& ***!
@@ -51463,7 +51466,10 @@ dayjs().format();
 Vue.component("example-component", __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
 Vue.component("carousel", __webpack_require__(/*! ./components/Carousel */ "./resources/js/components/Carousel.vue")["default"]);
 Vue.component("about-us", __webpack_require__(/*! ./components/AboutUs */ "./resources/js/components/AboutUs.vue")["default"]);
+<<<<<<< HEAD
 Vue.component("search-bar", __webpack_require__(/*! ./components/SearchBar */ "./resources/js/components/SearchBar.vue")["default"]);
+=======
+>>>>>>> develop
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
