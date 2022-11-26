@@ -2024,19 +2024,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _store_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../store.js */ "./resources/js/store.js");
-
-
 /* harmony default export */ __webpack_exports__["default"] = ({
   methods: {
     fetchDoctor: function fetchDoctor() {
-      var anchor = document.location.href;
-      var queryString = anchor.search("=");
-      var ciccio = anchor.substring(queryString + 1);
-      var ciccio2 = ciccio.replace("+", " ");
-      console.log(ciccio2);
+      var params = new URL(document.location).searchParams;
+      var name = params.get("specialization");
+      console.log(name);
     }
   },
   mounted: function mounted() {
@@ -51826,26 +51819,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/store.js":
-/*!*******************************!*\
-  !*** ./resources/js/store.js ***!
-  \*******************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
-
-var state = vue__WEBPACK_IMPORTED_MODULE_0___default.a.observable({
-  query: "",
-  originals_doctors: []
-});
-/* harmony default export */ __webpack_exports__["default"] = (state);
-
-/***/ }),
-
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -51864,8 +51837,8 @@ var state = vue__WEBPACK_IMPORTED_MODULE_0___default.a.observable({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Many\Desktop\BDoctors\Bdoctors-team3\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Many\Desktop\BDoctors\Bdoctors-team3\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /mnt/c/Users/Many/Desktop/BDoctors/Bdoctors-team3/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /mnt/c/Users/Many/Desktop/BDoctors/Bdoctors-team3/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

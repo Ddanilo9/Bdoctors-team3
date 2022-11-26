@@ -15,11 +15,10 @@ class SearchController extends Controller
      */
     public function __invoke()
     {
-        $result = Doctor::with('specializations', 'messages','stars','reviews','plans')->get();
+        $result = Doctor::with('specializations', 'messages', 'stars', 'reviews', 'plans')->get();
         $success = true;
 
         return response()->json(compact('result', 'success'));
-
     }
 
     /**
