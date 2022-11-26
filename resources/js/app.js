@@ -33,7 +33,10 @@ Vue.component(
 );
 Vue.component("carousel", require("./components/Carousel").default);
 Vue.component("about-us", require("./components/AboutUs").default);
-Vue.component("search-bar", require("./components/SearchBar").default);
+Vue.component(
+    "advanced-search",
+    require("./components/AdvancedSearch").default
+);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
