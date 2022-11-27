@@ -109,11 +109,6 @@ footer .container {
 }
 footer .container .linkfooter {
   color: #235290;
-  margin: 0;
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 2rem;
   padding: 1.5rem 0;
 }
@@ -124,7 +119,6 @@ footer .container .certifications {
 }
 footer .container .certifications .standard {
   gap: 0.5rem;
-  width: 400px;
 }
 footer .container .certifications .standard img {
   height: 50%;

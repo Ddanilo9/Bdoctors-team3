@@ -1,12 +1,8 @@
 @extends('layouts.app-vue')
 
-{{-- Header Component Blade --}}
+<!-- Main -->
 
-@include('partials.header')
-
-
-
-{{-- Content --}}
+@section('content')
 
     <section class="hero">
         <div class="container">
@@ -28,6 +24,8 @@
         </div>
     </section>
     <about-us></about-us>
+    <carousel></carousel>
+
   
     <form action="http://127.0.0.1:8000/research"  method="GET">
         <div class="form-group">
@@ -65,10 +63,6 @@
         </div>
     </section>
 
-    {{-- Footer Component VUE --}}
-
-    <div id="app">
-        <footer-component></footer-component>
-     </div>
+@endsection
     
 

@@ -6,11 +6,9 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
     
+    <!-- Title -->
+    <title>@yield('metaTitle','BDoctors')</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -20,16 +18,21 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+    <!-- Header -->
+    @include('partials.header')
 
-   
-        @include('partials.header')
 
+    <!-- Main -->
     <main>
-        
         @yield('content')
     </main>
 
-        @include('partials.footer')
-  
+
+    <!-- Footer -->
+    @include('partials.footer')
+       
+    
+    <!-- Scripts -->
+    <script src="{{ mix('/js/app.js') }}" defer></script>
 </body>
 </html>

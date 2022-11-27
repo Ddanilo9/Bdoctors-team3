@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+<!--Title-->
+@section('metaTitle','BDoctors - Consulta il Medico')
+
+<!--Main-->
 @section('content')
     <div class="container">
         <div class="d-flex align-items-center justify-content-between">
@@ -224,3 +228,4 @@
         </div>
     </div>
 @endsection
+<!--End Main-->

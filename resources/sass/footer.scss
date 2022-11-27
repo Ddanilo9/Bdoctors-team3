@@ -8,11 +8,6 @@ footer {
 
         .linkfooter {
             color: #235290;
-            margin: 0;
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             gap: 2rem;
             padding: 1.5rem 0;
         }
@@ -24,7 +19,6 @@ footer {
 
             .standard {
                 gap: 0.5rem;
-                width: 400px;
     
                 img {
                     height: 50%;
@@ -68,12 +62,8 @@ footer {
                 gap: 2rem;
                 margin: 0;
                 padding: 0.5rem 0;
+               
 
-                 
-
-                
-                
-                
 
                 .icons {
                     width: 30px;
