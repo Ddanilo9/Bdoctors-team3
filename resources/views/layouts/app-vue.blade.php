@@ -21,17 +21,15 @@
 </head>
 <body>
 
-   <div id='app'>
-       @include('partials.header')
-   
-       <main>
-           @yield('content')
-       </main>
-   
-       @include('partials.footer')
-   </div>
+    <div id='app'>
+        @include('partials.header')
+
+        <main>
+            @yield('content')
+        </main>
+        @include('partials.footer')
+    </div>
 
     <script src="{{ asset('js/app.js') }}" ></script>
-    {{-- <script src="{{ asset('js/front.js') }}" ></script> --}}
 </body>
 </html>
