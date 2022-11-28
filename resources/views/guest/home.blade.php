@@ -3,7 +3,7 @@
 <!-- Main -->
 
 @section('content')
-
+<div id="app">
     <section class="hero">
         <div class="container">
             <h2 class="text-center">Come possiamo aiutarti?</h2>
@@ -25,6 +25,7 @@
     </section>
     <about-us></about-us>
     <carousel></carousel>
+    <HowWorks></HowWorks>
 
   
     <form action="http://127.0.0.1:8000/research"  method="GET">
@@ -62,7 +63,7 @@
         </div>
         </div>
     </section>
-
+</div>
 @endsection
     
 

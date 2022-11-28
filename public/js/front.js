@@ -104,7 +104,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\jamir\Desktop\Projects\Bdoctors-team3\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\sanso\Saved Games\Desktop\Bdoctors-team3\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
