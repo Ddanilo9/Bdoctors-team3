@@ -6,7 +6,7 @@
             <h2 class="text-center">Come possiamo aiutarti?</h2>
             <h5 class="text-center">Ricerca medico in questa specializzazione:</h5>
         </div>
-        <div class="container">
+        {{-- <div class="container">
             <div class="row justify-content-between">
                 @foreach ($specializations as $s)
                     <div class="col-12 col-md-6 col-lg-2 text-center">
@@ -18,31 +18,32 @@
                     </div>
                 @endforeach
             </div>
-        </div>
+        </div> --}}
     </section>
 
-    {{-- tag per importare i componenti vue --}}
 
-    <carousel></carousel>
-    <about-us></about-us>
-    
     <form action="http://127.0.0.1:8000/research"  method="GET">
         <div class="form-group">
             <label for="specialization"></label>
             <select class="form-control" id="specialization" name="specialization">
                 @foreach ($specializations as $specialization)
-                    <option value="{{ $specialization->spec_name }}">{{ $specialization->spec_name }}</option>
+                <option value="{{ $specialization->spec_name }}">{{ $specialization->spec_name }}</option>
                 @endforeach
             </select>
         </div>
         <button type="submit" class="btn btn-info my-2 my-sm-0 "><i class="fa fa-search" aria-hidden="true"></i> Cerca specializzazione</button>
     </form>
 
-    <section class="container-fluid mt-5 pb-3 border-0">
+    {{-- tag per importare i componenti vue --}}
+    <carousel></carousel>
+    <about-us></about-us>
+
+
+    {{-- <section class="container-fluid mt-5 pb-3 border-0">
         <div class="title text-center">
             <h2 class="text-dark font-weight-bold text-pop-up-top">Doctors</h2>
-        </div>
-        <div class="row justify-content-between">
+        </div> --}}
+        {{-- <div class="row justify-content-between">
             @foreach ($doctors as $doctor)
                 <div class="col-12 col-md-6 col-lg-3 text-center">
                     <a href="{{ route('guest.doctors.show', ['slug' => $doctor->slug]) }}">
@@ -59,7 +60,7 @@
                     </a>
                 </div>
             @endforeach
-        </div>
-        </div>
-    </section>
+        </div> --}}
+        {{-- </div>
+    </section> --}}
 @endsection

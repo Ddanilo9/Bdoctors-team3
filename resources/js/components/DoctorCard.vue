@@ -2,8 +2,6 @@
     <div class="doctor__card">
         <h3>{{ doctor.name }} {{ doctor.surname }}</h3>
 
-        {{ doctor.avgRate }}
-
         <figure>
             <img :src="`/storage/${doctor.photo}`" alt="doctor avatar" />
         </figure>
@@ -14,7 +12,7 @@
         </div>
 
         <template v-for="i in 5">
-            <template v-if="i <= doctor.avgRate">
+            <template v-if="i <= Math.round(doctor.avgRate)">
                 <font-awesome-icon
                     :key="'fs' + i"
                     icon="fa-solid fa-star"

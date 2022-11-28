@@ -1,8 +1,8 @@
 <template>
     <div>
-        <p v-for="doc in sponsorizedDoc" :key="doc.id">
+        <!-- <p v-for="doc in sponsorizedDoc" :key="doc.id">
             {{ doc.name }}
-        </p>
+        </p> -->
         <slider animation="fade">
             <slider-item
                 v-for="(i, index) in list"
@@ -10,15 +10,7 @@
                 :style="i"
                 @click="hello"
             >
-                <p
-                    style="
-                        line-height: 280px;
-                        font-size: 5rem;
-                        text-align: center;
-                    "
-                >
-                    Page{{ index + 1 }}
-                </p>
+                <DoctorCard></DoctorCard>
             </slider-item>
         </slider>
     </div>
@@ -29,8 +21,10 @@ const dayjs = require("dayjs");
 //import dayjs from 'dayjs' // ES 2015
 dayjs().format();
 import { Slider, SliderItem } from "vue-easy-slider";
+import DoctorCard from "./DoctorCard.vue";
 export default {
     components: {
+        DoctorCard,
         Slider,
         SliderItem,
     },
@@ -51,25 +45,27 @@ export default {
             console.log(`hello index: ${$event}`);
         },
 
-        fetchDoctor() {
-            axios.get("http://localhost:8000/api/doctors", {}).then((res) => {
-                this.doctors = res.data.result;
-                this.doctors.forEach((doctor) => {
-                    doctor.active = false;
-                    // console.log(doctor)
-                    doctor.plans.forEach((plan) => {
-                        let today = dayjs().format("YYYY-MM-DD HH:mm:ss");
-
-                        if (plan.pivot.expiration_date > today) {
-                            doctor.active = true;
-                            this.sponsorizedDoc.push(doctor);
-                        }
-                    });
-                });
-            });
-            console.log(this.sponsorizedDoc);
-            return this.sponsorizedDoc;
+        fetchDoctors() {
+            return axios.get("http://localhost:8000/api/doctors", {});
         },
+
+        // fetchDoctor() {
+        //     axios.get("http://localhost:8000/api/doctors", {}).then((res) => {
+        //         this.doctors = res.data.result;
+        //         this.doctors.forEach((doctor) => {
+        //             doctor.active = false;
+        //             doctor.plans.forEach((plan) => {
+        //                 let today = dayjs().format("YYYY-MM-DD HH:mm:ss");
+
+        //                 if (plan.pivot.expiration_date > today) {
+        //                     doctor.active = true;
+        //                     this.sponsorizedDoc.push(doctor);
+        //                 }
+        //             });
+        //         });
+        //     });
+        //     return this.sponsorizedDoc;
+        // },
 
         // activeSponsor() {
         //     this.doctors.forEach((doctor) => {
@@ -89,10 +85,6 @@ export default {
     },
     beforeMount() {
         this.fetchDoctor();
-    },
-    mounted() {
-        // this.fetchDoctor();
-        // this.activeSponsor();
     },
 };
 </script>

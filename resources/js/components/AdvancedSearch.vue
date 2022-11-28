@@ -9,6 +9,12 @@
             <option>5</option>
         </select>
 
+        <input
+            type="text"
+            placeholder="Cerca Dottore per recensioni"
+            v-model="totalReviews"
+        />
+
         <button @click="resetFilters()">Reset</button>
 
         <div class="container">
@@ -33,6 +39,7 @@ export default {
             doctors: [],
             specDoctors: [],
             starsSelected: "",
+            totalReviews: 0,
         };
     },
 
@@ -46,11 +53,22 @@ export default {
 
         filteredDoctor() {
             return this.specDoctors.filter((doc) => {
-                if (this.starsSelected === "") {
+                if (
+                    parseInt(this.totalReviews) ===
+                        parseInt(doc.totalReviews) &&
+                    Math.round(doc.avgRate) === parseInt(this.starsSelected)
+                )
+                    return doc;
+                if (
+                    parseInt(this.totalReviews) === parseInt(doc.totalReviews)
+                ) {
+                    return doc;
+                }
+                if (Math.round(doc.avgRate) === parseInt(this.starsSelected)) {
                     return doc;
                 }
 
-                if (Math.round(doc.avgRate) === parseInt(this.starsSelected)) {
+                if (this.starsSelected === "" && this.totalReviews === 0) {
                     return doc;
                 }
             });
@@ -71,6 +89,9 @@ export default {
                     return spec.spec_name === this.specialization;
                 });
 
+                if (doctor.reviews.length)
+                    doctor.totalReviews = doctor.reviews.length;
+
                 if (filteredSpecs.includes(true)) {
                     doctor.stars.forEach((star) => {
                         starsSum = starsSum + parseInt(star.number);
@@ -88,6 +109,7 @@ export default {
 
         resetFilters() {
             this.starsSelected = "";
+            this.totalReviews = 0;
         },
     },
 
