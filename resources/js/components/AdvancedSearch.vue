@@ -41,7 +41,7 @@ export default {
             doctors: [],
             specDoctors: [],
             starsSelected: "",
-            totalReviews: 0,
+            totalReviews: "",
         };
     },
 
@@ -54,26 +54,37 @@ export default {
         },
 
         filteredDoctor() {
-            return this.specDoctors.filter((doc) => {
-                if (
-                    parseInt(this.totalReviews) ===
-                        parseInt(doc.totalReviews) &&
-                    Math.round(doc.avgRate) === parseInt(this.starsSelected)
-                )
-                    return doc;
-                if (
-                    parseInt(this.totalReviews) === parseInt(doc.totalReviews)
-                ) {
-                    return doc;
-                }
-                if (Math.round(doc.avgRate) === parseInt(this.starsSelected)) {
-                    return doc;
-                }
+            if (this.starsSelected !== "" && this.totalReviews !== "") {
+                return this.specDoctors.filter((doc) => {
+                    return (
+                        Math.round(doc.avgRate) ===
+                            parseInt(this.starsSelected) &&
+                        parseInt(this.totalReviews) <=
+                            parseInt(doc.totalReviews)
+                    );
+                });
+            }
 
-                if (this.starsSelected === "" && this.totalReviews === 0) {
-                    return doc;
-                }
-            });
+            if (this.starsSelected !== "") {
+                return this.specDoctors.filter((doc) => {
+                    return (
+                        Math.round(doc.avgRate) === parseInt(this.starsSelected)
+                    );
+                });
+            }
+
+            if (this.totalReviews !== "") {
+                return this.specDoctors.filter((doc) => {
+                    return (
+                        parseInt(this.totalReviews) <=
+                        parseInt(doc.totalReviews)
+                    );
+                });
+            }
+
+            if (this.starsSelected === "" && this.totalReviews === "") {
+                return this.specDoctors;
+            }
         },
     },
 
@@ -111,7 +122,7 @@ export default {
 
         resetFilters() {
             this.starsSelected = "";
-            this.totalReviews = 0;
+            this.totalReviews = "";
         },
     },
 
