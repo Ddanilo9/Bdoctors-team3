@@ -30,7 +30,7 @@
     </form> --}}
     <div class="search-container d-flex justify-content-center">
         <form class="searchbar-home" action="http://127.0.0.1:8000/research"  method="GET">
-            <input class="chosen-value" id="specialization" name="specialization" type="text" value="" placeholder="Scrivi per filtrare">
+            <input class="chosen-value" id="specialization" name="specialization" type="text" value="" placeholder="Scrivi per filtrare" autocomplete="off">
             <ul class="value-list">
                 @foreach ($specializations as $specialization)
                 <li class="spec-li">{{ $specialization->spec_name }}</li>
