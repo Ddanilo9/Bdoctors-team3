@@ -21,17 +21,20 @@
     display: flex;
     flex-direction: column;">
     <!-- Header -->
-    @include('partials.header')
-
-
-    <!-- Main -->
-    <main>
-        @yield('content')
-    </main>
-
-
-    <!-- Footer -->
-    @include('partials.footer')
+    <div id="app">
+        
+        @include('partials.header')
+    
+    
+        <!-- Main -->
+        <main>
+            @yield('content')
+        </main>
+    
+    
+        <!-- Footer -->
+        @include('partials.footer')
+    </div>
        
     
     <!-- Scripts -->

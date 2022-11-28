@@ -48,6 +48,7 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
+                    {{-- name --}}
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nome*') }}</label>
 
@@ -62,6 +63,7 @@
                             </div>
                         </div>
 
+                    {{-- surname --}}
                         <div class="form-group row">
                             <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Cognome*') }}</label>
 
@@ -76,6 +78,7 @@
                             </div>
                         </div>
 
+                    {{-- address --}}
                         <div class="form-group row">
                             <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo*') }}</label>
 
@@ -90,28 +93,39 @@
                             </div>
                         </div>
 
+
+                    {{-- specialization checkbox --}}
                         <div class="container">
                             <H5 class="text-center">Specializzazioni:*</H5>
-                            <div style="height: 200px; overflow-y:scroll" class="register-spec-container ml-5">
+                            {{-- <div style="height: 200px; overflow-y:scroll" class="register-spec-container ml-5"> --}}
+                                <ul class="ks-cboxtags">
                                 @foreach ($specList as $s)
-                                    <div class="col-6 ml-2">
+                                    <li>
+                                        <input type="checkbox" id="{{$s}}" name="spec_name[]"
+                                        class="@error('spec_name') is-invalid @enderror" 
+                                        value="{{ $s }}">
+                                        <label for="{{$s}}">{{ $s }}</label>
+                                    </li>
+                                    {{-- <div class="col-6 ml-2">
                                         <input class="form-check-input @error('spec_name') is-invalid @enderror"
                                             name="spec_name[]" type="checkbox" value="{{ $s }}"
                                             id="spec_name">
                                         <label class="form-check-label" for="spec_name">
                                             {{ $s }}
-                                        </label>
+                                        </label> --}}
                                         @error('spec_name')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
                                         @enderror
 
-                                    </div>
+                                    {{-- </div> --}}
                                 @endforeach
-                            </div>
+                                </ul>
+                            {{-- </div> --}}
                         </div>
 
+                    {{-- email --}}
                         <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail*') }}</label>
 
@@ -126,6 +140,7 @@
                             </div>
                         </div>
 
+                    {{-- password --}}
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password*') }}</label>
 
