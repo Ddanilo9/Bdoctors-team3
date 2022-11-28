@@ -1,64 +1,83 @@
-@extends('layouts.app-vue')
 
-@section('content')
-    <section class="hero">
-        <div class="container">
-            <h2 class="text-center">Come possiamo aiutarti?</h2>
-            <h5 class="text-center">Ricerca medico in questa specializzazione:</h5>
-        </div>
-        <div class="container">
-            <div class="row justify-content-between">
-                @foreach ($specializations as $s)
-                    <div class="col-12 col-md-6 col-lg-2 text-center">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="specializations" id="spec"
-                                value="{{ $s->id }}">
-                            <label class="form-check-label" for="specializations">{{ $s->spec_name }}</label>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {{-- tag per importare i componenti vue --}}
-    <carousel></carousel>
-    <about-us></about-us>
-    
-    <form action="http://127.0.0.1:8000/research"  method="GET">
-        <div class="form-group">
-            <label for="specialization"></label>
-            <select class="form-control" id="specialization" name="specialization">
-                @foreach ($specializations as $specialization)
-                    <option value="{{ $specialization->spec_name }}">{{ $specialization->spec_name }}</option>
-                @endforeach
-            </select>
-        </div>
-        <button type="submit" class="btn btn-info my-2 my-sm-0 "><i class="fa fa-search" aria-hidden="true"></i> Cerca specializzazione</button>
-    </form>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <section class="container-fluid mt-5 pb-3 border-0">
-        <div class="title text-center">
-            <h2 class="text-dark font-weight-bold text-pop-up-top">Doctors</h2>
-        </div>
-        <div class="row justify-content-between">
-            @foreach ($doctors as $doctor)
-                <div class="col-12 col-md-6 col-lg-3 text-center">
-                    <a href="{{ route('guest.doctors.show', ['slug' => $doctor->slug]) }}">
-                        <h2 class="font-weight-bold pb-3">{{ $doctor->name }} {{ $doctor->surname }}</h2>
-                        <div class="photo">
+    <title>BDoctors</title>
 
-                            @if(!empty($doctor->photo))
-                                <img width="250" src="{{ asset('storage/' . $doctor->photo) }}" alt="{{ $doctor->name }}">
-                            @else
-                                <img width="250" src="{{ asset('img/no-image.png') }}" alt="{{ $doctor->name }}">
-                            @endif
-                        </div>
-                        <p class="text-secondary">{{ $doctor->address }}</p>
-                    </a>
+    <!-- Scripts -->
+    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <!-- Styles -->
+    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div>
+                    <a class="navbar-brand" href="{{ route('home') }}">LOGO</a>  
                 </div>
-            @endforeach
-        </div>
-        </div>
-    </section>
-@endsection
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                  <div class="navbar-nav">
+                    @guest
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                                @if (Route::has('register'))
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    </li>
+                                @endif
+                            @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('admin.home', Auth::user()->doctor) }}">Dashboard privata</a>
+                            </li>
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->doctor['name'] }} {{ Auth::user()->doctor['surname']}}
+                                    </a>
+    
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('admin.doctors.show', Auth::user()->doctor) }}">
+                                            {{ __('Profilo privato') }}
+                                        </a>
+    
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                           onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+    
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </li>
+                            @endguest
+                  </div>
+                </div>
+              </nav>
+    </header>
+
+   <div id='app'>
+      
+   </div>
+
+    <script src="{{ asset('js/front.js') }}" ></script>
+    {{-- <script src="{{ asset('js/front.js') }}" ></script> --}}
+</body>
+</html>

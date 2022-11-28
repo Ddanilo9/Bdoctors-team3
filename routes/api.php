@@ -18,4 +18,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('doctors','Api\SearchController');
+Route::resource('/doctors', 'Api\DoctorController')->only(['index','show']);
+
+Route::get('/search/specialization', 'Api\DoctorController@specialization')->name('api.doctors.specialization');
+

@@ -14,13 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home');
+// Route::get('/', 'HomeController@index')->name('home');
 
-Route::name('guest.')->group(
-    function () {
-        Route::get('/show/{slug}', 'HomeController@show')->name('doctors.show');
-    }
-);
+// Route::name('guest.')->group(
+//     function () {
+//         Route::get('/show/{slug}', 'HomeController@show')->name('doctors.show');
+//     }
+// );
 
 Route::resource('messages', 'MessageController');
 
@@ -29,6 +29,10 @@ Route::resource('reviews', 'ReviewController');
 // Route::get('/stars', 'StarController@sendVote')->name('vote');
 Route::post('vote/{vote}', 'StarController@storeVote')->name('store.vote');
 
+
+Route::middleware('auth')->get('/admin', function () {
+    return view('home');
+});
 
 Auth::routes();
 
@@ -50,8 +54,7 @@ Route::middleware('auth')
         Route::resource('doctors', 'DoctorController');
     });
 
-    // Route::get('{any?}', function(){
-    //     return view('layouts.app-vue');
-    // })->where('any', '.*');
-
+    Route::get("{any?}", function () {
+        return view("guest.home");
+    })->where("any", ".*")->name('home');
     
