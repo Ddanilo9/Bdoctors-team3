@@ -3,45 +3,25 @@
 @php
     $specList = [
             'Allergologia',
-            'Anatomia Patologica',
             'Andrologia',
-            'Angiologia Medica',
-            'Cardiochirurgia',
             'Cardiologia',
-            'Cardiologia pediatrica',
             'Chirurgia Generale',
             'Chirurgia Maxillo-facciale',
             'Chirurgia Pediatrica',
             'Chirurgia Plastica',
-            'Chirurgia Proctologica e Proctologia',
-            'Chirurgia Toracica',
-            'Chirurgia Vascolare',
-            'Dermatologia e Venereologia',
-            'Diabetologia',
+            'Dermatologia',
             'Dietologia',
             'Ecografia e Doppler',
             'Ematologia',
             'Endocrinologia',
-            'Fisiatria',
             'Fisioterapia',
             'Gastroenterologia',
-            'Genetica Medica',
-            'Geriatria e Gerontologia',
             'Ginecologia e Ostetricia',
-            'Immunologia',
-            'Infermieristica',
-            'Infettivologia e Malattie Infettive',
-            'Medicina del Dolore',
             'Medicina dello Sport',
             'Medicina Estetica',
-            'Medicina Interna',
             'Medicina Legale',
-            'Medicina Nucleare',
             'Nefrologia',
-            'Neurochirurgia',
-            'Neurofisiopatologia',
             'Neurologia',
-            'Neuropsichiatria Infantile',
             'Oculistica',
             'Odontoiatria',
             'Omeopatia e Agopuntura',
@@ -49,20 +29,16 @@
             'Ortopedia e Traumatologia',
             'Otorinolaringoiatria',
             'Pediatria',
-            'Pneumologia e Malattie',
             'Respiratorie',
             'Psichiatria',
             'Psicologia',
-            'Radiologia Interventistica',
-            'Radiologia TAC e Risonanza',
-            'Reumatologia',
-            'Senologia',
+            'Radiologia',
             'Urologia',
         ];
 @endphp
 
 @section('content')
-<div class="container">
+<div class="container py-5 my-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -73,7 +49,7 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nome*') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -87,7 +63,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('surname') }}</label>
+                            <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Cognome*') }}</label>
 
                             <div class="col-md-6">
                                 <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="name" autofocus>
@@ -101,7 +77,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('address') }}</label>
+                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo*') }}</label>
 
                             <div class="col-md-6">
                                 <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
@@ -115,11 +91,11 @@
                         </div>
 
                         <div class="container">
-                            <H5 class="text-center">Specializzazioni:</H5>
-                            <div class="form-group row justify-content-center ml-5">
+                            <H5 class="text-center">Specializzazioni:*</H5>
+                            <div style="height: 200px; overflow-y:scroll" class="register-spec-container ml-5">
                                 @foreach ($specList as $s)
-                                    <div class="col-4 ">
-                                        <input class="form-check-input  @error('spec_name') is-invalid @enderror"
+                                    <div class="col-6 ml-2">
+                                        <input class="form-check-input @error('spec_name') is-invalid @enderror"
                                             name="spec_name[]" type="checkbox" value="{{ $s }}"
                                             id="spec_name">
                                         <label class="form-check-label" for="spec_name">
@@ -137,7 +113,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail*') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -151,7 +127,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password*') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -165,7 +141,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
@@ -175,7 +151,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                    {{ __('Registrati') }}
                                 </button>
                             </div>
                         </div>

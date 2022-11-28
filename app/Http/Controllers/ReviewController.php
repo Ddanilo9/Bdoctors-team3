@@ -52,7 +52,7 @@ class ReviewController extends Controller
         
         $request->validate([
             'name' => 'required|max:255|min:5',
-            'comment' => 'required|max:400',
+            'comment' => 'required|max:800',
             'doctor_id'=>'required|exists:doctors,id',
         ]);      
         

@@ -17,7 +17,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body style="min-height: 100vh;
+    display: flex;
+    flex-direction: column;">
     <!-- Header -->
     @include('partials.header')
 
@@ -34,6 +36,7 @@
     
     <!-- Scripts -->
     <script src="{{ mix('/js/app.js') }}" defer></script>
+    <script src="{{ mix('/js/front.js') }}" defer></script>
 
 </body>
 </html>
