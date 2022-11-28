@@ -19,7 +19,9 @@
 
         <div class="container">
             <div v-for="doctor in filteredDoctor" :key="doctor.id">
-                <DoctorCard :doctor="doctor" />
+                <a :href="`/show/${doctor.slug}`">
+                    <DoctorCard :doctor="doctor" />
+                </a>
             </div>
         </div>
     </div>
@@ -134,6 +136,11 @@ export default {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 16px;
+    }
+
+    a {
+        color: currentColor;
+        text-decoration: none;
     }
 }
 </style>
