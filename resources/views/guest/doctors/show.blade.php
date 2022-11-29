@@ -18,10 +18,10 @@
             </a>
         </div>
         <div class="row">
-            <div class="col-8">
-                <h2 class="display-3 py-3">{{ $doctor->name }} {{ $doctor->surname }}</h2>
+            <div class="col-12">
+                <h2 class="display-4 py-3">{{ $doctor->name }} {{ $doctor->surname }}</h2>
 
-                <div class="info p-3 d-flex align-items-center">
+                <div class="info p-3 d-flex align-items-center flex-column flex-md-row justify-content-center justify-content-lg-start">
                     <div class="photo">
 
                         @if (!empty($doctor->photo))
@@ -31,14 +31,34 @@
                         @endif
                     </div>
 
-                    <section class="specs ml-4 mt-3">
+                    <section class="specs ml-4 mt-3 get-in-touch">
                         <h2>Dott.{{ $doctor->name }} {{ $doctor->surname }}</h2>
                         <div class="vote mt-4 font-weight-bold">Voto Medio: {{ $doctor->avg }}</div>
-
+                        <form action="{{ route('store.vote', $doctor->id) }}" method="post">
+                            @csrf
+                            @method('POST')
+    
+                            <div class="form-row wrap-no align-items-center ">
+                                <div class="col-auto my-1">
+                                    <label class="mr-sm-2 sr-only" for="number">Inserisci il voto</label>
+                                    <select name="number" class="custom-select mr-sm-2 font-weight-bold" id="number">
+                                        <option disabled selected value>Voto</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                                <div class="form-field col-lg-12">
+                                    <input class="submit-btn" type="submit" value="Submit">
+                                </div>
+                            </div>
+                        </form>
                         <div class="specialization mt-4">
-                            <div class="font-weight-bold">Le tue specializzazioni: </div>
+                            <div class="font-weight-bold">Specializzato/a in: </div>
                             @foreach ($doctor->specializations as $s)
-                                <div class="badge badge-info p-2 my-2 text-white">{{ $s->spec_name }}</div>
+                                <div class="badge badge-info p-3 my-2 text-white f-5">{{ $s->spec_name }}</div>
                             @endforeach
                         </div>
                     </section>
@@ -66,161 +86,109 @@
         </div>
 
         {{-- Send Message --}}
-        <div class="container my-3">
-            <div class="row">
-                <div class="col-8">
-                    <h2>Contatta il medico privatamente:</h2>
-                </div>
-                <div class="col-4 text-left d-flex justify-content-end align-items-center">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <form action="{{ route('messages.store') }}" method="POST">
-                        @csrf
-                        @method('POST')
+        <section class="get-in-touch">
+            <h1 class="title">Contatta il medico privatamente:</h1>
+            <form action="{{ route('messages.store') }}" method="POST" class="contact-form row">
+                @csrf
+                @method('POST')
 
-                        <div class="form-group">
-                            <label for="name">Nome</label>
-                            <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                id="name" value="" name="name"
-                                aria-describedby="helpTitle" placeholder="inserisci il nome">
-                            <small id="helpName" class="form-text text-muted">Inserisci il tuo Nome.</small>
-                            @error('name')
-                                <div id="name" class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
+                <div class="form-field col-lg-6">
+                    <input type="text" class=" input-text js-input form-control @error('name') is-invalid @enderror"
+                        id="name" name="name">
+                    <label class="label" for="name">Name</label>
+                    @error('name')
+                        <div id="name" class="invalid-feedback">
+                            {{ $message }}
                         </div>
-
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="text" class="form-control @error('email') is-invalid @enderror"
-                                id="email" value="" name="email"
-                                aria-describedby="helpTitle" placeholder="inserisci il nome">
-                            <small id="helpemail" class="form-text text-muted">Inserirsci la Mail</small>
-                            @error('email')
-                                <div id="email" class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message" class="font-weight-bold">messaggio</label>
-                            <textarea class="form-control" id="message" name="message" rows="10"
-                                placeholder="Scrivi qui il tuo messaggio" required @error('message') is-invalid @enderror></textarea>
-                        </div>
-                        @error('message')
-                            <div id="message" class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                        <input hidden type="number" name="doctor_id" value="{{ $doctor->id }}">    
-                        <button type="submit" class="btn btn-primary">Invia</button>
-                    </form>
+                    @enderror
                 </div>
-            </div>
-        </div>
-        
+                <div class="form-field col-lg-6">
+                    <input type="email" class=" input-text js-input form-control @error('email') is-invalid @enderror"
+                        id="email" name="email">
+                    <label class="label" for="email">Email</label>
+                    @error('email')
+                        <div id="email" class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                <div class="form-field col-lg-6">
+                    <textarea class="form-control areat" id="message" name="message" rows="5"
+                        placeholder="Scrivi qui il tuo messaggio" required @error('message') is-invalid @enderror></textarea>
+                    @error('name')
+                        <div id="message" class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                <input hidden type="number" name="doctor_id" value="{{ $doctor->id }}">
+                <div class="form-field col-lg-12">
+                    <input class="submit-btn" type="submit" value="Submit">
+                </div>
+            </form>
+        </section>
+
 
 
         {{-- Review index --}}
-        <div class="my-4">
-            <h2>Recensioni:</h2>
-            <div style="height: 500px; overflow-y:scroll" class="reviews-received border my-1 p-3">
-            
-                @forelse ($reviews as $review)
-                    <div class="review">
-
-                        <h4><span class="font-weight-bold">{{ $review->name }}</span> ha scritto:</h4>
-                        <div class="mess d-flex border">
-                            <div class="recensione font-italic px-3 pb-2 ml-3">{{ $review->comment }}"</div>
+        <div class='container-5 mx-auto mt-5 col-md-10 col-11'>
+            <div class="header text-muted"> Recensioni: </div>
+            <div class="row" style="justify-content: center">
+                @forelse ($reviews as $r)
+                    
+                <div class="card-5 col-md-3 col-11">
+                    <div class="card-5-content">
+                        <div class="card-5-body p-0 md-box">
+                            <div class="profile mb-4 mt-3"> <img src="{{ asset('img/no-image.png') }}"> </div>
+                            <div class="card-5-subtitle">
+                                <h6><span class="font-weight-bold">{{ $r->name }}</span> ha scritto:</h6>
+                                <p> <small class="text-muted">
+                                    <i class="fas fa-quote-left"></i>
+                                    {{$r->comment}}
+                                    <i class="fas fa-quote-left fa-flip-horizontal"></i> </small> 
+                                </p>
+                            </div>
                         </div>
-                        <p class="mb-4">{{ $review->created_at->diffForHumans() }}.</p>
+                        <p class="mb-4">{{ $r->created_at->diffForHumans() }}.</p>
                     </div>
+                </div>
                 @empty
-                    <h4>Nessuna recensione</h4>
+                <h4>Nessuna recensione</h4>
                 @endforelse
             </div>
         </div>
 
-        {{-- Review create --}}
-        <div class="container">
-            <div class="row">
-                <div class="col-8">
-                    <h2>Lascia una Recensione</h2>
-                </div>
-                <div class="col-4 text-left d-flex justify-content-end align-items-center">
-                </div>
-            </div>
-        </div>
+        <section class="get-in-touch">
+            <h1 class="title">Scrivi una recensione:</h1>
+            <form action="{{ route('reviews.store') }}" method="POST" class="contact-form">
+                @csrf
+                @method('POST')
 
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <form action="{{ route('store.vote', $doctor->id) }}" method="post">
-                        @csrf
-                        @method('POST')
-
-                        <div class="form-row align-items-center">
-                            <div class="col-auto my-1">
-                                <label class="mr-sm-2 sr-only" for="number">Inserisci il voto</label>
-                                <select name="number" class="custom-select mr-sm-2 font-weight-bold" id="number">
-                                    <option disabled selected value>Voto</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                            </div>
-                            <div class="col-auto">
-                                <button type="submit" class="btn btn-primary">Invia</button>
-                            </div>
+                <div class="form-field col-lg-6">
+                    <input type="text" class=" input-text js-input form-control @error('name') is-invalid @enderror"
+                        id="name" name="name">
+                    <label class="label" for="name">Name</label>
+                    @error('name')
+                        <div id="name" class="invalid-feedback">
+                            {{ $message }}
                         </div>
-                    </form>
+                    @enderror
                 </div>
-            </div>
-        </div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <form action="{{ route('reviews.store') }}" method="POST">
-                        @csrf
-                        @method('POST')
-
-                        <div class="form-group">
-                            <label for="name">Nome</label>
-                            <input type="text" class="form-control @error('name') is-invalid @enderror"
-                                id="name" value="" name="name"
-                                aria-describedby="helpTitle" placeholder="inserisci il nome">
-                            <small id="helpName" class="form-text text-muted">Inserisci il tuo Nome.</small>
-                            @error('name')
-                                <div id="name" class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
+                
+                <div class="form-field col-lg-6">
+                    <textarea class="form-control areat" id="message" name="message" rows="5"
+                        placeholder="Scrivi qui il tuo messaggio" required @error('message') is-invalid @enderror></textarea>
+                    @error('name')
+                        <div id="message" class="invalid-feedback">
+                            {{ $message }}
                         </div>
-
-                        <div class="form-group">
-                            <label for="comment" class="font-weight-bold">Commento</label>
-                            <textarea class="form-control" id="comment" name="comment" rows="10"
-                                placeholder="Inserisci la tua recensione" required @error('comment') is-invalid @enderror></textarea>
-                        </div>
-                        @error('comment')
-                            <div id="comment" class="invalid-feedback">
-                                {{ $message }}
-                            </div>
-                        @enderror
-                        <input hidden type="number" name="doctor_id" value="{{ $doctor->id }}">
-                        <button type="submit" class="btn btn-primary">Invia</button>
-                    </form>
+                    @enderror
                 </div>
-            </div>
-        </div>
+                <input hidden type="number" name="doctor_id" value="{{ $doctor->id }}">
+                <div class="form-field col-lg-12">
+                    <input class="submit-btn" type="submit" value="Submit">
+                </div>
+            </form>
+        </section>
     </div>
 @endsection
