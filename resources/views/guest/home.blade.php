@@ -39,6 +39,7 @@
 
     <carousel></carousel>
     <advert-doc></advert-doc>
+    <howworks></howworks>
     <about-us></about-us>
 
 

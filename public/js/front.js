@@ -168,7 +168,6 @@ document.addEventListener('click', function (evt) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(/*! C:\BooleanDevelopement\Bdoctors-team3\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\sanso\Saved Games\Desktop\Bdoctors-team3\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
