@@ -94,8 +94,6 @@ export default {
         },
 
         filterDoctorsSpec() {
-            let starsSum = 0;
-
             this.doctors.forEach((doctor) => {
                 const specializations = doctor.specializations;
                 const filteredSpecs = specializations.map((spec) => {
@@ -106,13 +104,6 @@ export default {
                     doctor.totalReviews = doctor.reviews.length;
 
                 if (filteredSpecs.includes(true)) {
-                    doctor.stars.forEach((star) => {
-                        starsSum = starsSum + parseInt(star.number);
-                    });
-
-                    doctor.avgRate = starsSum / doctor.stars.length;
-
-                    starsSum = 0;
                     this.specDoctors.push(doctor);
                 }
             });

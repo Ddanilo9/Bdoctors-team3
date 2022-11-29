@@ -10,6 +10,10 @@ require("./bootstrap");
 
 window.Vue = require("vue");
 
+import Carousel3d from "vue-carousel-3d";
+
+Vue.use(Carousel3d);
+
 window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 
 const dayjs = require("dayjs");

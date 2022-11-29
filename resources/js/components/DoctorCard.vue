@@ -1,5 +1,5 @@
 <template>
-    <div class="doctor__card">
+    <div class="doctor__card" :class="styleModifier">
         <h3>{{ doctor.name }} {{ doctor.surname }}</h3>
 
         <figure>
@@ -30,6 +30,22 @@
 export default {
     props: {
         doctor: Object,
+        styleModifier: String,
+    },
+
+    methods: {
+        getTotalStars() {
+            let starsSum = 0;
+
+            this.doctor.stars.forEach((star) => {
+                starsSum = starsSum + parseInt(star.number);
+            });
+            this.doctor.avgRate = starsSum / this.doctor.stars.length;
+        },
+    },
+
+    created() {
+        this.getTotalStars();
     },
 };
 </script>
