@@ -38,91 +38,97 @@ import axios from "axios";
 import DoctorCard from "./DoctorCard.vue";
 
 export default {
-  components: {
-    DoctorCard,
-  },
-
-  data() {
-    return {
-      doctors: [],
-      specDoctors: [],
-      starsSelected: "",
-      totalReviews: "",
-    };
-  },
-
-  computed: {
-    specialization() {
-      let params = new URL(document.location).searchParams;
-      let spec = params.get("specialization");
-
-      return spec;
+    components: {
+        DoctorCard,
     },
 
-    filteredDoctor() {
-      return this.specDoctors.filter((doc) => {
-        if (
-          parseInt(this.totalReviews) === parseInt(doc.totalReviews) &&
-          Math.round(doc.avgRate) === parseInt(this.starsSelected)
-        )
-          return doc;
-        if (parseInt(this.totalReviews) === parseInt(doc.totalReviews)) {
-          return doc;
-        }
-        if (Math.round(doc.avgRate) === parseInt(this.starsSelected)) {
-          return doc;
-        }
-
-        if (this.starsSelected === "" && this.totalReviews === "") {
-          return doc;
-        }
-      });
-    },
-  },
-
-  methods: {
-    fetchDoctors() {
-      return axios.get("http://localhost:8000/api/doctors", {});
+    data() {
+        return {
+            doctors: [],
+            specDoctors: [],
+            starsSelected: "",
+            totalReviews: "",
+        };
     },
 
-    filterDoctorsSpec() {
-      let starsSum = 0;
+    computed: {
+        specialization() {
+            let params = new URL(document.location).searchParams;
+            let spec = params.get("specialization");
 
-      this.doctors.forEach((doctor) => {
-        const specializations = doctor.specializations;
-        const filteredSpecs = specializations.map((spec) => {
-          return spec.spec_name === this.specialization;
+            return spec;
+        },
+
+        filteredDoctor() {
+            if (this.starsSelected !== "" && this.totalReviews !== "") {
+                return this.specDoctors.filter((doc) => {
+                    return (
+                        Math.round(doc.avgRate) ===
+                            parseInt(this.starsSelected) &&
+                        parseInt(this.totalReviews) <=
+                            parseInt(doc.totalReviews)
+                    );
+                });
+            }
+
+            if (this.starsSelected !== "") {
+                return this.specDoctors.filter((doc) => {
+                    return (
+                        Math.round(doc.avgRate) === parseInt(this.starsSelected)
+                    );
+                });
+            }
+
+            if (this.totalReviews !== "") {
+                return this.specDoctors.filter((doc) => {
+                    return (
+                        parseInt(this.totalReviews) <=
+                        parseInt(doc.totalReviews)
+                    );
+                });
+            }
+
+            if (this.starsSelected === "" && this.totalReviews === "") {
+                return this.specDoctors;
+            }
+        },
+    },
+
+    methods: {
+        fetchDoctors() {
+            return axios.get("http://localhost:8000/api/doctors", {});
+        },
+
+        filterDoctorsSpec() {
+            this.doctors.forEach((doctor) => {
+                const specializations = doctor.specializations;
+                const filteredSpecs = specializations.map((spec) => {
+                    return spec.spec_name === this.specialization;
+                });
+
+                if (doctor.reviews.length)
+                    doctor.totalReviews = doctor.reviews.length;
+
+                if (filteredSpecs.includes(true)) {
+                    this.specDoctors.push(doctor);
+                }
+            });
+
+            return this.specDoctors;
+        },
+
+        resetFilters() {
+            this.starsSelected = "";
+            this.totalReviews = "";
+        },
+    },
+
+    mounted() {
+        this.fetchDoctors().then((res) => {
+            this.doctors = res.data.result;
+            this.filterDoctorsSpec();
         });
-
-        if (doctor.reviews.length) doctor.totalReviews = doctor.reviews.length;
-
-        if (filteredSpecs.includes(true)) {
-          doctor.stars.forEach((star) => {
-            starsSum = starsSum + parseInt(star.number);
-          });
-
-          doctor.avgRate = starsSum / doctor.stars.length;
-
-          starsSum = 0;
-          this.specDoctors.push(doctor);
-        }
-      });
-
-      return this.specDoctors;
     },
-
-    resetFilters() {
-      this.starsSelected = "";
-      this.totalReviews = "";
-    },
-  },
-
-  mounted() {
-    this.fetchDoctors().then((res) => {
-      this.doctors = res.data.result;
-      this.filterDoctorsSpec();
-    });
-  },
 };
 </script>
 

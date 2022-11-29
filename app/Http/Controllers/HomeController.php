@@ -20,7 +20,7 @@ class HomeController extends Controller
     {
         $doctors = Doctor::orderBy('created_at', 'desc')->limit(5)->get();
 
-        $specializations = Specialization::orderBy('created_at', 'desc')->limit(5)->get();
+        $specializations = Specialization::orderBy('created_at', 'desc')->get();
         return view('guest.home', compact('doctors', 'specializations'));
     }
 

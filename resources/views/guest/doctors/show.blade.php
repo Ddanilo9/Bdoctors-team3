@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+<!--Title-->
+@section('metaTitle','BDoctors - Consulta il Medico')
+
+<!--Main-->
 @section('content')
     <div class="container">
         <div class="d-flex align-items-center justify-content-between">
@@ -33,6 +37,35 @@
 
                     <section class="specs ml-4 mt-3 get-in-touch">
                         <h2>Dott.{{ $doctor->name }} {{ $doctor->surname }}</h2>
+
+                        <div class="vote">
+                            <div class="row">
+                                <div class="col-12">
+                                    <form action="{{ route('store.vote', $doctor->id) }}" method="post">
+                                        @csrf
+                                        @method('POST')
+                
+                                        <div class="form-row align-items-center">
+                                            <div class="col-auto my-1">
+                                                <label class="mr-sm-2 sr-only" for="number">Inserisci il voto</label>
+                                                <select name="number" class="custom-select mr-sm-2 font-weight-bold" id="number">
+                                                    <option disabled selected value>Voto</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-auto">
+                                                <button type="submit" class="btn btn-primary">Invia</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="vote mt-4 font-weight-bold">Voto Medio: {{ $doctor->avg }}</div>
                         <form action="{{ route('store.vote', $doctor->id) }}" method="post">
                             @csrf
@@ -164,6 +197,7 @@
                 @csrf
                 @method('POST')
 
+<<<<<<< HEAD
                 <div class="form-field col-lg-6">
                     <input type="text" class=" input-text js-input form-control @error('name') is-invalid @enderror"
                         id="name" name="name">
@@ -181,6 +215,28 @@
                     @error('name')
                         <div id="message" class="invalid-feedback">
                             {{ $message }}
+=======
+        
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <form action="{{ route('reviews.store') }}" method="POST">
+                        @csrf
+                        @method('POST')
+
+                        <div class="form-group">
+                            <label for="name">Nome</label>
+                            <input type="text" class="form-control @error('name') is-invalid @enderror"
+                                id="name" value="" name="name"
+                                aria-describedby="helpTitle" placeholder="inserisci il nome">
+                            <small id="helpName" class="form-text text-muted">Inserisci il tuo Nome.</small>
+                            @error('name')
+                                <div id="name" class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+>>>>>>> develop
                         </div>
                     @enderror
                 </div>
@@ -192,3 +248,4 @@
         </section>
     </div>
 @endsection
+<!--End Main-->

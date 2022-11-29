@@ -1,41 +1,36 @@
 @extends('layouts.app-vue')
 
+<!-- Main -->
+
 @section('content')
+<div id="app">
     <section class="hero">
-        <div class="container">
-            <h2 class="text-center">Come possiamo aiutarti?</h2>
-            <h5 class="text-center">Ricerca medico in questa specializzazione:</h5>
-        </div>
-        {{-- <div class="container">
-            <div class="row justify-content-between">
-                @foreach ($specializations as $s)
-                    <div class="col-12 col-md-6 col-lg-2 text-center">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="specializations" id="spec"
-                                value="{{ $s->id }}">
-                            <label class="form-check-label" for="specializations">{{ $s->spec_name }}</label>
-                        </div>
-                    </div>
-                @endforeach
+        <div class="hero-center" >
+            <div class="titles">
+                <h2 class="text-center display-3">Come possiamo aiutarti?</h2>
+                <h5 class="text-center h2">Ricerca medico in questa specializzazione:</h5>
             </div>
-        </div> --}}
+            
+            {{-- search bar --}}
+            
+            <div class="search-container d-flex justify-content-center">
+                <form class="searchbar-home" action="http://127.0.0.1:8000/research"  method="GET">
+                    <input class="chosen-value" id="specialization" name="specialization" type="text" value="" placeholder="Scrivi per filtrare" autocomplete="off">
+                    <ul class="value-list">
+                        @foreach ($specializations as $specialization)
+                        <li class="spec-li">{{ $specialization->spec_name }}</li>
+                        @endforeach
+                    </ul>
+                    {{-- <button type="submit" class="btn btn-info">Cerca specializzazione</button> --}}
+                </form>
+            </div>
+        </div> 
     </section>
 
 
-    <form action="http://127.0.0.1:8000/research"  method="GET">
-        <div class="form-group">
-            <label for="specialization"></label>
-            <select class="form-control" id="specialization" name="specialization">
-                @foreach ($specializations as $specialization)
-                <option value="{{ $specialization->spec_name }}">{{ $specialization->spec_name }}</option>
-                @endforeach
-            </select>
-        </div>
-        <button type="submit" class="btn btn-info my-2 my-sm-0 "><i class="fa fa-search" aria-hidden="true"></i> Cerca specializzazione</button>
-    </form>
-
-    {{-- tag per importare i componenti vue --}}
     <carousel></carousel>
+    <advert-doc></advert-doc>
+    <howworks></howworks>
     <about-us></about-us>
 
 
@@ -60,7 +55,13 @@
                     </a>
                 </div>
             @endforeach
-        </div> --}}
-        {{-- </div>
+        </div>
+        </div>
     </section> --}}
+</div>
+
 @endsection
+
+
+
+

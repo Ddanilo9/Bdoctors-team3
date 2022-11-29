@@ -32,6 +32,7 @@
         "@fortawesome/vue-fontawesome": "^2.0.9",
         "dayjs": "^1.11.6",
         "moment": "^2.29.4",
+        "vue-carousel-3d": "^1.0.1",
         "vue-easy-slider": "^5.3.4"
     }
 }
