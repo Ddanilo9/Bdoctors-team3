@@ -1,14 +1,8 @@
 <template>
-<<<<<<< HEAD
   <div class="box-card">
-    <div class="card-1">
+    <div class="card-1" :class="styleModifier">
       <div class="card-1-header">
         <h4 class="text-center py-2">{{ doctor.name }} {{ doctor.surname }}</h4>
-=======
-    <div class="doctor__card" :class="styleModifier">
-        <h3>{{ doctor.name }} {{ doctor.surname }}</h3>
-
->>>>>>> develop
         <figure>
           <img :src="`/storage/${doctor.photo}`" alt="doctor avatar" />
         </figure>
@@ -48,12 +42,6 @@
 
 <script>
 export default {
-<<<<<<< HEAD
-  props: {
-    doctor: Object,
-  },
-  methods: {},
-=======
     props: {
         doctor: Object,
         styleModifier: String,
@@ -73,7 +61,6 @@ export default {
     created() {
         this.getTotalStars();
     },
->>>>>>> develop
 };
 </script>
 
