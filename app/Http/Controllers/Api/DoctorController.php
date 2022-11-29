@@ -17,23 +17,8 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        // $doctors = Doctor::with(['specializations'])->whereHas('plans', function ($active) {
-        //     $active->where('ending_date', '>', date('Y-m-d H:i:s'));
-        // })->limit(4)->inRandomOrder()->get();
-        // foreach ($doctors as $doctor) {
-        //     $doctor->vote = $doctor->reviews->avg('vote');
-        //     unset($doctor->email_verified_at, $doctor->created_at, $doctor->updated_at);
-        //     foreach ($doctor->specializations as $specialization) {
-        //         unset($specialization->created_at, $specialization->updated_at, $specialization->pivot);
-        //     }
-        //     $doctor->photo = $this->fixImageUrl($doctor->photo);
-        // }
-        // return response()->json([
-        //     'success'   => true,
-        //     'result'    => $doctors
-        // ]);
-
-        $result = Doctor::with('specializations', 'stars', 'reviews', 'plans')->get();
+       
+        $result = Doctor::with('specializations', 'stars','reviews','plans')->get();
         $success = true;
 
         return response()->json(compact('result', 'success'));

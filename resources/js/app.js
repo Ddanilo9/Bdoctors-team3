@@ -11,9 +11,9 @@ require("./bootstrap");
 
 // window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 
-const dayjs = require('dayjs')
+const dayjs = require("dayjs");
 //import dayjs from 'dayjs' // ES 2015
-dayjs().format()
+dayjs().format();
 
 /**
  * The following block of code may be used to automatically register your
@@ -26,12 +26,31 @@ dayjs().format()
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-// Vue.component(
-//     "example-component",
-//     require("./components/ExampleComponent.vue").default
-// );
-// Vue.component("carousel", require("./components/Carousel").default);
-// Vue.component("about-us", require("./components/AboutUs").default);
+Vue.component(
+    "example-component",
+    require("./components/ExampleComponent.vue").default
+);
+Vue.component("carousel", require("./components/Carousel").default);
+Vue.component("about-us", require("./components/AboutUs").default);
+Vue.component(
+    "advanced-search",
+    require("./components/AdvancedSearch").default
+);
+
+import { library } from "@fortawesome/fontawesome-svg-core";
+
+/* import font awesome icon component */
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
+/* import specific icons */
+import { faStar as fullStar } from "@fortawesome/free-solid-svg-icons";
+import { faStar as emptyStar } from "@fortawesome/free-regular-svg-icons";
+
+/* add icons to the library */
+library.add(fullStar, emptyStar);
+
+/* add font awesome icon component */
+Vue.component("font-awesome-icon", FontAwesomeIcon);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

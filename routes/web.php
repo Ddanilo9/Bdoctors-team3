@@ -26,6 +26,9 @@ Route::resource('messages', 'MessageController');
 
 Route::resource('reviews', 'ReviewController');
 
+Route::get('/research', 'HomeController@research');
+
+
 // Route::get('/stars', 'StarController@sendVote')->name('vote');
 Route::post('vote/{vote}', 'StarController@storeVote')->name('store.vote');
 
