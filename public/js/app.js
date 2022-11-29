@@ -1912,6 +1912,25 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AdvertDoctor.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AdvertDoctor.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      news: ['il_sole_24_ore_2.png', 'le-iene.png', 'toms_hardware_2.png', 'forbes.png', 'la-stampa.png', 'ted-x.png', 'milano-finanza.png', 're_quadro_2.png']
+    };
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Carousel.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Carousel.vue?vue&type=script&lang=js& ***!
@@ -2039,6 +2058,66 @@ var staticRenderFns = [function () {
   }, [_vm._v("About us")])]), _vm._v(" "), _c("div", {
     staticClass: "container-about"
   }, [_vm._v("\n    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint laborum\n    dolorum dolore inventore eos beatae voluptates itaque ea dignissimos\n    maiores et veniam non quis explicabo nobis doloremque recusandae unde,\n    alias fuga magni ipsam deserunt sequi. Eos ea cum nam, quam deleniti alias\n    accusamus iure expedita reiciendis qui magnam dolor reprehenderit.\n  ")])]);
+}];
+render._withStripped = true;
+
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AdvertDoctor.vue?vue&type=template&id=2cdcf07e&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AdvertDoctor.vue?vue&type=template&id=2cdcf07e&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function render() {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "container d-flex justify-content-center align-items-center flex-wrap py-5"
+  }, [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
+    staticClass: "newspapers pt-5"
+  }, [_c("span", {}, [_vm._v("Hanno parlato di noi:")]), _vm._v(" "), _c("ul", {
+    staticClass: "list_journals d-flex justify-content-center align-items-center list-unstyled flex-wrap"
+  }, _vm._l(_vm.news, function (item) {
+    return _c("li", {
+      staticClass: "journals"
+    }, [_c("img", {
+      attrs: {
+        width: "100",
+        src: "/img/" + item
+      }
+    })]);
+  }), 0)])]);
+};
+var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("figure", [_c("img", {
+    attrs: {
+      width: "400",
+      src: "\\img\\1533845191.png",
+      alt: "Doctor Photo"
+    }
+  })]);
+}, function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "advertising_doctor px-5 w-50 h5"
+  }, [_c("h2", {
+    staticClass: "h1 font-weight-bold"
+  }, [_vm._v("Sei un Medico?")]), _vm._v(" "), _c("p", [_vm._v("Iscriviti e raggiungi nuovi pazienti")]), _vm._v(" "), _c("p", [_vm._v("Più di 2 milioni di pazienti cercano ogni mese il loro Medico su BDoctors, il "), _c("strong", [_vm._v("primo sito in Italia per visitatori e numero di prenotazioni.")])]), _vm._v(" "), _c("ul", [_vm._v("Con BDoctors:\n            "), _c("li", [_vm._v("Ricevi prenotazioni da "), _c("strong", [_vm._v("nuovi pazienti")])]), _vm._v(" "), _c("li", [_vm._v("Migliori la tua nuovi "), _c("strong", [_vm._v("visibilità")]), _vm._v(" e la tua reputazione online")]), _vm._v(" "), _c("li", [_vm._v("Organizzi al meglio il tuo lavoro con una suite completa di "), _c("strong", [_vm._v("strumenti")]), _vm._v(" dedicati al Medico")]), _vm._v(" "), _c("li", [_vm._v("Puoi usare la nostra "), _c("strong", [_vm._v("App multipiattaforma")]), _vm._v(" dedicata ai Medici")]), _vm._v(" "), _c("li", [_vm._v("Hai il nostro "), _c("strong", [_vm._v("staff")]), _vm._v(" sempre "), _c("strong", [_vm._v("disponibile")]), _vm._v(" ad aiutarti")])]), _vm._v(" "), _c("a", {
+    staticClass: "buttons_reg rounded d-flex",
+    attrs: {
+      href: ""
+    }
+  }, [_vm._v("Iscriviti a BDoctors")])]);
 }];
 render._withStripped = true;
 
@@ -6541,6 +6620,25 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 // module
 exports.push([module.i, "h1[data-v-19b32af0] {\n  color: #0a0f1c;\n  font-size: 50px;\n}\n.about-us[data-v-19b32af0] {\n  background-image: url(" + escape(__webpack_require__(/*! ../../../public/img/aa.png */ "./public/img/aa.png")) + ");\n  background-position: top;\n  background-repeat: no-repeat;\n  background-size: cover;\n  height: 350px;\n  display: flex;\n  align-items: center;\n  flex-direction: column;\n  justify-content: center;\n  width: 100%;\n}\n.container-about[data-v-19b32af0] {\n  max-width: 85%;\n  padding: 15px;\n  margin: 0 auto;\n  color: #0a0f1c;\n  background-color: #e8e8e8;\n  filter: drop-shadow(7px 3px 9px #7697de);\n  border-radius: 20px;\n  text-align: center;\n}\n@media (min-width: 425px) {\n.container-about[data-v-19b32af0] {\n    padding: 20px 25px;\n}\n}\n@media (min-width: 1200px) {\n.container-about[data-v-19b32af0] {\n    max-width: 750px;\n}\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AdvertDoctor.vue?vue&type=style&index=0&id=2cdcf07e&lang=scss&scoped=true&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AdvertDoctor.vue?vue&type=style&index=0&id=2cdcf07e&lang=scss&scoped=true& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".buttons_reg[data-v-2cdcf07e] {\n  background-color: #6cb2eb;\n  color: white;\n  padding: 0.5rem 1rem;\n  text-decoration: none;\n  box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.8);\n  width: -moz-fit-content;\n  width: fit-content;\n  margin-left: auto;\n  font-size: 1.25rem;\n  margin-top: 1.5rem;\n}\n.list_journals[data-v-2cdcf07e] {\n  gap: 1.5rem;\n}\n.journals[data-v-2cdcf07e] {\n  filter: drop-shadow(16px 16px 20px rgb(255, 153, 0)) invert(75%);\n}", ""]);
 
 // exports
 
@@ -37878,6 +37976,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AdvertDoctor.vue?vue&type=style&index=0&id=2cdcf07e&lang=scss&scoped=true&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/AdvertDoctor.vue?vue&type=style&index=0&id=2cdcf07e&lang=scss&scoped=true& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./AdvertDoctor.vue?vue&type=style&index=0&id=2cdcf07e&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AdvertDoctor.vue?vue&type=style&index=0&id=2cdcf07e&lang=scss&scoped=true&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/HowWorks.vue?vue&type=style&index=0&id=1125057d&lang=scss&scoped=true&":
 /*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/HowWorks.vue?vue&type=style&index=0&id=1125057d&lang=scss&scoped=true& ***!
@@ -51460,6 +51588,7 @@ dayjs().format();
 Vue.component("carousel", __webpack_require__(/*! ./components/Carousel */ "./resources/js/components/Carousel.vue")["default"]);
 Vue.component("about-us", __webpack_require__(/*! ./components/AboutUs */ "./resources/js/components/AboutUs.vue")["default"]);
 Vue.component("howworks", __webpack_require__(/*! ./components/HowWorks */ "./resources/js/components/HowWorks.vue")["default"]);
+Vue.component("advert-doc", __webpack_require__(/*! ./components/AdvertDoctor */ "./resources/js/components/AdvertDoctor.vue")["default"]);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -51606,6 +51735,93 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_AboutUs_vue_vue_type_template_id_19b32af0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_AboutUs_vue_vue_type_template_id_19b32af0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/AdvertDoctor.vue":
+/*!**************************************************!*\
+  !*** ./resources/js/components/AdvertDoctor.vue ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AdvertDoctor_vue_vue_type_template_id_2cdcf07e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdvertDoctor.vue?vue&type=template&id=2cdcf07e&scoped=true& */ "./resources/js/components/AdvertDoctor.vue?vue&type=template&id=2cdcf07e&scoped=true&");
+/* harmony import */ var _AdvertDoctor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdvertDoctor.vue?vue&type=script&lang=js& */ "./resources/js/components/AdvertDoctor.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _AdvertDoctor_vue_vue_type_style_index_0_id_2cdcf07e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AdvertDoctor.vue?vue&type=style&index=0&id=2cdcf07e&lang=scss&scoped=true& */ "./resources/js/components/AdvertDoctor.vue?vue&type=style&index=0&id=2cdcf07e&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _AdvertDoctor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _AdvertDoctor_vue_vue_type_template_id_2cdcf07e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AdvertDoctor_vue_vue_type_template_id_2cdcf07e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "2cdcf07e",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/AdvertDoctor.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/AdvertDoctor.vue?vue&type=script&lang=js&":
+/*!***************************************************************************!*\
+  !*** ./resources/js/components/AdvertDoctor.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvertDoctor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./AdvertDoctor.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AdvertDoctor.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvertDoctor_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/AdvertDoctor.vue?vue&type=style&index=0&id=2cdcf07e&lang=scss&scoped=true&":
+/*!************************************************************************************************************!*\
+  !*** ./resources/js/components/AdvertDoctor.vue?vue&type=style&index=0&id=2cdcf07e&lang=scss&scoped=true& ***!
+  \************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvertDoctor_vue_vue_type_style_index_0_id_2cdcf07e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./AdvertDoctor.vue?vue&type=style&index=0&id=2cdcf07e&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AdvertDoctor.vue?vue&type=style&index=0&id=2cdcf07e&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvertDoctor_vue_vue_type_style_index_0_id_2cdcf07e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvertDoctor_vue_vue_type_style_index_0_id_2cdcf07e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvertDoctor_vue_vue_type_style_index_0_id_2cdcf07e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvertDoctor_vue_vue_type_style_index_0_id_2cdcf07e_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/components/AdvertDoctor.vue?vue&type=template&id=2cdcf07e&scoped=true&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/AdvertDoctor.vue?vue&type=template&id=2cdcf07e&scoped=true& ***!
+  \*********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvertDoctor_vue_vue_type_template_id_2cdcf07e_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??ref--6!../../../node_modules/vue-loader/lib??vue-loader-options!./AdvertDoctor.vue?vue&type=template&id=2cdcf07e&scoped=true& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/AdvertDoctor.vue?vue&type=template&id=2cdcf07e&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvertDoctor_vue_vue_type_template_id_2cdcf07e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_loaders_templateLoader_js_ref_6_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvertDoctor_vue_vue_type_template_id_2cdcf07e_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
@@ -51785,6 +52001,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+__webpack_require__(/*! C:\BooleanDevelopement\Bdoctors-team3\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\BooleanDevelopement\Bdoctors-team3\resources\sass\app.scss */"./resources/sass/app.scss");
 __webpack_require__(/*! C:\Users\sanso\Saved Games\Desktop\Bdoctors-team3\resources\js\app.js */"./resources/js/app.js");
 module.exports = __webpack_require__(/*! C:\Users\sanso\Saved Games\Desktop\Bdoctors-team3\resources\sass\app.scss */"./resources/sass/app.scss");
 
