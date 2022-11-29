@@ -160,6 +160,13 @@ nav {
   background-color: #308ec6;
 }
 
+.hero {
+  background-image: url(../../public/img/jumbo.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 400px;
+}
+
 /*!
  * Bootstrap v4.6.2 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
