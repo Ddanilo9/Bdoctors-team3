@@ -29,6 +29,7 @@ dayjs().format()
 
 Vue.component("carousel", require("./components/Carousel").default);
 Vue.component("about-us", require("./components/AboutUs").default);
+Vue.component("advert-doc", require("./components/AdvertDoctor").default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
