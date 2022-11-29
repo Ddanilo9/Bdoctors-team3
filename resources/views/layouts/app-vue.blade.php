@@ -17,23 +17,29 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body style="min-height: 100vh;
+    display: flex;
+    flex-direction: column;">
     <!-- Header -->
-    @include('partials.header')
-
-
-    <!-- Main -->
-    <main>
-        @yield('content')
-    </main>
-
-
-    <!-- Footer -->
-    @include('partials.footer')
+    <div id="app">
+        
+        @include('partials.header')
+    
+    
+        <!-- Main -->
+        <main>
+            @yield('content')
+        </main>
+    
+    
+        <!-- Footer -->
+        @include('partials.footer')
+    </div>
        
     
     <!-- Scripts -->
     <script src="{{ mix('/js/app.js') }}" defer></script>
+    <script src="{{ mix('/js/front.js') }}" defer></script>
 
 </body>
 </html>

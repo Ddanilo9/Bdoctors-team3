@@ -93,7 +93,70 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+var inputField = document.querySelector('.chosen-value');
+var dropdown = document.querySelector('.value-list');
+var dropdownArray = _toConsumableArray(document.querySelectorAll('.spec-li'));
+console.log(_typeof(dropdownArray));
+dropdown.classList.add('open');
+inputField.focus(); // Demo purposes only
+var valueArray = [];
+dropdownArray.forEach(function (item) {
+  valueArray.push(item.textContent);
+});
+var closeDropdown = function closeDropdown() {
+  dropdown.classList.remove('open');
+};
+inputField.addEventListener('input', function () {
+  dropdown.classList.add('open');
+  var inputValue = inputField.value.toLowerCase();
+  var valueSubstring;
+  if (inputValue.length > 0) {
+    for (var j = 0; j < valueArray.length; j++) {
+      if (!(inputValue.substring(0, inputValue.length) === valueArray[j].substring(0, inputValue.length).toLowerCase())) {
+        dropdownArray[j].classList.add('closed');
+      } else {
+        dropdownArray[j].classList.remove('closed');
+      }
+    }
+  } else {
+    for (var i = 0; i < dropdownArray.length; i++) {
+      dropdownArray[i].classList.remove('closed');
+    }
+  }
+});
+dropdownArray.forEach(function (item) {
+  item.addEventListener('click', function (evt) {
+    inputField.value = item.textContent;
+    dropdownArray.forEach(function (dropdown) {
+      dropdown.classList.add('closed');
+    });
+  });
+});
+inputField.addEventListener('focus', function () {
+  inputField.placeholder = 'Scrivi per filtrare';
+  dropdown.classList.add('open');
+  dropdownArray.forEach(function (dropdown) {
+    dropdown.classList.remove('closed');
+  });
+});
+inputField.addEventListener('blur', function () {
+  inputField.placeholder = 'Scegli dall\' elenco';
+  dropdown.classList.remove('open');
+});
+document.addEventListener('click', function (evt) {
+  var isDropdown = dropdown.contains(evt.target);
+  var isInput = inputField.contains(evt.target);
+  if (!isDropdown && !isInput) {
+    dropdown.classList.remove('open');
+  }
+});
 
 /***/ }),
 
@@ -104,7 +167,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\jamir\Desktop\Projects\Bdoctors-team3\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\BooleanDevelopement\Bdoctors-team3\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
