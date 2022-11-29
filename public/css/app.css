@@ -161,6 +161,13 @@ nav {
   background-color: #308ec6;
 }
 
+.hero {
+  background-image: url(../../public/img/jumbo.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 400px;
+}
+
 * {
   margin: 0;
   padding: 0;
