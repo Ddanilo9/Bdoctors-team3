@@ -37,6 +37,35 @@
 
                     <section class="specs ml-4 mt-3">
                         <h2>Dott.{{ $doctor->name }} {{ $doctor->surname }}</h2>
+
+                        <div class="vote">
+                            <div class="row">
+                                <div class="col-12">
+                                    <form action="{{ route('store.vote', $doctor->id) }}" method="post">
+                                        @csrf
+                                        @method('POST')
+                
+                                        <div class="form-row align-items-center">
+                                            <div class="col-auto my-1">
+                                                <label class="mr-sm-2 sr-only" for="number">Inserisci il voto</label>
+                                                <select name="number" class="custom-select mr-sm-2 font-weight-bold" id="number">
+                                                    <option disabled selected value>Voto</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    <option value="4">4</option>
+                                                    <option value="5">5</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-auto">
+                                                <button type="submit" class="btn btn-primary">Invia</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="vote mt-4 font-weight-bold">Voto Medio: {{ $doctor->avg }}</div>
 
                         <div class="specialization mt-4">
@@ -162,33 +191,7 @@
             </div>
         </div>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <form action="{{ route('store.vote', $doctor->id) }}" method="post">
-                        @csrf
-                        @method('POST')
-
-                        <div class="form-row align-items-center">
-                            <div class="col-auto my-1">
-                                <label class="mr-sm-2 sr-only" for="number">Inserisci il voto</label>
-                                <select name="number" class="custom-select mr-sm-2 font-weight-bold" id="number">
-                                    <option disabled selected value>Voto</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                            </div>
-                            <div class="col-auto">
-                                <button type="submit" class="btn btn-primary">Invia</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+        
 
         <div class="container">
             <div class="row">
