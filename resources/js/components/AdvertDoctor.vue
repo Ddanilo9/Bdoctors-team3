@@ -1,9 +1,9 @@
 <template>
-    <div class="container d-flex justify-content-center align-items-center flex-wrap py-5">
+    <div class="container d-flex justify-content-center align-items-center flex-wrap">
         <figure>
-            <img width="400" src="\img\1533845191.png" alt="Doctor Photo">
+            <img class="animated pulse infinite" width="400" src="\img\jobs.svg" alt="Doctor Photo">
         </figure>
-        <div class="advertising_doctor px-5 w-50 h5">
+        <div class="advertising_doctor px-5 h5">
             <h2 class="h1 font-weight-bold">Sei un Medico?</h2>
             <p>Iscriviti e raggiungi nuovi pazienti</p>
             <p>Più di 2 milioni di pazienti cercano ogni mese il loro Medico su BDoctors, il <strong>primo sito in Italia per visitatori e numero di prenotazioni.</strong></p>
@@ -14,10 +14,10 @@
                 <li>Puoi usare la nostra <strong>App multipiattaforma</strong> dedicata ai Medici</li>
                 <li>Hai il nostro <strong>staff</strong> sempre <strong>disponibile</strong> ad aiutarti</li>
             </ul>
-            <a class="buttons_reg rounded d-flex" href="">Iscriviti a BDoctors</a>
+            <a class="buttons_reg rounded d-flex" href="/register">Iscriviti a BDoctors</a>
         </div>
-        <div class="newspapers pt-5">
-            <span class="">Hanno parlato di noi:</span>
+        <div class="newspapers py-2 my-5">
+            <span class="speaks">Hanno parlato di noi:</span>
             <ul class="list_journals d-flex justify-content-center align-items-center list-unstyled flex-wrap">
                 
                 <li class="journals" v-for="item in news">
@@ -61,9 +61,12 @@
 
 <style lang="scss" scoped>
 
-
+h2 {
+    color: #cabb1e;
+    
+}
 .buttons_reg {
-    background-color: #6cb2eb;
+    background-color: #95BBDF;
     color: white;
     padding: 0.5rem 1rem;
     text-decoration: none;
@@ -72,6 +75,21 @@
     margin-left: auto;
     font-size: 1.25rem;
     margin-top: 1.5rem;
+}
+
+.advertising_doctor {
+    width: 500px;
+}
+
+.newspapers {
+    border-top: 1px double grey;
+    border-bottom: 1px double grey;
+}
+
+.speaks {
+    color: #cabb1e;
+    font-size: 1rem;
+    text-decoration: underline;
 }
 
 .list_journals {

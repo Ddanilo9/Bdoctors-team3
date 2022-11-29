@@ -3,19 +3,19 @@
         <div class="container w-100%">
             <div class="row cose-block width-100%">
                 <div class="col-sm-12">
-                    <h2 class="text-center mb-5 pt-5">Come funziona BDoctors?</h2>
+                    <h2 class="text-center mb-5 pt-5 h1 font-weight-bold">Come funziona BDoctors?</h2>
                 </div>
                 <div class="col-sm-4 text-center">
-                    <img src="/img/images.jpg medico.jpg" data-src="/img/images.jpg medico.jpg"
-                        class="imghome img-responsive lazyload mb-2" alt="Scegli il Medico" title="Scegli il Medico" />
+                    <img src="/img/doctor1.png" data-src="/img/images.jpg medico.jpg"
+                        class="imghome img-responsive lazyload" alt="Scegli il Medico" title="Scegli il Medico" />
                     <h3>Scegli il Medico</h3>
                     <p>Fai la <b>scelta migliore</b> secondo le tue esigenze: valuta <b>curriculum</b>, <b>prezzo</b>
                         delle prestazioni, <b>patologie</b> trattate e <b>recensioni</b> degli altri pazienti.</p>
                     <hr class="visible-xs" />
                 </div>
                 <div class="col-sm-4 text-center">
-                    <img src="/img/prenota.png" data-src="/img/prenota.png"
-                        class="img-home img-responsive lazyload mb-2" alt="Prenota la visita"
+                    <img src="/img/doctor2.png" data-src="/img/prenota.png"
+                        class="img-home img-responsive lazyload" alt="Prenota la visita"
                         title="Prenota la visita" />
                     <h3>Prenota la visita</h3>
                     <p>Ti bastano <b>pochi secondi</b>: è facile e veloce, non serve telefonare e non è richiesta la
@@ -23,8 +23,8 @@
                     <hr class="visible-xs" />
                 </div>
                 <div class="col-sm-4 text-center">
-                    <img src="/img/consiglidelmedico.jpg" data-src="/img/consiglidelmedico.jpg"
-                        class="img-home img-responsive lazyload mb-2" alt="Vai all'appuntamento"
+                    <img src="/img/doctor3.png" data-src="/img/consiglidelmedico.jpg"
+                        class="img-home img-responsive lazyload" alt="Vai all'appuntamento"
                         title="Vai all'appuntamento" />
                     <h3>Vai all'appuntamento</h3>
                     <p>Vai dal Medico scelto, nel giorno e nell'ora selezionati. Dopo la visita potrai <b>lasciare</b>
@@ -43,6 +43,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+h2 {
+    color: #cabb1e;
+}
+
+h3 {
+    color: #95BBDF;
+    font-weight: bold;
+    
+}
+
+p{
+    font-size: 0.95rem;
+
+}
+
+img {
+    transition: 1.2s ease;
+
+}
+
+img:hover {
+    transform : scale(1.1);
+}
+
 .cose-block {
     min-height: 600px;
     width: 100%;
