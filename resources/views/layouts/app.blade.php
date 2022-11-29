@@ -6,7 +6,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    
+
     <!-- Title -->
     <title>@yield('metaTitle','BDoctors')</title>
 
@@ -32,8 +32,7 @@
 
     <!-- Footer -->
     @include('partials.footer')
-       
-    
+
     <!-- Scripts -->
     <script src="{{ mix('/js/app.js') }}" defer></script>
 </body>

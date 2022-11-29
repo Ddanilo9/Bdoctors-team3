@@ -24,7 +24,7 @@
                     {{-- <button type="submit" class="btn btn-info">Cerca specializzazione</button> --}}
                 </form>
             </div>
-        </div> --}}
+        </div> 
     </section>
 
 
@@ -57,11 +57,11 @@
             @endforeach
         </div>
         </div>
-    </section>
+    </section> --}}
 </div>
 
 @endsection
-    
+
 
 
 
