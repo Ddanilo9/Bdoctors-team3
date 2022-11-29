@@ -162,10 +162,11 @@ nav {
 }
 
 .hero {
-  background-image: url(../../public/img/jumbo.jpg);
-  background-position: center;
-  background-size: cover;
-  height: 400px;
+  background-color: rgba(157, 197, 214, 0.808);
+  height: 640px;
+}
+.hero .hero-center {
+  padding-top: 150px;
 }
 
 * {

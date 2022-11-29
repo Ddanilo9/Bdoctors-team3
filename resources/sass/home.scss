@@ -1,6 +1,13 @@
 .hero{
-    background-image: url(../../public/img/jumbo.jpg);
-    background-position: center;
-    background-size: cover;
-    height: 400px;
+    // background-image: url(../../public/img/jumbo.jpg);
+    // background-position: center;
+    // background-size: cover;
+    background-color: rgba(157, 197, 214, 0.808);
+    height: 640px;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    .hero-center{
+        padding-top: 150px;
+    }
 }
