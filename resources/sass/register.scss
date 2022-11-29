@@ -54,8 +54,8 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
 }
 
 ul.ks-cboxtags li input[type="checkbox"]:checked + label {
-    border: 2px solid #6cb2eb;
-    background-color: #6cb2eb;
+    border: 2px solid #064497;
+    background-color: #064497;
     color: #fff;
     transition: all .2s;
 }
@@ -69,4 +69,8 @@ ul.ks-cboxtags li input[type="checkbox"] {
 }
 ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   border: 2px solid #282fb8;
+}
+
+.form-b{
+  border-radius: 4px;
 }
