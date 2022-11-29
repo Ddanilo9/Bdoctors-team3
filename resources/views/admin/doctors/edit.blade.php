@@ -59,25 +59,7 @@
                             @enderror
                         </div>
 
-                        {{-- <div class="form-group">
-                            <label for="specialization">Specializzazione</label>
-                            <select name="specialization" class="custom-select  @error('specialization') is-invalid @enderror" multiple>
-                                <option value="">-- nessuna --</option>
-                                @foreach ($specializations as $spec)
-                                    <option @if (old('specialization') == $spec->id) selected @endif value="{{ $spec->id }}">
-                                        {{ $spec->name }}</option>
-                                @endforeach
-                            </select>
-                            <small id="helpSpec" class="form-text text-muted">Seleziona la Specializzazione</small>
-                            @error('specialization')
-                                <div id="specialization" class="invalid-feedback">
-                                    {{ $message }}
-                                </div>
-                            @enderror
-                        </div> --}}
-
-
-
+                    {{-- spec checkbox --}}
                         <div class="form-group">
                             <label for="specialization" class="font-weight-bold">Specializzazioni</label>
 
@@ -122,7 +104,7 @@
                         <div class="form-group">
                             <label for="services" class="font-weight-bold">Contenuto</label>
                             <textarea class="form-control" id="services" name="services" rows="10"
-                                placeholder="Inserisci il contenuto del post" required @error('services') is-invalid @enderror>{{ old('services', $doctor->services) }}</textarea>
+                                placeholder="Inserisci il contenuto del post" @error('services') is-invalid @enderror>{{ old('services', $doctor->services) }}</textarea>
                         </div>
                         @error('services')
                             <div id="services" class="invalid-feedback">
@@ -145,8 +127,7 @@
                             </div>
                         </div> 
 
-                        <button type="submit"
-                                    class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
         </div>
