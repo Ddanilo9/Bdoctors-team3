@@ -2,22 +2,34 @@
 
     $listMenu = 
     [
-    'Chi siamo',
-    'Dicono di noi',
-    'Condizioni d\'uso',
-    'Privacy',
-    'Cookie Policy',
-    'Contatti',
-    'Blog'
+        'Chi siamo',
+        'Dicono di noi',
+        'Condizioni d\'uso',
+        'Privacy',
+        'Cookie Policy',
+        'Contatti',
+        'Blog'
+    
     ];             
 
 $listSocials = 
     [
-    'facebook.jpg',
-    'instagram.jpg',
-    'twitter.jpg',
-    'youtube.png'
-    ];                 
+        'facebook.jpg',
+        'instagram.jpg',
+        'twitter.jpg',
+        'youtube.png'
+    
+    ];
+    
+$devGits = 
+    [
+        'Alberto Dore' => 'https://github.com/Albiddd',
+        'Alessio Petrullo' => 'https://github.com/manyblake',
+        'Danilo Annunziata' => 'https://github.com/Ddanilo9',
+        'Mirco Sansone' => 'https://github.com/Sansone11',
+        'Michele Porcaro' => 'https://github.com/jamiromic'
+        
+    ]
 
 @endphp
 
@@ -38,7 +50,7 @@ $listSocials =
                     <a href="#">Verifica qui</a>
                 </div>
             </div>
-            <a href="#" class="rec_form d-flex ">
+            <a href="{{ route('register') }}" class="rec_form d-flex ">
                 <img class="rec_doctor" src="{{asset('img/contatti_dottori.png')}}" alt="Doctors">
                 <div class="d-flex flex-column justify-content-center">
                     <div>Sei un medico?</div>
@@ -47,16 +59,26 @@ $listSocials =
             </a>  
         </div>
         <div class="socials_credits d-flex flex-column justify-content-center align-items-center">
-            <span class="credits">Created by : Alberto Dore | Alessio Petrullo | Danilo Annunziata | Mirco Sansone | Michele Porcaro</span>
-            <span class="update">Ultimo aggiornamento: 25/11/2022</span>
+            <span>Created by:</span>
+            <ul class="d-flex justify-content-center align-items-center list-unstyled m-0 flex-wrap">
+                @foreach ($devGits as $key => $value)
+                <li>
+                    <a href="{{$value}}">{{$key}}</a>
+                </li>
+                    
+                @endforeach
+            </ul>
+            <span class="update">Ultimo aggiornamento: 28/11/2022</span>
             <ul class="d-flex list-unstyled justify-content-center align-items-center flex-wrap m-0">
                 @foreach ($listSocials as $item)
                 <li class="icons d-flex justify-content-center align-items-center">
-                    <img src="{{asset('img/').'/'.$item}}" alt="Photo's Social"> 
+                    <img class="rounded" src="{{asset('img/').'/'.$item}}" alt="Photo's Social"> 
                 </li>
                 @endforeach
                 
             </ul>
+            
+            
         </div>
     </div>
 
