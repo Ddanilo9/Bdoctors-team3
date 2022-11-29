@@ -16,11 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/', 'HomeController@index')->name('home');
 
-// Route::name('guest.')->group(
-//     function () {
-//         Route::get('/show/{slug}', 'HomeController@show')->name('doctors.show');
-//     }
-// );
+Route::name('guest.')->group(
+    function () {
+        Route::get('/show/{slug}', 'HomeController@show')->name('doctors.show');
+    }
+);
 
 Route::resource('messages', 'MessageController');
 
