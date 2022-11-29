@@ -14,14 +14,16 @@
             {{-- search bar --}}
             
             <div class="search-container d-flex justify-content-center">
-                <form class="searchbar-home" action="http://127.0.0.1:8000/research"  method="GET">
-                    <input class="chosen-value" id="specialization" name="specialization" type="text" value="" placeholder="Scrivi per filtrare" autocomplete="off">
-                    <ul class="value-list">
-                        @foreach ($specializations as $specialization)
-                        <li class="spec-li">{{ $specialization->spec_name }}</li>
-                        @endforeach
-                    </ul>
-                    {{-- <button type="submit" class="btn btn-info">Cerca specializzazione</button> --}}
+                <form class="searchbar-home d-flex justify-content-end" action="http://127.0.0.1:8000/research"  method="GET">
+                    <div>
+                        <input class="chosen-value" id="specialization" name="specialization" type="text" value="" placeholder="Scrivi per filtrare" autocomplete="off">
+                        <ul class="value-list">
+                            @foreach ($specializations as $specialization)
+                            <li class="spec-li">{{ $specialization->spec_name }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    <button type="submit" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
             </div>
         </div> 
