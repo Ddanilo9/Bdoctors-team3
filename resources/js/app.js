@@ -31,16 +31,14 @@ dayjs().format();
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component(
-    "example-component",
-    require("./components/ExampleComponent.vue").default
-);
 Vue.component("carousel", require("./components/Carousel").default);
 Vue.component("about-us", require("./components/AboutUs").default);
 Vue.component(
     "advanced-search",
     require("./components/AdvancedSearch").default
 );
+Vue.component("howworks", require("./components/HowWorks").default);
+Vue.component("advert-doc", require("./components/AdvertDoctor").default);
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 
