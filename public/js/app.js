@@ -2123,8 +2123,8 @@ var staticRenderFns = [function () {
   }, [_c("img", {
     staticClass: "imghome img-responsive lazyload mb-2",
     attrs: {
-      src: "/img/images.jpg medico.jpg",
-      "data-src": "/img/images.jpg medico.jpg",
+      src: "/img/Progetto senza titolo (2).png",
+      "data-src": "/img/Progetto senza titolo (2).png",
       alt: "Scegli il Medico",
       title: "Scegli il Medico"
     }
@@ -2135,8 +2135,8 @@ var staticRenderFns = [function () {
   }, [_c("img", {
     staticClass: "img-home img-responsive lazyload mb-2",
     attrs: {
-      src: "/img/prenota.png",
-      "data-src": "/img/prenota.png",
+      src: "/img/Progetto senza titolo (1).png",
+      "data-src": "/img/Progetto senza titolo (1).png",
       alt: "Prenota la visita",
       title: "Prenota la visita"
     }
@@ -2147,8 +2147,8 @@ var staticRenderFns = [function () {
   }, [_c("img", {
     staticClass: "img-home img-responsive lazyload mb-2",
     attrs: {
-      src: "/img/consiglidelmedico.jpg",
-      "data-src": "/img/consiglidelmedico.jpg",
+      src: "/img/visit.png",
+      "data-src": "/img/visit.png",
       alt: "Vai all'appuntamento",
       title: "Vai all'appuntamento"
     }

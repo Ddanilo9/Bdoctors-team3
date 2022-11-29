@@ -6,7 +6,7 @@
                     <h2 class="text-center mb-5 pt-5">Come funziona BDoctors?</h2>
                 </div>
                 <div class="col-sm-4 text-center">
-                    <img src="/img/images.jpg medico.jpg" data-src="/img/images.jpg medico.jpg"
+                    <img src="/img/Progetto senza titolo (2).png" data-src="/img/Progetto senza titolo (2).png"
                         class="imghome img-responsive lazyload mb-2" alt="Scegli il Medico" title="Scegli il Medico" />
                     <h3>Scegli il Medico</h3>
                     <p>Fai la <b>scelta migliore</b> secondo le tue esigenze: valuta <b>curriculum</b>, <b>prezzo</b>
@@ -14,7 +14,7 @@
                     <hr class="visible-xs" />
                 </div>
                 <div class="col-sm-4 text-center">
-                    <img src="/img/prenota.png" data-src="/img/prenota.png"
+                    <img src="/img/Progetto senza titolo (1).png" data-src="/img/Progetto senza titolo (1).png"
                         class="img-home img-responsive lazyload mb-2" alt="Prenota la visita"
                         title="Prenota la visita" />
                     <h3>Prenota la visita</h3>
@@ -23,7 +23,7 @@
                     <hr class="visible-xs" />
                 </div>
                 <div class="col-sm-4 text-center">
-                    <img src="/img/consiglidelmedico.jpg" data-src="/img/consiglidelmedico.jpg"
+                    <img src="/img/visit.png" data-src="/img/visit.png"
                         class="img-home img-responsive lazyload mb-2" alt="Vai all'appuntamento"
                         title="Vai all'appuntamento" />
                     <h3>Vai all'appuntamento</h3>
