@@ -169,7 +169,7 @@ figure {
   width: 100%;
   margin: 0;
   padding: 32px 64px;
-  background-color: $bd-white;
+  background-color: $bd-polar;
   height: 100%;
 
   .card-1-body {
