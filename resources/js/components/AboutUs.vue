@@ -32,8 +32,7 @@ h1{
     background-repeat: no-repeat;
     background-size: cover;
     border-top: 2px solid #95BBDF;
-    filter: opacity(0.7);
-    height: 550px;
+    height: 500px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -45,7 +44,7 @@ h1{
     padding: 15px;
     margin: 0 auto;
     color: #0a0f1c;
-    background-color: #e8e8e8;
+    background-color: white;
     filter: drop-shadow(7px 3px 9px #7697de);
     border-radius: 20px;
     text-align: center;
