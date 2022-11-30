@@ -9,7 +9,7 @@
       <p>Oltre il 99% di pazienti soddisfatti</p>
       <p>BDoctors è il primo sito in Italia di <strong>prenotazioni</strong> di <strong>visite mediche</strong> ed esami diagnostici, online <strong>dal 2022</strong>.</p>
       <p>Crediamo nell'importanza dell'<strong>informazione</strong> e della <strong>trasparenza</strong> per aiutare i pazienti a <strong>scegliere</strong> il <strong>medico giusto</strong> tra gli oltre 9.000 presenti su BDoctors.</p>
-      <p>Per questo su BDoctors, solo i pazienti che hanno prenotato attraverso il sito e svolto la prestazione possono rilasciare un feedback sul medico: una <strong>garanzia dell'affidabilità</strong> delle <strong>113.553 recensioni</strong> che leggi.</p>
+      <p>Per questo su BDoctors, solo i pazienti che hanno prenotato attraverso il sito e svolto la prestazione possono rilasciare un feedback sul medico: una <strong>garanzia d'affidabilità</strong> è data dalle <strong>oltre 100.000 recensioni</strong> che leggi.</p>
       
     </div>
     

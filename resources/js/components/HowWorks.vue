@@ -60,12 +60,12 @@ p{
 }
 
 img {
-    transition: 1.2s ease;
+    transition: 0.5s ease;
 
 }
 
 img:hover {
-    transform : scale(1.1);
+    transform : scale(1.5);
 }
 
 .cose-block {

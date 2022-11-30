@@ -1,7 +1,7 @@
 <template>
-    <div class="container d-flex justify-content-center align-items-center flex-wrap">
+    <div class="container d-flex justify-content-between align-items-center flex-wrap">
         <figure>
-            <img class="animated pulse infinite" width="400" src="\img\jobs.svg" alt="Doctor Photo">
+            <img class="animated pulse infinite" width="600" src="\img\jobs.svg" alt="Doctor Photo">
         </figure>
         <div class="advertising_doctor px-5 h5">
             <h2 class="h1 font-weight-bold">Sei un Medico?</h2>
@@ -16,7 +16,7 @@
             </ul>
             <a class="buttons_reg rounded d-flex" href="/register">Iscriviti a BDoctors</a>
         </div>
-        <div class="newspapers py-2 my-5">
+        <div class="newspapers py-2 my-5 w-100">
             <span class="speaks">Hanno parlato di noi:</span>
             <ul class="list_journals d-flex justify-content-center align-items-center list-unstyled flex-wrap">
                 

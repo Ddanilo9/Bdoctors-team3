@@ -53,7 +53,7 @@ $devGits =
             <a href="{{ route('register') }}" class="rec_form d-flex ">
                 <img class="rec_doctor" src="{{asset('img/contatti_dottori.png')}}" alt="Doctors">
                 <div class="d-flex flex-column justify-content-center">
-                    <div>Sei un medico?</div>
+                    <div class="text-white">Sei un medico?</div>
                     <div class="font-weight-bold">Iscriviti ora!</div>
                 </div> 
             </a>  
