@@ -1,5 +1,5 @@
 <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light py-0 justify-content-center align-items-center">
+        <nav class="navbar navbar-expand-lg navbar-light nav-bg py-0 justify-content-center align-items-center">
             <div>
                 <a class="navbar-brand" href="{{ route('home') }}">
                     <img width="60" class="rounded" src="{{asset('img/logo.png')}}" alt="Logo">

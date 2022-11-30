@@ -380,6 +380,10 @@ nav {
   box-shadow: inset 0 0 0 10px;
 }
 
+body {
+  background-color: #f8fafc;
+}
+
 .hero {
   background-image: url(../img/hero.png);
   background-position-x: left;
@@ -390,6 +394,10 @@ nav {
 }
 .hero .hero-center {
   padding-top: 150px;
+}
+
+.nav-bg {
+  background-color: #f8fafc;
 }
 
 * {
