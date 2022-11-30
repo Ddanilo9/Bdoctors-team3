@@ -95,3 +95,16 @@
       }
     }
   }
+.search-btn{
+  height: 4rem;
+  width: 4rem;
+  background-color: transparent;
+  border: none;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  i{
+    font-size: 1.3rem;
+  }
+}
