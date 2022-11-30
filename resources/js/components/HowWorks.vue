@@ -49,7 +49,7 @@ h2 {
 }
 
 h3 {
-    color: #95BBDF;
+    color: #041e48;
     font-weight: bold;
     
 }
@@ -76,5 +76,9 @@ img:hover {
         width: 200px;
     }
 
+}
+
+.home{
+    background-color: rgba(148, 201, 223, 0.808);
 }
 </style>

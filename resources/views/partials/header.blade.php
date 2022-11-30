@@ -1,8 +1,9 @@
 <header>
         <nav class="navbar navbar-expand-lg navbar-light nav-bg py-0 justify-content-center align-items-center">
             <div>
-                <a class="navbar-brand" href="{{ route('home') }}">
-                    <img width="60" class="rounded" src="{{asset('img/logo.png')}}" alt="Logo">
+                <a class="navbar-brand py-3" href="{{ route('home') }}">
+                    <img width="70" class="rounded" src="{{asset('img/logo1.png')}}" alt="Logo">
+                    <img width="135" class="rounded" src="{{asset('img/logoScritta.png')}}" alt="Logo">
                 </a>  
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,11 +13,14 @@
               <div class="navbar-nav">
                 @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <span class="nav-text nav-link font-weight-bold h5">Sei un medico?</span>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link font-weight-bold pr-3 h5" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link font-weight-bold px-3 h5" href="{{ route('register') }}">{{ __('Registrati') }}</a>
                                 </li>
                             @endif
                         @else
@@ -48,39 +52,5 @@
               </div>
             </div>
           </nav>
-                        <!-- Authentication Links -->
-                        {{-- @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('admin.doctors.index') }}">Doctors</a>
-                        </li>
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest --}}
-
-                        
    
 </header>

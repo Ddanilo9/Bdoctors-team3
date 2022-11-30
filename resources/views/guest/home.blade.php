@@ -7,8 +7,8 @@
     <section class="hero">
         <div class="hero-center" >
             <div class="titles">
-                <h2 class="text-center display-3">Come possiamo aiutarti?</h2>
-                <h5 class="text-center h2">Ricerca medico in questa specializzazione:</h5>
+                <h2 style="color: #031737;" class="text-center display-3 font-weight-bold">Come possiamo aiutarti?</h2>
+                <h5 style="color: #031737;" class="text-center h2">Ricerca medico in questa specializzazione:</h5>
             </div>
             
             {{-- search bar --}}
@@ -29,37 +29,14 @@
         </div> 
     </section>
 
-
-    <carousel></carousel>
+    <div>
+        <h3 style="color: #cabb1e;" class="text-center mb-5 pt-5 h1 font-weight-bold">I medici consigliati da noi:</h3>
+        <carousel></carousel>
+    </div>
     <howworks></howworks>
     <advert-doc></advert-doc>
     <about-us></about-us>
 
-
-    {{-- <section class="container-fluid mt-5 pb-3 border-0">
-        <div class="title text-center">
-            <h2 class="text-dark font-weight-bold text-pop-up-top">Doctors</h2>
-        </div> --}}
-        {{-- <div class="row justify-content-between">
-            @foreach ($doctors as $doctor)
-                <div class="col-12 col-md-6 col-lg-3 text-center">
-                    <a href="{{ route('guest.doctors.show', ['slug' => $doctor->slug]) }}">
-                        <h2 class="font-weight-bold pb-3">{{ $doctor->name }} {{ $doctor->surname }}</h2>
-                        <div class="photo">
-
-                            @if(!empty($doctor->photo))
-                                <img width="250" src="{{ asset('storage/' . $doctor->photo) }}" alt="{{ $doctor->name }}">
-                            @else
-                                <img width="250" src="{{ asset('img/no-image.png') }}" alt="{{ $doctor->name }}">
-                            @endif
-                        </div>
-                        <p class="text-secondary">{{ $doctor->address }}</p>
-                    </a>
-                </div>
-            @endforeach
-        </div>
-        </div>
-    </section> --}}
 </div>
 
 @endsection

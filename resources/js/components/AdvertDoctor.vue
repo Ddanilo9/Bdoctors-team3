@@ -1,5 +1,5 @@
 <template>
-    <div class="container d-flex flex-column">
+    <div class="container my-5 d-flex flex-column">
         <div class="d-flex justify-content-center align-items-center flex-wrap">
             <figure class="col-lg-6 text-center">
                 <img class="animated pulse infinite" width="300" src="\img\jobs.svg" alt="Doctor Photo">
