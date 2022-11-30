@@ -366,8 +366,12 @@ nav {
   }
 }
 .hero {
+  background-image: url(../img/hero.png);
+  background-position-x: left;
+  background-size: contain;
+  background-repeat: no-repeat;
   background-color: rgba(157, 197, 214, 0.808);
-  height: 640px;
+  height: 550px;
 }
 .hero .hero-center {
   padding-top: 150px;
@@ -518,7 +522,7 @@ ul.ks-cboxtags li input[type=checkbox]:checked + label::before {
 }
 
 ul.ks-cboxtags li input[type=checkbox]:checked + label {
-  border: 2px solid #064497;
+  border: 2px solid #7697de;
   background-color: #064497;
   color: #fff;
   transition: all 0.2s;
@@ -534,7 +538,7 @@ ul.ks-cboxtags li input[type=checkbox] {
 }
 
 ul.ks-cboxtags li input[type=checkbox]:focus + label {
-  border: 2px solid #282fb8;
+  border: 2px solid #8aaaf0;
 }
 
 .form-b {
@@ -4723,6 +4727,7 @@ input[type=button].btn-block {
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   border-radius: 0.25rem;
 }
 .card > hr {
@@ -4777,7 +4782,7 @@ input[type=button].btn-block {
 .card-header {
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
-  background-color: rgba(0, 0, 0, 0.03);
+  background-image: linear-gradient(125deg, #7697de, #064497);
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 .card-header:first-child {

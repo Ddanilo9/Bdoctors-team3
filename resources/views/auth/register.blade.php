@@ -38,11 +38,11 @@
 @endphp
 
 @section('content')
-<div class="container py-5 my-5">
-    <div class="row justify-content-center">
+<div class="container py-5">
+    <div class="row justify-content-center my-5">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header font-weight-bold text-center">{{ __('Registrazione') }}</div>
+            <div class="card border-0">
+                <div class="card-header font-weight-bold text-white text-center">{{ __('Registrazione') }}</div>
 
                 <div class="card-body">
                     <form class="contact-form" method="POST" action="{{ route('register') }}">
