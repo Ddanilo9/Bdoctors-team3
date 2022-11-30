@@ -1,15 +1,16 @@
 <template>
   <div class="about-us">
     
-    <div class="container">
-      <h1 class="text-center">About us</h1>
-    </div>
+    
     <div class="container-about">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint laborum
-      dolorum dolore inventore eos beatae voluptates itaque ea dignissimos
-      maiores et veniam non quis explicabo nobis doloremque recusandae unde,
-      alias fuga magni ipsam deserunt sequi. Eos ea cum nam, quam deleniti alias
-      accusamus iure expedita reiciendis qui magnam dolor reprehenderit.
+      <div class="container">
+        <h1 class="text-center">Dicono di Noi</h1>
+      </div>
+      <p>Oltre il 99% di pazienti soddisfatti</p>
+      <p>BDoctors è il primo sito in Italia di <strong>prenotazioni</strong> di <strong>visite mediche</strong> ed esami diagnostici, online <strong>dal 2022</strong>.</p>
+      <p>Crediamo nell'importanza dell'<strong>informazione</strong> e della <strong>trasparenza</strong> per aiutare i pazienti a <strong>scegliere</strong> il <strong>medico giusto</strong> tra gli oltre 9.000 presenti su BDoctors.</p>
+      <p>Per questo su BDoctors, solo i pazienti che hanno prenotato attraverso il sito e svolto la prestazione possono rilasciare un feedback sul medico: una <strong>garanzia d'affidabilità</strong> è data dalle <strong>oltre 100.000 recensioni</strong> che leggi.</p>
+      
     </div>
     
   </div>
@@ -22,16 +23,16 @@ export default {};
 
 <style lang="scss" scoped>
 h1{
-    color: #0a0f1c;
-    font-size: 50px;
+  color: #95BBDF;
+    font-size: 35px;
 }
 .about-us{
     background-image: url(../../../public/img/aa.png);
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
-    // filter: opacity(0.5);
-    height: 350px;
+    border-top: 2px solid #95BBDF;
+    height: 500px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -43,7 +44,7 @@ h1{
     padding: 15px;
     margin: 0 auto;
     color: #0a0f1c;
-    background-color: #e8e8e8;
+    background-color: white;
     filter: drop-shadow(7px 3px 9px #7697de);
     border-radius: 20px;
     text-align: center;

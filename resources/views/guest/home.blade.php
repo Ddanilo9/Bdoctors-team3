@@ -31,8 +31,8 @@
 
 
     <carousel></carousel>
-    <advert-doc></advert-doc>
     <howworks></howworks>
+    <advert-doc></advert-doc>
     <about-us></about-us>
 
 

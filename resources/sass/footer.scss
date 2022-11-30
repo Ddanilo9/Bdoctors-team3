@@ -1,5 +1,5 @@
 footer {
-    background-color: #F9F9F9;
+    background-color: $main;
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
     margin-top: auto;
@@ -7,8 +7,13 @@ footer {
     .container {
         margin: 0 auto;
 
+        a {
+            color: $secondary;
+            font-weight: bold;
+        }
+
         .linkfooter {
-            color: #235290;
+
             gap: 2rem;
             padding: 1.5rem 0;
         }
@@ -23,12 +28,11 @@ footer {
     
                 img {
                     height: 50%;
-                    filter: grayscale(100%);
                 }
     
                 .hon_cod {
                     font-size: 0.75rem;
-                    color: #999999;
+                    color: $bd-white;
                     
                 }
     
@@ -50,9 +54,11 @@ footer {
         .socials_credits {
             gap: 0.5rem;
             padding: 1rem 0;
+            
 
             span {
                 font-size: 0.75rem;
+                color: $bd-white;
             }
 
             .update {

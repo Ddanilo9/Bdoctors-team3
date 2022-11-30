@@ -1,23 +1,37 @@
 <template>
-    <div class="container d-flex justify-content-center align-items-center flex-wrap py-5">
-        <figure>
-            <img width="400" src="\img\1533845191.png" alt="Doctor Photo">
-        </figure>
-        <div class="advertising_doctor px-5 w-50 h5">
-            <h2 class="h1 font-weight-bold">Sei un Medico?</h2>
-            <p>Iscriviti e raggiungi nuovi pazienti</p>
-            <p>Più di 2 milioni di pazienti cercano ogni mese il loro Medico su BDoctors, il <strong>primo sito in Italia per visitatori e numero di prenotazioni.</strong></p>
-            <ul>Con BDoctors:
-                <li>Ricevi prenotazioni da <strong>nuovi pazienti</strong></li>
-                <li>Migliori la tua nuovi <strong>visibilità</strong> e la tua reputazione online</li>
-                <li>Organizzi al meglio il tuo lavoro con una suite completa di <strong>strumenti</strong> dedicati al Medico</li>
-                <li>Puoi usare la nostra <strong>App multipiattaforma</strong> dedicata ai Medici</li>
-                <li>Hai il nostro <strong>staff</strong> sempre <strong>disponibile</strong> ad aiutarti</li>
-            </ul>
-            <a class="buttons_reg rounded d-flex" href="">Iscriviti a BDoctors</a>
+    <div class="container d-flex flex-column">
+        <div class="d-flex justify-content-center align-items-center flex-wrap">
+            <figure class="col-lg-6 text-center">
+                <img class="animated pulse infinite" width="300" src="\img\jobs.svg" alt="Doctor Photo">
+            </figure>
+            <div class="advertising_doctor col-lg-6">
+                <h2 class="h1 font-weight-bold">Sei un Medico?</h2>
+                <p>Iscriviti e raggiungi nuovi pazienti</p>
+                <p>Più di 2 milioni di pazienti cercano ogni mese il loro Medico su BDoctors, il <b>primo sito in Italia per visitatori e numero di prenotazioni.</b></p>
+                <ul>
+                    <h2>Con BDoctors:</h2>
+                    <li>
+                        <p>Ricevi prenotazioni da <b>nuovi pazienti</b></p>
+                    </li>
+                    <li>
+                        <p>Migliori la tua nuovi <b>visibilità</b> e la tua reputazione online</p>
+                    </li>
+                    <li>
+                        <p>Organizzi al meglio il tuo lavoro con una suite completa di <b>strumenti</b> dedicati al Medico</p>
+                    </li>
+                    <li>
+                        <p>Puoi usare la nostra <b>App multipiattaforma</b> dedicata ai Medici</p>
+                    </li>
+                    <li>
+                        <p>Hai il nostro <b>staff</b> sempre <b>disponibile</b> ad aiutarti</p>
+                    </li>
+                </ul>
+                <a class="buttons_reg rounded d-flex" href="/register">Iscriviti a BDoctors</a>
+            </div>
         </div>
-        <div class="newspapers pt-5">
-            <span class="">Hanno parlato di noi:</span>
+        
+        <div class="newspapers py-2 my-5 w-100">
+            <span class="speaks">Hanno parlato di noi:</span>
             <ul class="list_journals d-flex justify-content-center align-items-center list-unstyled flex-wrap">
                 
                 <li class="journals" v-for="item in news">
@@ -61,9 +75,18 @@
 
 <style lang="scss" scoped>
 
+h2 {
+    color: #cabb1e;
+    
+}
+
+p {
+    font-size: 1rem;
+
+}
 
 .buttons_reg {
-    background-color: #6cb2eb;
+    background-color: #7697de;
     color: white;
     padding: 0.5rem 1rem;
     text-decoration: none;
@@ -72,6 +95,21 @@
     margin-left: auto;
     font-size: 1.25rem;
     margin-top: 1.5rem;
+}
+
+.advertising_doctor {
+    width: 500px;
+}
+
+.newspapers {
+    border-top: 1px double grey;
+    border-bottom: 1px double grey;
+}
+
+.speaks {
+    color: #7697de;
+    font-weight: bold;
+    font-size: 1rem;
 }
 
 .list_journals {

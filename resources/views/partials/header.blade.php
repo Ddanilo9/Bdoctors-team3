@@ -1,7 +1,9 @@
 <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light py-0 justify-content-center align-items-center">
             <div>
-                <a class="navbar-brand" href="{{ route('home') }}">LOGO</a>  
+                <a class="navbar-brand" href="{{ route('home') }}">
+                    <img width="60" class="rounded" src="{{asset('img/logo.png')}}" alt="Logo">
+                </a>  
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
