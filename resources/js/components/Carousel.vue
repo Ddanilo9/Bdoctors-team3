@@ -1,18 +1,18 @@
 <template>
-    <div>
-        <!-- <p v-for="doc in sponsorizedDoc" :key="doc.id">
-            {{ doc.name }}
-        </p> -->
+    <div class="carousel">
         <template v-if="activeSponsors.length">
             <carousel-3d
                 :autoplay="true"
                 :loop="true"
-                :height="480"
+                :height="590"
                 :border="0"
+                :display="7"
+                :width="400"
+
             >
-                <slide v-for="(slide, i) in activeSponsors" :index="i" :key="i">
+                <slide class="slide" v-for="(slide, i) in activeSponsors" :index="i" :key="i">
                     <DoctorCard
-                        :style-modifier="'c-carousel__doctor'"
+                        :style-modifier="'carousel__doctor'"
                         :doctor="slide"
                         :src="`/storage/${slide.photo}`"
                     ></DoctorCard>
@@ -74,4 +74,14 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+.carousel-3d-container {
+    overflow: visible;
+}
+.slide {
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    background-color: transparent;
+    margin: 10px 0;
+}
+</style>

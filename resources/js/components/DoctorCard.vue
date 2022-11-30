@@ -25,16 +25,20 @@
             </template>
           </template>
         </div>
-        <p>
-          n° di reviews:
-          <span>({{ doctor.reviews.length }})</span>
-        </p>
-        <div class="user">
-          <div class="user-info d-flex align-items-center">
-            <img :src="require('../../images/maps.png')" />
-            <h5>{{ doctor.address }}</h5>
+
+        <div class="only-show">
+          <p>
+            n° di reviews:
+            <span>({{ doctor.reviews.length }})</span>
+          </p>
+          <div class="user">
+            <div class="user-info d-flex align-items-center">
+              <img :src="require('../../images/maps.png')" />
+              <h5>{{ doctor.address }}</h5>
+            </div>
           </div>
         </div>
+
       </div>
     </div>
   </div>
@@ -65,6 +69,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../sass/variables.scss";
+
+
 * {
   box-sizing: border-box;
 }
@@ -74,9 +81,9 @@ export default {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 100%;
 }
 .card-1 {
-  margin: 10px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
@@ -156,4 +163,22 @@ figure {
     object-position: center;
   }
 }
+
+
+.carousel__doctor {
+  width: 100%;
+  margin: 0;
+  padding: 32px 64px;
+  background-color: $bd-white;
+  height: 100%;
+
+  .card-1-body {
+
+    min-height: 0;
+  }
+
+  .only-show {
+    display: none;
+  }
+  }
 </style>
