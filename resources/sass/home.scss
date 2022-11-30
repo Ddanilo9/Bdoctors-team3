@@ -1,9 +1,10 @@
 .hero{
-    // background-image: url(../../public/img/jumbo.jpg);
-    // background-position: center;
-    // background-size: cover;
+    background-image: url(../img/hero.png);
+    background-position-x: left;
+    background-size: contain;
+    background-repeat: no-repeat;
     background-color: rgba(157, 197, 214, 0.808);
-    height: 640px;
+    height: 550px;
     // display: flex;
     // flex-direction: column;
     // justify-content: center;

@@ -58,7 +58,7 @@
                                     </select>
                                 </div>
                                 <div class="form-field col-lg-12">
-                                    <input class="submit-btn" type="submit" value="Submit">
+                                    <input class="submit-btn" type="submit" value="Vota">
                                 </div>
                             </div>
                         </form>
@@ -93,47 +93,79 @@
         </div>
 
         {{-- Send Message --}}
-        <section class="get-in-touch">
-            <h1 class="title">Contatta il medico privatamente:</h1>
-            <form action="{{ route('messages.store') }}" method="POST" class="contact-form row">
+        <div>
+            <button class="message-btn" data-toggle="modal"
+                data-target="#modalContactForm">Invia un messaggio a {{$doctor->name}}
+                {{$doctor->surname}}
+            </button>
+        </div>
+
+        {{-- modal form per inviare un messaggio al dottore --}}
+            <form action="{{ route('messages.store') }}" method="POST" class="contact-form row needs-validation" novalidate>
                 @csrf
                 @method('POST')
+                <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog"
+                    aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header text-center">
+                                <h4 class="modal-title w-100 font-weight-bold">Scrivi un
+                                    messaggio</h4>
+                                <button type="submit" class="close" data-dismiss="modal"
+                                    aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
 
-                <div class="form-field col-lg-6">
-                    <input type="text" class=" input-text js-input form-control @error('name') is-invalid @enderror"
-                        id="name" name="name">
-                    <label class="label" for="name">Name</label>
-                    @error('name')
-                        <div id="name" class="invalid-feedback">
-                            {{ $message }}
+                            <div class="modal-body mx-3">
+                                <div class="md-form mb-5 position-relative form-group">
+                                    <i class="fas fa-user prefix grey-text"></i>
+                                        <input type="text" class=" input-text js-input form-control @error('name') is-invalid @enderror"
+                                            id="name" name="name">
+                                        <label class="label" for="name">Name</label>
+                                        @error('name')
+                                            <div id="name" class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                </div>
+
+                                <div class="md-form mb-5 position-relative form-group">
+                                    <i class="fas fa-envelope prefix grey-text"></i>
+                                        <input type="email" class=" input-text js-input form-control @error('email') is-invalid @enderror"
+                                            id="email" name="email">
+                                        <label class="label" for="email">Email</label>
+                                        @error('email')
+                                            <div id="email" class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                </div>
+
+
+                                <div class="md-form mb-5 position-relative form-group">
+                                    <i class="fas fa-pencil-alt"></i>
+                                        <textarea class="form-control areat" id="message" name="message" rows="5"
+                                            placeholder="Scrivi qui il tuo messaggio" required @error('message') is-invalid @enderror></textarea>
+                                        @error('name')
+                                            <div id="message" class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                </div>
+                            </div>
+
+                            <input hidden type="number" name="doctor_id" value="{{ $doctor->id }}">
+                            <div class="modal-footer form-field col-lg-12 d-flex justify-content-center">    
+                                <input class="submit-btn" type="submit" value="Invia">
+                                <button class="close-button" data-dismiss="modal" aria-label="Close">CHIUDI</button>
+                            </div>
+
                         </div>
-                    @enderror
+                    </div>
                 </div>
-                <div class="form-field col-lg-6">
-                    <input type="email" class=" input-text js-input form-control @error('email') is-invalid @enderror"
-                        id="email" name="email">
-                    <label class="label" for="email">Email</label>
-                    @error('email')
-                        <div id="email" class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-                <div class="form-field col-lg-6">
-                    <textarea class="form-control areat" id="message" name="message" rows="5"
-                        placeholder="Scrivi qui il tuo messaggio" required @error('message') is-invalid @enderror></textarea>
-                    @error('name')
-                        <div id="message" class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-                <input hidden type="number" name="doctor_id" value="{{ $doctor->id }}">
-                <div class="form-field col-lg-12">
-                    <input class="submit-btn" type="submit" value="Submit">
-                </div>
+
             </form>
-        </section>
 
 
 
@@ -167,7 +199,7 @@
 
         <section class="get-in-touch">
             <h1 class="title">Scrivi una recensione:</h1>
-            <form action="{{ route('reviews.store') }}" method="POST" class="contact-form">
+            <form action="{{ route('reviews.store') }}" method="POST" class="contact-form needs-validation" novalidate>
                 @csrf
                 @method('POST')
 
@@ -193,7 +225,7 @@
                 </div>
                 <input hidden type="number" name="doctor_id" value="{{ $doctor->id }}">
                 <div class="form-field col-lg-12">
-                    <input class="submit-btn" type="submit" value="Submit">
+                    <input class="submit-btn" type="submit" value="Invia">
                 </div>
             </form>
         </section>
