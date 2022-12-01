@@ -6,7 +6,7 @@
                     <h2 class="text-center mb-5 pt-5 h1 font-weight-bold">Come funziona BDoctors?</h2>
                 </div>
                 <div class="col-sm-4 text-center">
-                    <img src="/img/doctor1.png" data-src="/img/images.jpg medico.jpg"
+                    <img src="/img/medicotitolo.svg" data-src="/img/images.jpg medico.jpg"
                         class="imghome img-responsive lazyload" alt="Scegli il Medico" title="Scegli il Medico" />
                     <h3>Scegli il Medico</h3>
                     <p>Fai la <b>scelta migliore</b> secondo le tue esigenze: valuta <b>curriculum</b>, <b>prezzo</b>
@@ -14,7 +14,7 @@
                     <hr class="visible-xs" />
                 </div>
                 <div class="col-sm-4 text-center">
-                    <img src="/img/doctor2.png" data-src="/img/prenota.png"
+                    <img src="/img/Purpole_titolo.png" data-src="/img/prenota.png"
                         class="img-home img-responsive lazyload" alt="Prenota la visita"
                         title="Prenota la visita" />
                     <h3>Prenota la visita</h3>
@@ -23,7 +23,7 @@
                     <hr class="visible-xs" />
                 </div>
                 <div class="col-sm-4 text-center">
-                    <img src="/img/doctor3.png" data-src="/img/consiglidelmedico.jpg"
+                    <img src="/img/visitab_1.svg" data-src="/img/consiglidelmedico.jpg"
                         class="img-home img-responsive lazyload" alt="Vai all'appuntamento"
                         title="Vai all'appuntamento" />
                     <h3>Vai all'appuntamento</h3>
@@ -78,7 +78,7 @@ img:hover {
 
 }
 
-.home{
-    background-color: rgba(148, 201, 223, 0.808);
-}
+// .home{
+//     background-color: rgba(148, 201, 223, 0.808);
+// }
 </style>
