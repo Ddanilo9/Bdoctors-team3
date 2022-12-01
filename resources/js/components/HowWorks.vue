@@ -6,7 +6,7 @@
                     <h2 class="text-center mb-5 pt-5 h1 font-weight-bold">Come funziona BDoctors?</h2>
                 </div>
                 <div class="col-sm-4 text-center">
-                    <img src="/img/doctor1.png" data-src="/img/images.jpg medico.jpg"
+                    <img src="/img/medico titolo.png" data-src="/img/medico titolo.png"
                         class="imghome img-responsive lazyload" alt="Scegli il Medico" title="Scegli il Medico" />
                     <h3>Scegli il Medico</h3>
                     <p>Fai la <b>scelta migliore</b> secondo le tue esigenze: valuta <b>curriculum</b>, <b>prezzo</b>
@@ -14,8 +14,8 @@
                     <hr class="visible-xs" />
                 </div>
                 <div class="col-sm-4 text-center">
-                    <img src="/img/doctor2.png" data-src="/img/prenota.png"
-                        class="img-home img-responsive lazyload" alt="Prenota la visita"
+                    <img src="/img/Purpole titolo.png" data-src="/img/Purpole titolo.png"
+                        class="img-home img-responsive lazyload " alt="Prenota la visita"
                         title="Prenota la visita" />
                     <h3>Prenota la visita</h3>
                     <p>Ti bastano <b>pochi secondi</b>: è facile e veloce, non serve telefonare e non è richiesta la
@@ -23,7 +23,7 @@
                     <hr class="visible-xs" />
                 </div>
                 <div class="col-sm-4 text-center">
-                    <img src="/img/doctor3.png" data-src="/img/consiglidelmedico.jpg"
+                    <img src="/img/visitab (1).svg" data-src="/img/visitab (1).svg"
                         class="img-home img-responsive lazyload" alt="Vai all'appuntamento"
                         title="Vai all'appuntamento" />
                     <h3>Vai all'appuntamento</h3>
@@ -75,6 +75,7 @@ img:hover {
         height: 200px;
         width: 200px;
     }
+   
 
 }
 </style>
