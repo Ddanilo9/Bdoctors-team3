@@ -36,5 +36,6 @@
     <!-- Scripts -->
     <script src="{{ mix('/js/app.js') }}" defer></script>
     <script src="{{ asset('js/bootstrapValidation.js') }}"></script>
+    <script src="https://js.braintreegateway.com/web/dropin/1.33.7/js/dropin.js"></script>
 </body>
 </html>
