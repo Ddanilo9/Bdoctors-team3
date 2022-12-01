@@ -89,6 +89,7 @@ export default {
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   width: 300px;
+  margin-bottom: 80px;
   h4{
     font-size: 30px;
   }

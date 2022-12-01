@@ -1,8 +1,8 @@
 <template>
-    <div class="container d-flex flex-column">
+    <div class="container my-5 d-flex flex-column">
         <div class="d-flex justify-content-center align-items-center flex-wrap">
             <figure class="col-lg-6 text-center">
-                <img class="animated pulse infinite" width="300" src="/img/cuore(1).svg" alt="Doctor Photo">
+                <img class="animated pulse infinite" width="300" src="\img\cuore1.svg" alt="Doctor Photo">
             </figure>
             <div class="advertising_doctor col-lg-6">
                 <h2 class="h1 font-weight-bold">Sei un Medico?</h2>

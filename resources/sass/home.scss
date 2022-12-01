@@ -1,13 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
+
+*{
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+body{
+    background-color: $body-bg;
+}
+
 .hero{
-    // background-image: url(../../public/img/jumbo.jpg);
-    // background-position: center;
-    // background-size: cover;
-    background-color: rgba(157, 197, 214, 0.808);
-    height: 640px;
+    background-image: url(../img/hero.png);
+    background-position-x: left;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: rgba(148, 201, 223, 0.776);
+    height: 550px;
     // display: flex;
     // flex-direction: column;
     // justify-content: center;
     .hero-center{
         padding-top: 150px;
     }
+}
+.nav-bg{
+    background-color: $body-bg;
 }
