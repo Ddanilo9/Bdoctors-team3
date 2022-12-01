@@ -9,7 +9,6 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-<<<<<<< HEAD
             <div class="collapse navbar-collapse justify-content-end " id="navbarNavAltMarkup">
               <div class="navbar-nav">
                 @guest
@@ -21,7 +20,6 @@
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a style="font-size: 18px;" class="nav-link font-weight-bold px-3" href="{{ route('register') }}">{{ __('Registrati') }}</a>
->>>>>>> 23c56e8c2db29cae8e578877769d76714126b656
                                 </li>
                             @endif
                         @else
