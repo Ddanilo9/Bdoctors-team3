@@ -31,9 +31,11 @@
                             <label for="image" class="font-weight-bold">Foto Profilo</label>
 
                             <div class="custom-file ">
-                                <label for="image" class="font-weight-bold">Scegli immagine</label>
-                                <input type="file" name="image"
+                                <label for="image" class="drop-container font-weight-bold">
+                                    <input type="file" name="image"
                                     class=" @error('image') is-invalid @endif" id="image">
+                                    
+                                </label>
                                 @error('image')
                                 <div id="image" class="invalid-feedback">
                                     {{ $message }}
@@ -138,9 +140,10 @@
                             <div class="form-group">
                                 <label for="cv" class="font-weight-bold">Inserisci il tuo CV</label>
 
-                                <div class="custom-file ">
-                                    <label for="image" class="font-weight-bold">Scegli il tuo CV..</label>
-                                    <input type="file" name="cv" class=" @error('cv') is-invalid @endif" id="cv">
+                                <div class="custom-file mb-4">
+                                    <label for="image" class="drop-container font-weight-bold">
+                                        <input type="file" name="cv" class=" @error('cv') is-invalid @endif" id="cv">    
+                                    </label>
                                 @error('cv')
                                     <div id="cv" class="invalid-feedback">
                                     {{ $message }}
