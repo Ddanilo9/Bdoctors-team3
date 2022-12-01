@@ -215,10 +215,10 @@
                 </div>
                 
                 <div class="form-field col-lg-6">
-                    <textarea class="form-control areat" id="message" name="message" rows="5"
-                        placeholder="Scrivi qui il tuo messaggio" required @error('message') is-invalid @enderror></textarea>
-                    @error('name')
-                        <div id="message" class="invalid-feedback">
+                    <textarea class="form-control areat" id="comment" name="comment" rows="5"
+                        placeholder="Scrivi qui il tuo messaggio" required @error('comment') is-invalid @enderror></textarea>
+                    @error('comment')
+                        <div id="comment" class="invalid-feedback">
                             {{ $message }}
                         </div>
                     @enderror

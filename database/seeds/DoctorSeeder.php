@@ -18,18 +18,6 @@ class DoctorSeeder extends Seeder
     public function run()
     {
 
-        $avatars = [
-            'avatar/1.png',
-            'avatar/2.png',
-            'avatar/3.png',
-            'avatar/4.png',
-            'avatar/5.png',
-            'avatar/6.png',
-            'avatar/7.png',
-            'avatar/8.png',
-            'avatar/9.png',
-            'avatar/10.png',
-        ];
         $cvs = [
             'cvs/1.pdf',
             'cvs/2.pdf',
@@ -43,21 +31,21 @@ class DoctorSeeder extends Seeder
 
         $faker = \Faker\Factory::create('it_IT');
 
-        $users = User::all();
+        // $users = User::all();
         $specializations = Specialization::all()->pluck('id');
+        $doctors = config('doctors');
 
 
-
-        foreach ($users as $user) {
+        foreach ($doctors as $user) {
 
             $doctor = new Doctor();
-            $doctor->user_id = $user->id;
+            $doctor->user_id = $user['user_id'];
 
-            $doctor->name = $faker->firstName();
-            $doctor->surname = $faker->lastName();
+            $doctor->name = $user['name'];
+            $doctor->surname = $user['surname'];
             $doctor->address = $faker->address();
             $doctor->services = $faker->paragraphs(rand(1, 2), true);
-            $doctor->photo = $faker->randomElement($avatars);
+            $doctor->photo = $user['photo'];
             $doctor->cv = $faker->randomElement($cvs);
             $doctor->telephone = $faker->phoneNumber();
 
