@@ -34,7 +34,7 @@
         <carousel></carousel>
     </div>
     <howworks></howworks>
-    <advert-doc></advert-doc>
+    <they-talks></they-talks>
     {{-- <about-us></about-us> --}}
 
 </div>
