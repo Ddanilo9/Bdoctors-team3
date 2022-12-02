@@ -140,7 +140,7 @@ export default {
 .bg-main {
     background-color: $bd-grey;
     padding: 20px 0;
-    min-height: 700px;
+    min-height: 100vh;
     .box-research {
         margin-bottom: 20px;
         gap: 5px;
