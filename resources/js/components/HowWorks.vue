@@ -6,7 +6,7 @@
                     <h2 class="text-center mb-3 pt-5 h1 font-weight-bold">Come funziona BDoctors?</h2>
                 </div>
                 <div class="col-sm-4 text-center">
-                    <img src="/img/Progetto senza titolo (2).png" data-src="/img/Progetto senza titolo (2).png"
+                    <img src="/img/doccolor.png" data-src="img/doccolor.png"
                         class="imghome img-responsive lazyload" alt="Scegli il Medico" title="Scegli il Medico" />
                     <h3>Scegli il Medico</h3>
                     <p>Fai la <b>scelta migliore</b> secondo le tue esigenze: valuta <b>curriculum</b>, <b>prezzo</b>
@@ -14,8 +14,8 @@
                     <hr class="visible-xs" />
                 </div>
                 <div class="col-sm-4 text-center">
-                    <img src="/img/Progetto senza titolo (1).png" data-src="img/Progetto senza titolo (1).png"
-                        class="img-home img-responsive lazyload" alt="Prenota la visita"
+                    <img src="/img/telefonaccio.png" data-src="/img/telefonaccio.png"
+                        class="img-home img-responsive lazyload phone" alt="Prenota la visita"
                         title="Prenota la visita" />
                     <h3>Prenota la visita</h3>
                     <p>Ti bastano <b>pochi secondi</b>: è facile e veloce, non serve telefonare e non è richiesta la
@@ -23,7 +23,7 @@
                     <hr class="visible-xs" />
                 </div>
                 <div class="col-sm-4 text-center mb-5">
-                    <img src="/img/Progetto senza titolo (1).png" data-src="/img/Progetto senza titolo (1).png"
+                    <img src="/img/visiting.png" data-src="/img/visiting.png"
                         class="img-home img-responsive lazyload" alt="Vai all'appuntamento"
                         title="Vai all'appuntamento" />
                     <h3>Vai all'appuntamento</h3>
@@ -77,10 +77,9 @@ b{
         height: 300px;
         width: 300px;
         // margin-bottom: 30px;
-        color: $bd-black;
     }
    
-
+    
 }
 
 // .home{
