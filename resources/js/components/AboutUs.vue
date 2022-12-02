@@ -36,9 +36,12 @@ export default {};
 h1 {
     color: #95bbdf;
     font-size: 35px;
+    padding-top: 3rem;
+    margin-bottom: 3rem;
 }
 .about-us {
     background-image: url(../../../public/img/aa.png);
+    background-color: white;
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
@@ -49,16 +52,23 @@ h1 {
     flex-direction: column;
     justify-content: center;
     width: 100%;
+    
 }
 .container-about {
-    max-width: 85%;
-    padding: 15px;
+    width: 100%;
+    height: 100%;
     margin: 0 auto;
-    color: #0a0f1c;
-    background-color: white;
-    filter: drop-shadow(7px 3px 9px #7697de);
-    border-radius: 20px;
+    // color: #0a0f1c;
+    background-color:trasparent;
+    // filter: drop-shadow(7px 3px 9px #7697de);
+    // border-radius: 20px;
     text-align: center;
+    padding-top: 30px;
+   
+}
+.container-about>p{
+    font-size: 18px;
+    line-height: 2rem;
 }
 
 @media (min-width: 425px) {
@@ -73,7 +83,7 @@ h1 {
 }
 @media (min-width: 1200px) {
     .container-about {
-        max-width: 750px;
+        // max-width: 750px;
     }
 }
 </style>
