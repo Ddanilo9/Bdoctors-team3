@@ -4,7 +4,7 @@
 
     .dashboard__navbar {
         width: 250px;
-        background-color: $main;
+        background-color: $bd-primary;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -46,7 +46,7 @@
                     &:hover {
                         text-decoration: none;
                         background-color: $bd-lighthover;
-                        color: $main;
+                        color: $bd-primary;
                     }
                 }
             }
@@ -73,7 +73,7 @@
 
         .dashboard__button {
             padding: 8px;
-            background-color: $main;
+            background-color: $bd-primary;
             color: $secondary;
             text-decoration: none;
             display: inline-block;
@@ -85,7 +85,7 @@
 
             &:hover {
                 background-color: $bd-lighthover;
-                color: $main;
+                color: $bd-primary;
             }
         }
     }
