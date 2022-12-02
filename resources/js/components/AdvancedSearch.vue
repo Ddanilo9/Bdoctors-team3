@@ -1,8 +1,8 @@
 <template>
   <div class="bg-main">
     <!-- <h1 class="text-center">{{doctor.specializations.name}}</h1> -->
-    <div class="container box-research">
-      <select v-model="starsSelected" class="select">
+    <div class="container box-research d-flex align-items-center align-items-sm-baseline flex-column flex-sm-row">
+      <select v-model="starsSelected" class="select"> 
         <option disabled value="">Seleziona il n° di stelle</option>
         <option v-for="i in 5" :key="i.id">{{ i }}</option>
       </select>
@@ -140,8 +140,6 @@ export default {
   padding: 20px 0;
   .box-research {
     margin-bottom: 20px;
-    display: flex;
-    align-items: flex-end;
     gap: 5px;
     @media (min-width: 576px) {
       gap: 20px;
@@ -154,6 +152,10 @@ export default {
       gap: 20px;
       padding: 0px 10px;
     }
+    @media (min-width: 1200px) {
+      gap: 20px;
+      padding: 0px 40px;
+    }
   }
 
   a {
@@ -163,19 +165,26 @@ export default {
   .select {
     border: none;
     border-radius: 10px;
-    height: 30px;
+    height: 40px;
+    font-size: 16px;
+    padding: 5px;
   }
   .input {
     border: none;
     border-radius: 10px;
-    height: 30px;
+    height: 40px;
+    font-size: 16px;
+    padding: 5px;
+    width: 210px;
   }
   button {
     border: none;
     border-radius: 10px;
-    background-color: #7697de;
-    margin-top: 5px;
-    height: 30px;
+    background-color:  #7697de;
+    height: 38px;
+    padding: 0 5px;
+    font-size: 16px;
+    font-weight: 400;
   }
 }
 </style>
