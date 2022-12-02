@@ -22,9 +22,9 @@
                       <div class="d-flex flex-column align-items-center text-center">
                         <div class="photo">
                             @if (!empty($doctor->photo))
-                                <img width="150" src="{{ asset('storage/' . $doctor->photo) }}" alt="{{ $doctor->name }}">
+                                <img width="180" src="{{ asset('storage/' . $doctor->photo) }}" alt="{{ $doctor->name }}">
                             @else
-                                <img width="150" src="{{ asset('img/no-image.png') }}" alt="{{ $doctor->name }}">
+                                <img width="180" src="{{ asset('img/no-image.png') }}" alt="{{ $doctor->name }}">
                             @endif                            
                         </div>
                         <div class="mt-3">

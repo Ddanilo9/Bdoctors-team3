@@ -274,7 +274,7 @@ return [
     [
         'user_id' => '28',
         'name' => 'Paolo',
-        'surname' => 'Mneguzzi',
+        'surname' => 'Meneghini',
         'address' => 'Via Ugo Bassi, 33',
         'services' => "Ecocolordoppler dei vasi periferici, Ecocolordoppler dei tronchi sovra aortici, Elettrocardiogramma holter",
         'photo' => 'avatar/8.png',

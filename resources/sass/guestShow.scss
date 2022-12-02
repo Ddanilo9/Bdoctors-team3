@@ -47,8 +47,10 @@
     // width: 200px;
     cursor: pointer;
 }
-.custom-select {
-    border: 2px solid #5543ca !important;
+.vote-select {
+    border: 2px solid $bd-primary;
+    padding: 6px 8px;
+    border-radius: $bd-radius;
 }
 .areat {
     border: 2px solid #5543ca !important;
@@ -70,35 +72,20 @@
         cursor: pointer;
     }
 }
-// add different buttons 
-.message-btn{
-    display: inline-block;
-    background-color: $bd-primary;
-    // background-image: linear-gradient(125deg, #7697de, #064497);
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 12px;
-    padding: 0.5rem 1rem;
-    border-radius: $bd-radius;
-    border: none;
-    width: 250px;
-    cursor: pointer;
-}
 
 .f-5 {
     font-size: 14px !important;
 }
-.container-5 {
-    background-color: white;
-    text-align: center;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.58);
-    border-radius: 16px;
-    margin-top: 50px;
-    overflow: auto;
-    margin-bottom: 50px;
-    max-height: 500px;
-}
+// .container-5 {
+//     background-color: white;
+//     text-align: center;
+//     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.58);
+//     border-radius: 16px;
+//     margin-top: 50px;
+//     overflow: auto;
+//     margin-bottom: 50px;
+//     max-height: 500px;
+// }
 .card-5 {
     border: none;
 }
@@ -216,7 +203,7 @@
         }
     }
     .card-profile{
-        min-height: 356px !important;
+        min-height: 385px !important;
         box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
         border-radius: $bd-radius !important;
         img{
@@ -228,9 +215,11 @@
         border-radius: $bd-radius !important;
     }
     p{
-        font-size: 16px;
+        font-size: 14px;
     }
 }
+
+// buttons
 
 .red-btn{
     display: inline-block;
@@ -261,7 +250,7 @@
     border-radius: $bd-radius;
     cursor: pointer;
     &:hover{
-        background-color: $bd-secondary;
+        background-color: rgb(68, 120, 189);
         text-decoration: none;
         color: #fff;
     }
@@ -284,5 +273,39 @@
         background-color: $bd-primary;
         text-decoration: none;
         color: #fff;
+    }
+}
+
+.message-btn{
+    display: inline-block;
+    background-color: $bd-primary;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
+    padding: 0.5rem 1rem;
+    border-radius: $bd-radius;
+    border: none;
+    width: 180px;
+    cursor: pointer;
+    &:hover{
+        background-color: rgb(68, 120, 189);
+    }
+}
+
+.submit-btn{
+    display: inline-block;
+    background-color: $bd-primary;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
+    padding: 0.5rem 1rem;
+    border-radius: $bd-radius;
+    border: none;
+    // width: 180px;
+    cursor: pointer;
+    &:hover{
+        background-color: rgb(68, 120, 189);
     }
 }
