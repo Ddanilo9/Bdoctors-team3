@@ -1,32 +1,4 @@
 
-.delete-btn{
-    display: inline-block;
-    background-color: #000;
-    background-image: linear-gradient(125deg, #de7d76, #971c06);
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 13px;
-    padding: 6px 10px;
-    border: none;
-    // width: 100px;
-    cursor: pointer;
-}
-
-.edit-btn{
-    display: inline-block;
-    background-color: #000;
-    background-image: linear-gradient(125deg, #f5f5ff, #ebf2ff);
-    color: #031737;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 13px;
-    padding: 6px 10px;
-    border: none;
-    // width: 100px;
-    cursor: pointer;
-}
-
 .container-private {
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.409) 0px 1px 4px;

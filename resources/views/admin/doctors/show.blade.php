@@ -3,110 +3,104 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container py-1">
-        <div class="row justify-content-center my-5">
-            <div class="col-md-10">
-                <div class="card border-0">
-                    <div class="card-header font-weight-bold text-white text-center">
 
-                        <div class="d-flex align-items-center justify-content-between">
-                            <a class="d-flex align-items-center" href="{{ route('admin.home', $doctor) }}">
-                                <?xml version="1.0" encoding="utf-8"?>
-                                <!DOCTYPE svg
-                                    PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-                                <svg width="26" height="26" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
-                                    xmlns:xlink="http://www.w3.org/1999/xlink" fill="#fff">
-                                    <g>
-                                        <path
-                                            d="M 4,15.004C 4,15.132, 4.028,15.26, 4.078,15.382c 0.048,0.118, 0.12,0.224, 0.208,0.314 C 4.288,15.7, 4.29,15.704, 4.292,15.708l 6,6c 0.39,0.39, 1.024,0.39, 1.414,0c 0.39-0.39, 0.39-1.024,0-1.414L 7.414,16L 27,16 C 27.552,16, 28,15.552, 28,15C 28,14.448, 27.552,14, 27,14L 7.414,14 l 4.292-4.292c 0.39-0.39, 0.39-1.024,0-1.414 c-0.39-0.39-1.024-0.39-1.414,0l-6,6C 4.29,14.296, 4.288,14.302, 4.286,14.304C 4.198,14.394, 4.126,14.5, 4.078,14.618 C 4.026,14.74, 4,14.87, 4,15l0,0C 4,15.002, 4,15.002, 4,15.004z">
-                                        </path>
-                                    </g>
-                                </svg>
-                                <div class="text-white font-weight-bold pl-1 ">Torna indietro</div>
-                            </a>
-                            <div class=" text-left d-flex justify-content-end align-items-center">
-                                <a href="{{ route('admin.doctors.edit', $doctor) }}" type="button"
-                                    class="edit-btn mr-2">Modifica</a>
-                                {{-- <form action="{{ route('admin.doctors.destroy', $doctor) }}"  method="POST">
-                                @csrf
-                                @method('DELETE')
-            
-                                <input type="submit" value="Elimina" class="btn btn-danger btn-sm">
-                            </form> --}}
-                                <form action="{{ route('admin.doctors.destroy', $doctor) }}" method="POST"
-                                    class="d-inline-block"
-                                    onsubmit="return confirm('Stai per eliminare il tuo account e i relativi dati. SEI SICURO?')">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="delete-btn" type="submit">Elimina</button>
-                                </form>
-                            </div>
+    <div class="container">
+        <div class="main-profile">
+        
+              <!-- Breadcrumb -->
+              <div aria-label="breadcrumb" class="main-breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="{{ route('admin.home') }}">Torna alla dashboard</a></li>
+                </ol>
+              </div>
+              <!-- /Breadcrumb -->
+        
+              <div class="row gutters-sm">
+                <div class="col-md-4 mb-3">
+                  <div class="card border-0">
+                    <div class="card-body card-profile">
+                      <div class="d-flex flex-column align-items-center text-center">
+                        <div class="photo">
+                            @if (!empty($doctor->photo))
+                                <img width="150" src="{{ asset('storage/' . $doctor->photo) }}" alt="{{ $doctor->name }}">
+                            @else
+                                <img width="150" src="{{ asset('img/no-image.png') }}" alt="{{ $doctor->name }}">
+                            @endif                            
                         </div>
-                    </div>
-
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-8">
-                                <h2 class="display-3 py-3">{{ $doctor->name }} {{ $doctor->surname }}</h2>
-
-                                <div class="info p-3 d-flex align-items-center">
-                                    <div class="photo">
-
-                                        @if (!empty($doctor->photo))
-                                            <img width="250" src="{{ asset('storage/' . $doctor->photo) }}"
-                                                alt="{{ $doctor->name }}">
-                                        @else
-                                            <img width="250" src="{{ asset('img/no-image.png') }}"
-                                                alt="{{ $doctor->name }}">
-                                        @endif
-                                    </div>
-                                    <section class="specs ml-4 mt-3">
-                                        <h2>Dott.{{ $doctor->name }} {{ $doctor->surname }}</h2>
-                                        <div class="vote mt-4 font-weight-bold">Voto Medio: {{ $doctor->avg }}</div>
-
-                                        {{-- @foreach ($doctor->stars as star)
-                                <div class="badge badge-info p-2 my-2 text-white">{{ $star->number}}</div> 
-                        @endforeach --}}
-
-                                        <div class="specialization mt-4">
-                                            <div class="font-weight-bold">Le tue specializzazioni: </div>
-                                            @foreach ($doctor->specializations as $s)
-                                                <div class="badge badge-info p-2 my-2 text-white">{{ $s->spec_name }}</div>
-                                            @endforeach
-                                        </div>
-                                    </section>
-                                </div>
-                                <div>
-                                    <h3 class="font-weight-bold mt-3">Informazioni:</h3>
-                                    <div class="address mt-2">
-                                        <span class="font-weight-bold">Indirizzo: </span>{{ $doctor->address }}
-                                    </div>
-                                    <div class="phone">
-                                        <span class="font-weight-bold">Telefono: </span>{{ $doctor->telephone }}
-                              
-                                    </div>
-                                    
-                                    <h3 class="font-weight-bold mt-3">Prestazioni offerte:</h3>
-                                        <div class='container-private border-0  mt-1 col-md-10 col-11'>
-                                            <div class="services my-2">
-                                                {{ $doctor->services }}
-                                            </div>
-                                        </div>
-
-                                   
-                                    <div class="cv">
-                                        <a class="btn btn-outline-info" href="{{ asset('storage/' . $doctor->cv) }}"
-                                            download="{{ $doctor->cv }}">
-                                            Download CV
-                                        </a>
-                                    </div>
-
-                            </div>
-
+                        <div class="mt-3">
+                          <h4>Dott. {{ $doctor->name }} {{ $doctor->surname }}</h4>
+                          <p class="text-secondary mb-1">
+                                @foreach ($doctor->specializations as $s)
+                                    <div class="badge bedge-color p-2 text-white">{{ $s->spec_name }}</div>
+                                @endforeach
+                          </p>
+                          <p class="vote-avg">Voto Medio: {{ $doctor->avg }}</p>
+                          <a href="{{ route('admin.doctors.edit', $doctor) }}" type="button" class="edit-btn mr-2">Modifica</a>
+                          <form action="{{ route('admin.doctors.destroy', $doctor) }}" method="POST" class="d-inline-block"
+                          onsubmit="return confirm('Stai per eliminare il tuo account e i relativi dati. SEI SICURO?')">
+                            @csrf
+                            @method('DELETE')
+                            <button class="red-btn" type="submit">Elimina</button>
+                        </form>
                         </div>
+                      </div>
                     </div>
+                  </div>
+                  
                 </div>
+                <div class="col-md-8">
+                  <div class="card border-0 mb-3">
+                    <div class="card-body card-profile">
+                      <div class="row pt-4">
+                        <div class="col-sm-3">
+                          <h6 class="mb-0">Full Name</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{ $doctor->name }} {{ $doctor->surname }}
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <h6 class="mb-0">Indirizzo</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{ $doctor->address }}
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <h6 class="mb-0">Telefono</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                          {{ $doctor->telephone }}
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <h6 class="mb-0">Prestazioni</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            {{ $doctor->services }}
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-12">
+                            <a class="cv-btn" href="{{ asset('storage/' . $doctor->cv) }}" download="{{ $doctor->cv }}">
+                                Download CV
+                            </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+    
+                </div>
+              </div>
+    
             </div>
         </div>
-    </div>
+
 @endsection
