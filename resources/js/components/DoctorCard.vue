@@ -1,56 +1,57 @@
 <template>
     <div class="box-card">
         <div class="card-1" :class="styleModifier">
-            <div class="card-1-header">
-                <h4 class="text-center py-2">
-                    {{ doctor.name }} {{ doctor.surname }}
-                </h4>
+            <div class="card-1-header d-flex">
                 <figure>
                     <img
                         :src="`/storage/${doctor.photo}`"
                         alt="doctor avatar"
                     />
                 </figure>
+                <div>
+                    <h4 class="py-2">{{ doctor.name }} {{ doctor.surname }}</h4>
+                    <div class="stars mt-1 mb-1 d-flex align-items-center">
+                        <template v-for="i in 5">
+                            <template v-if="i <= Math.round(doctor.avgRate)">
+                                <font-awesome-icon
+                                    :key="'fs' + i"
+                                    icon="fa-solid fa-star"
+                                    class="full-star"
+                                />
+                            </template>
+                            <template v-else>
+                                <font-awesome-icon
+                                    :key="'es' + i"
+                                    icon="fa-regular fa-star"
+                                />
+                            </template>
+                        </template>
+                        <div class="only-show">
+                            <span class="pl-2">
+                                <span
+                                    >({{
+                                        doctor.reviews.length
+                                    }}
+                                    recensioni)</span
+                                >
+                            </span>
+                        </div>
+                    </div>
+                    <div class="user">
+                        <div class="user-info pt-3 d-flex align-items-center">
+                            <img :src="require('../../../public/img/mp.jpg')" />
+                            <h5>{{ doctor.address }}</h5>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="card-1-body">
+            <div class="card-1-body d-flex">
                 <div
-                    class="mb-1"
+                    class="mb-1 d-flex"
                     v-for="spec in doctor.specializations"
                     :key="spec.id"
                 >
                     <span class="tag tag-teal">{{ spec.spec_name }}</span>
-                </div>
-                <div class="stars mt-1 mb-1">
-                    <template v-for="i in 5">
-                        <template v-if="i <= Math.round(doctor.avgRate)">
-                            <font-awesome-icon
-                                :key="'fs' + i"
-                                icon="fa-solid fa-star"
-                                class="full-star"
-                            />
-                        </template>
-                        <template v-else>
-                            <font-awesome-icon
-                                :key="'es' + i"
-                                icon="fa-regular fa-star"
-                            />
-                        </template>
-                    </template>
-                </div>
-
-                <div class="only-show">
-                    <p>
-                        n° di reviews:
-                        <span>({{ doctor.reviews.length }})</span>
-                    </p>
-                    <div class="user">
-                        <div class="user-info d-flex align-items-center">
-                            <img
-                                :src="require('../../../public/img/maps.png')"
-                            />
-                            <h5>{{ doctor.address }}</h5>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -96,51 +97,58 @@ export default {
     height: 100%;
 }
 .card-1 {
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
     background-color: #fff;
     border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     overflow: hidden;
-    width: 300px;
+    width: 370px;
     margin-bottom: 80px;
+    @media (min-width: 768px) {
+        width: 330px;
+    }
+    @media (min-width: 992px) {
+        width: 430px;
+    }
+    @media (min-width: 1200px) {
+        width: 450px;
+    }
     h4 {
-        font-size: 30px;
+        font-size: 22px;
     }
 }
 .card-1-header img {
     width: 100%;
     object-fit: cover;
+    border-radius: 8px;
 }
 .card-1-body {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: flex-start;
-    padding: 20px;
-    min-height: 250px;
+    padding: 12px -51px;
+    padding-left: 10px;
+    padding: 9px 11px;
+    gap: 10px;
 }
 
 .tag {
     background: #cccccc;
     border-radius: 50px;
-    font-size: 14px;
+    font-size: 11px;
     margin: 0;
     color: #fff;
     padding: 2px 10px;
     text-transform: uppercase;
     cursor: pointer;
+    font-weight: 400;
+    padding: 4px;
+    padding: 5px 10px;
 }
 .tag-teal {
-    background-color: #47bcd4;
-}
-.tag-purple {
-    background-color: #5e76bf;
-}
-.tag-pink {
-    background-color: #cd5b9f;
+    background-color: $bd-secondary;
 }
 
 .card-1-body p {
-    font-size: 14px;
+    font-size: 12px;
     margin: 0 0 40px;
 }
 .user {
@@ -168,7 +176,7 @@ figure {
     margin: 5px auto;
     aspect-ratio: 1/1;
     overflow: hidden;
-    padding: 1px;
+    padding: 10px;
 
     img {
         width: 100%;

@@ -137,6 +137,16 @@ export default {
 <style lang="scss" scoped>
 @import "../../sass/variables.scss";
 
+// .b-card{
+//   @media (min-width: 1200px) {
+//       max-width: 1300px !important;
+//     }
+
+// }
+.cont-se {
+    margin: 0 auto;
+    max-width: 1400px;
+}
 .bg-main {
     background-color: $bd-grey;
     padding: 20px 0;
