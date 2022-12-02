@@ -35,7 +35,7 @@
     </div>
     <howworks></howworks>
     <advert-doc></advert-doc>
-    <about-us></about-us>
+    {{-- <about-us></about-us> --}}
 
 </div>
 
