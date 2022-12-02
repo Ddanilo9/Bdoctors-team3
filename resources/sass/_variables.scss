@@ -19,11 +19,29 @@ $teal: #4dc0b5;
 $cyan: #6cb2eb;
 
 //BDoctors colors
-$main: #031737;
-$secondary: #7697de;
+
+$bd-primary: #55a4e5;
+$bd-secondary: #0d53b3;
 $bd-grey: #e8e8e8;
 $bd-white: #f5f5fb;
 $bd-black: #0a0f1c;
 $bd-lighthover: #c2d0ef;
 $bd-yellow: #cabb1e;
-$bd-polar: #E9F5F9;
+$bd-polar: #e9f5f9;
+// $main: #031737;
+// $secondary: #7697de;
+
+//BDoctors spaces
+$bd-radius: 8px;
+$bd-space-xxl: 40px;
+$bd-space-xl: 32px;
+$bd-space-l: 24px;
+$bd-space-m: 16px;
+$bd-space-s: 12px;
+
+//BDoctors font size
+$bd-title: 32px;
+$bd-subtitle: 20px;
+
+$bd-text-m: 16px;
+$bd-text-sm: 12px;
