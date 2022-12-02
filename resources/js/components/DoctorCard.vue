@@ -84,14 +84,18 @@ export default {
   height: 100%;
 }
 .card-1 {
+
   background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   overflow: hidden;
   width: 370px;
   margin-bottom: 80px;
   @media (min-width: 768px) {
       width: 330px;
+
+   
+
     }
   @media (min-width: 992px) {
       width: 430px;

@@ -4,12 +4,12 @@
 
     .dashboard__navbar {
         width: 250px;
-        background-color: $main;
+        background-color: $bd-secondary;
         display: flex;
         flex-direction: column;
         align-items: center;
         padding: 40px 0 476px;
-        color: $secondary;
+        color: $bd-white;
 
         h4 {
             margin-bottom: 32px;
@@ -26,12 +26,13 @@
             li {
                 width: 100%;
 
-                &:first-of-type {
-                    border-top: 1px solid currentColor;
-                }
+                // &:first-of-type {
+                //     border-top: 1px solid $bd-primary;
+                // }
 
                 .dashboard__link {
-                    border-bottom: 1px solid currentColor;
+                    border-right: 8px solid transparent;
+                    // border-bottom: 1px solid $bd-primary;
                     font-size: 18px;
                     padding: 16px 0;
                     color: currentColor;
@@ -45,8 +46,13 @@
 
                     &:hover {
                         text-decoration: none;
-                        background-color: $bd-lighthover;
-                        color: $main;
+                        color: $bd-lighthover;
+                        border-color: currentColor;
+                    }
+                    &.is-active {
+                        text-decoration: none;
+                        color: $bd-lighthover;
+                        border-color: currentColor;
                     }
                 }
             }
@@ -73,8 +79,8 @@
 
         .dashboard__button {
             padding: 8px;
-            background-color: $main;
-            color: $secondary;
+            background-color: $bd-primary;
+            color: $bd-secondary;
             text-decoration: none;
             display: inline-block;
             border-radius: 4px;
@@ -85,7 +91,7 @@
 
             &:hover {
                 background-color: $bd-lighthover;
-                color: $main;
+                color: $bd-primary;
             }
         }
     }
@@ -102,11 +108,11 @@
             color: $bd-black;
 
             a {
-                color: $secondary;
+                color: $bd-secondary;
             }
 
             h5 {
-                color: $secondary;
+                color: $bd-secondary;
                 margin-bottom: 32px;
             }
         }

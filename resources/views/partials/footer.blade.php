@@ -34,7 +34,7 @@ $devGits =
 @endphp
 
 <footer>
-    <div class="container">
+    <div class="container py-3">
         <ul class="linkfooter d-flex justify-content-center align-items-center list-unstyled m-0 flex-wrap">
             @foreach ($listMenu as $item)
             <li>

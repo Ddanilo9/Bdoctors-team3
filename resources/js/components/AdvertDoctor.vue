@@ -59,7 +59,9 @@
                 'la-stampa.png',
                 'ted-x.png',
                 'milano-finanza.png',
-                're_quadro_2.png'
+                're_quadro_2.png',
+                'politecnico-milano.png',
+                'avvenire_2.png'
 
             ]
             }
