@@ -11,7 +11,6 @@ $now = Carbon::now()->format('Y-m-d H:i:s')
 @section('content')
 
 <div id='app' class="dashboard__body">
-    <payment-button></payment-button>
     <nav class="dashboard__navbar">
         <h4>Area Personale</h4>
 
