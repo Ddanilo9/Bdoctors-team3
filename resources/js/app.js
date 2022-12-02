@@ -40,6 +40,7 @@ Vue.component(
 Vue.component("howworks", require("./components/HowWorks").default);
 Vue.component("advert-doc", require("./components/AdvertDoctor").default);
 Vue.component("payment-button", require("./components/PaymentButton").default);
+Vue.component("they-talks", require("./components/TheyTalks").default);
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 
