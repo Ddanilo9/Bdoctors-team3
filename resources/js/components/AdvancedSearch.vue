@@ -1,7 +1,7 @@
 <template>
   <div class="bg-main">
     <!-- <h1 class="text-center">{{doctor.specializations.name}}</h1> -->
-    <div class="container box-research d-flex align-items-center align-items-sm-baseline flex-column flex-sm-row">
+    <div class="container box-research d-flex align-items-center align-items-sm-baseline flex-sm-row">
       <select v-model="starsSelected" class="select"> 
         <option disabled value="">Seleziona il n° di stelle</option>
         <option v-for="i in 5" :key="i.id">{{ i }}</option>
@@ -17,10 +17,10 @@
       <button @click="resetFilters()">Reset</button>
     </div>
 
-    <div class="container">
+    <div class="cont-se">
       <div class="row">
         <div
-          class="d-items col-12 col-md-6 col-lg-4"
+          class="d-items col-12 col-md-6 col-lg-6 col-xl-4"
           v-for="doctor in filteredDoctor"
           :key="doctor.id"
         >
@@ -135,12 +135,23 @@ export default {
 <style lang="scss" scoped>
 @import "../../sass/variables.scss";
 
+// .b-card{
+//   @media (min-width: 1200px) {
+//       max-width: 1300px !important;
+//     }
+  
+// }
+.cont-se{
+  margin: 0 auto;
+  max-width: 1400px;
+}
 .bg-main {
   background-color: $bd-grey;
   padding: 20px 0;
   .box-research {
     margin-bottom: 20px;
     gap: 5px;
+    flex-wrap: wrap;
     @media (min-width: 576px) {
       gap: 20px;
     }
@@ -157,7 +168,6 @@ export default {
       padding: 0px 40px;
     }
   }
-
   a {
     color: currentColor;
     text-decoration: none;
