@@ -1,7 +1,39 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="message-container my-5">
+
+
+    <div class="dashboard__body">
+        <nav class="dashboard__navbar">
+        <h4>Area Personale</h4>
+
+        <ul class="dashboard__links">
+            <li>
+                <a class="dashboard__link" href="{{ route('admin.home') }}">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a class="dashboard__link is-active" href="{{ route('messages.index') }}">
+                    <i class="fa-regular fa-envelope"></i>
+                    <span>Messaggi</span>
+                </a>
+            </li>
+            <li>
+                <a class="dashboard__link" href="{{ route('reviews.index') }}">
+                    <i class="fa-regular fa-star"></i>
+                    <span>Recensioni</span>
+                </a>
+            </li>
+            <li>
+                <a class="dashboard__link" href="{{ route('admin.stats.index') }}">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <span>Statistiche</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
         <h2 class="font-weight-bold"><i class="far fa-envelope mr-4"></i>Messaggi ricevuti:</h2>
         <div class="message-img">
             <img src="{{ asset('img/email.svg') }}" alt="">

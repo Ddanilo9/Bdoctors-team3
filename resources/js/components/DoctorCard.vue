@@ -96,9 +96,9 @@ export default {
     height: 100%;
 }
 .card-1 {
-    background-color: #fff;
-    border-radius: 10px;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    border-radius: 8px;
     overflow: hidden;
     width: 300px;
     margin-bottom: 80px;
