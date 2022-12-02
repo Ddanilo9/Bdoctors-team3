@@ -2,13 +2,14 @@
     <div class="box-card">
         <div class="card-1" :class="styleModifier">
             <div class="card-1-header d-flex">
-                <figure>
+                <figure class="avatar-box">
                     <img
+                        class="user-img"
                         :src="`/storage/${doctor.photo}`"
                         alt="doctor avatar"
                     />
                 </figure>
-                <div>
+                <div class="user-description">
                     <h4 class="py-2">{{ doctor.name }} {{ doctor.surname }}</h4>
                     <div class="stars mt-1 mb-1 d-flex align-items-center">
                         <template v-for="i in 5">
@@ -38,9 +39,15 @@
                         </div>
                     </div>
                     <div class="user">
-                        <div class="user-info pt-3 d-flex align-items-center">
-                            <img :src="require('../../../public/img/mp.jpg')" />
-                            <h5>{{ doctor.address }}</h5>
+                        <div class="user-info">
+                            <figure class="pin-box">
+                                <img
+                                    class="pin"
+                                    :src="require('../../../public/img/mp.jpg')"
+                                />
+                            </figure>
+
+                            <p class="address">{{ doctor.address }}</p>
                         </div>
                     </div>
                 </div>
@@ -95,6 +102,8 @@ export default {
     align-items: center;
     justify-content: center;
     height: 100%;
+    width: 100%;
+    color: $bd-black;
 }
 .card-1 {
     background-color: #fff;
@@ -102,7 +111,6 @@ export default {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     overflow: hidden;
     width: 370px;
-    margin-bottom: 80px;
     @media (min-width: 768px) {
         width: 330px;
     }
@@ -110,16 +118,32 @@ export default {
         width: 430px;
     }
     @media (min-width: 1200px) {
-        width: 450px;
+        width: 100%;
     }
     h4 {
         font-size: 22px;
     }
 }
-.card-1-header img {
-    width: 100%;
-    object-fit: cover;
-    border-radius: 8px;
+.card-1-header {
+    padding: 12px;
+    gap: 8px;
+
+    .avatar-box {
+        margin: 5px auto;
+        aspect-ratio: 1/1;
+        overflow: hidden;
+        flex-basis: calc(100% / 3);
+
+        .user-img {
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 8px;
+        }
+    }
+    .user-description {
+        flex-basis: calc((100% / 3) * 2);
+    }
 }
 .card-1-body {
     display: flex;
@@ -131,17 +155,15 @@ export default {
 }
 
 .tag {
-    background: #cccccc;
     border-radius: 50px;
-    font-size: 11px;
+    font-size: 10px;
     margin: 0;
-    color: #fff;
-    padding: 2px 10px;
+    color: $bd-white;
     text-transform: uppercase;
     cursor: pointer;
     font-weight: 400;
-    padding: 4px;
-    padding: 5px 10px;
+    padding: 4px 8px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 .tag-teal {
     background-color: $bd-secondary;
@@ -152,44 +174,37 @@ export default {
     margin: 0 0 40px;
 }
 .user {
-    display: flex;
-    margin-bottom: -16px;
+    .user-info {
+        display: flex;
+        align-items: center;
+        margin: 12px 0;
+        .pin-box {
+            height: 32px;
+            margin: 0;
+            aspect-ratio: 1/1;
+            .pin {
+                height: 100%;
+            }
+        }
+        .address {
+            font-size: 14px;
+            margin-bottom: 0;
+            line-height: 1.2;
+        }
+    }
 }
 
-.user img {
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-}
-.user-info h5 {
-    font-size: 14px;
-    margin: 0;
-}
 .full-star {
     color: yellow;
 }
 .user-info small {
     color: #545d7a;
 }
-figure {
-    margin: 5px auto;
-    aspect-ratio: 1/1;
-    overflow: hidden;
-    padding: 10px;
-
-    img {
-        width: 100%;
-        object-fit: cover;
-        object-position: center;
-    }
-}
 
 .carousel__doctor {
     width: 100%;
-    margin: 0;
-    padding: 32px 64px;
     height: 100%;
+    margin: 0;
 
     .card-1-body {
         min-height: 0;

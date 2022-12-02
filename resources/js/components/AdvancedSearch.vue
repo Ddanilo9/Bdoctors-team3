@@ -19,10 +19,10 @@
             <button @click="resetFilters()">Reset</button>
         </div>
 
-        <div class="container">
-            <div class="row">
+        <div class="cont-se">
+            <div class="as__grid">
                 <div
-                    class="d-items col-12 col-md-6 col-lg-4"
+                    class="as__card"
                     v-for="doctor in filteredDoctor"
                     :key="doctor.id"
                 >
@@ -146,6 +146,12 @@ export default {
 .cont-se {
     margin: 0 auto;
     max-width: 1400px;
+
+    .as__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
 }
 .bg-main {
     background-color: $bd-grey;
