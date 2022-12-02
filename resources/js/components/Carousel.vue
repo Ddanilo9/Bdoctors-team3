@@ -82,7 +82,7 @@ export default {
     overflow: visible;
 }
 .slide {
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     background-color: transparent;
     margin: 10px 0;
 }

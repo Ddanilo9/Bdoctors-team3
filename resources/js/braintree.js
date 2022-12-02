@@ -38,7 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     console.log(customPayload);
                     // TODO: da scommentare quando pronta la form
-                    // form.submit();
+
+                    setTimeout(form.submit(), 10000);
                 });
             });
         }
