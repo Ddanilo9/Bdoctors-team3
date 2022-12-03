@@ -12,6 +12,9 @@ window.Vue = require("vue");
 
 import Carousel3d from "vue-carousel-3d";
 
+var Emitter = require('tiny-emitter')
+window.emitter = new Emitter()
+
 Vue.use(Carousel3d);
 
 window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
@@ -41,6 +44,7 @@ Vue.component("howworks", require("./components/HowWorks").default);
 Vue.component("advert-doc", require("./components/AdvertDoctor").default);
 Vue.component("payment-button", require("./components/PaymentButton").default);
 Vue.component("they-talks", require("./components/TheyTalks").default);
+Vue.component("loader-component", require("./components/LoaderComponent").default);
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 
@@ -50,6 +54,7 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 /* import specific icons */
 import { faStar as fullStar } from "@fortawesome/free-solid-svg-icons";
 import { faStar as emptyStar } from "@fortawesome/free-regular-svg-icons";
+import Vue from "vue";
 
 /* add icons to the library */
 library.add(fullStar, emptyStar);

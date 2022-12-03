@@ -35,6 +35,7 @@
     </div>
     <howworks></howworks>
     <they-talks></they-talks>
+    {{-- <loader-component></loader-component> --}}
     {{-- <about-us></about-us> --}}
 
 </div>
