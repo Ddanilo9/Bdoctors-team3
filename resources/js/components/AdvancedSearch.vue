@@ -1,7 +1,9 @@
 <template>
   <div class="bg-main">
+    <LoaderComponent></LoaderComponent>
     <!-- <h1 class="text-center">{{doctor.specializations.name}}</h1> -->
     <div class="container box-research d-flex align-items-center align-items-sm-baseline flex-sm-row">
+      
       <select v-model="starsSelected" class="select"> 
         <option disabled value="">Seleziona il n° di stelle</option>
         <option v-for="i in 5" :key="i.id">{{ i }}</option>
@@ -36,10 +38,12 @@
 <script>
 import axios from "axios";
 import DoctorCard from "./DoctorCard.vue";
+import LoaderComponent from "./LoaderComponent.vue";
 
 export default {
     components: {
         DoctorCard,
+        LoaderComponent
     },
 
     data() {
@@ -96,6 +100,7 @@ export default {
 
     methods: {
         fetchDoctors() {
+          window.emitter.emit('changeLoaderStatus', true)
             return axios.get("http://localhost:8000/api/doctors", {});
         },
 
@@ -126,6 +131,7 @@ export default {
     mounted() {
         this.fetchDoctors().then((res) => {
             this.doctors = res.data.result;
+            window.emitter.emit('changeLoaderStatus', false)
             this.filterDoctorsSpec();
         });
     },
@@ -148,6 +154,7 @@ export default {
 .bg-main {
   background-color: $bd-grey;
   padding: 20px 0;
+  min-height: 600px;
   .box-research {
     margin-bottom: 20px;
     gap: 5px;
