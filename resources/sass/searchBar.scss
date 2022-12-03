@@ -28,7 +28,7 @@
     height: 4rem;
     font-size: 1.1rem;
     padding: 1rem;
-    background-color: #FAFCFD;
+    background-color: $bd-white;
     border: 3px solid transparent;
     border-radius: 8px;
     transition: .3s ease-in-out;
@@ -38,11 +38,15 @@
     }
     
     &:hover {
-      background-color: #95BBDF;
+      background-color: $bd-secondary;
+      color: $bd-white;
       cursor: pointer;
       
       &::-webkit-input-placeholder {
-        color: #333;
+        color: $bd-white;
+      }
+      &.search-icon i{
+        color: $bd-white;
       }
     }
     
@@ -50,12 +54,15 @@
     &.open {
       box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.2);
       outline: 0;
-      background-color: #95BBDF;
-      color: #000;
+      background-color: $bd-secondary;
+      color: $bd-white;
       border-radius: 8px 8px 0px 0px;
       
       &::-webkit-input-placeholder {
-        color: #000;
+        color: $bd-white;
+      }
+      &.search-icon{
+        color: $bd-white;
       }
     }
   }
@@ -64,7 +71,7 @@
     list-style: none;
     margin-top: 4rem;
     box-shadow: 0px 5px 8px 0px rgba(0,0,0,0.2);
-    background-color: #F8FAFC;
+    background-color: $bd-white;
     overflow: hidden;
     max-height: 0;
     transition: .3s ease-in-out;
@@ -78,7 +85,7 @@
     .spec-li {
       position: relative;
       height: 4rem;
-      background-color: #FAFCFD;
+      background-color: $bd-white;
       padding: 1rem;
       font-size: 1.1rem;
       display: flex;
@@ -88,7 +95,8 @@
       opacity: 1;
       
       &:hover {
-        background-color: #95BBDF;
+        background-color: $bd-secondary;
+        color: $bd-white;
       }
       
       &.closed {
@@ -104,11 +112,16 @@
   width: 4rem;
   background-color: transparent;
   border: none;
+  border-radius: 0px 8px 8px 0px;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   i{
     font-size: 1.3rem;
+  }
+  &:hover{
+    background-color: $bd-secondary;
+    color: $bd-white;
   }
 }

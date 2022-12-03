@@ -15,7 +15,7 @@
                     <li class="breadcrumb-item"><a href="{{ route('home', $doctor) }}">Torna all' homepage</a></li>
                 </ol>
             </div>
-            <!-- /Breadcrumb -->
+            <!-- Card -->
 
             <div class="row gutters-sm">
                 <div class="col-md-4 mb-4">

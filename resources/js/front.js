@@ -1,3 +1,4 @@
+// searchbar
 const inputField = document.querySelector('.chosen-value');
 const dropdown = document.querySelector('.value-list');
 const dropdownArray = [... document.querySelectorAll('.spec-li')];
