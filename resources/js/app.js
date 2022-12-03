@@ -54,10 +54,12 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 /* import specific icons */
 import { faStar as fullStar } from "@fortawesome/free-solid-svg-icons";
 import { faStar as emptyStar } from "@fortawesome/free-regular-svg-icons";
+import { faArrowRight as faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Vue from "vue";
 
 /* add icons to the library */
-library.add(fullStar, emptyStar);
+library.add(fullStar, emptyStar, faArrowRight);
+
 
 /* add font awesome icon component */
 Vue.component("font-awesome-icon", FontAwesomeIcon);

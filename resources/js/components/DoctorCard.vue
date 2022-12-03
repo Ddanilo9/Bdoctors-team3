@@ -54,13 +54,16 @@
             </div>
             <div class="card-1-body d-flex">
                 <div
-                    class="mb-1 d-flex"
-                    v-for="spec in doctor.specializations"
-                    :key="spec.id"
+                class="mb-1 d-flex"
+                v-for="spec in doctor.specializations"
+                :key="spec.id"
                 >
-                    <span class="tag tag-teal">{{ spec.spec_name }}</span>
-                </div>
+                <span class="tag tag-teal">{{ spec.spec_name }}</span>
             </div>
+        </div>
+        <div class="d-flex align-items-center pl-3 mb-2 redirect">
+            <font-awesome-icon icon="fa-solid fa-arrow-right " /><a class="pl-2" :href="`/show/${doctor.slug}`">vai al profilo</a>
+        </div>
         </div>
     </div>
 </template>
@@ -217,6 +220,12 @@ export default {
 
     .only-show {
         display: none;
+    }
+}
+.redirect{
+    a{
+        font-size: 18px;
+        padding-bottom: 1px;
     }
 }
 </style>
