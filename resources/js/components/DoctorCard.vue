@@ -106,6 +106,9 @@ export default {
     color: $bd-black;
 }
 .card-1 {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -130,22 +133,24 @@ export default {
 
     .avatar-box {
         margin: 5px auto;
-        aspect-ratio: 1/1;
-        overflow: hidden;
-        flex-basis: calc(100% / 3);
+        height: 110px;
+        width: 110px;
 
         .user-img {
             height: 100%;
+            width: 100%;
             object-fit: cover;
             object-position: center;
             border-radius: 8px;
         }
     }
     .user-description {
+        padding-left: 8px;
         flex-basis: calc((100% / 3) * 2);
     }
 }
 .card-1-body {
+    margin-top: auto;
     display: flex;
     align-items: flex-start;
     padding: 12px -51px;

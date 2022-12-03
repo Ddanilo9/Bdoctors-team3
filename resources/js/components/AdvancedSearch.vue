@@ -20,7 +20,7 @@
             <button @click="resetFilters()">Reset</button>
         </div>
 
-        <div class="cont-se">
+        <div class="container">
             <div class="as__grid">
                 <div
                     class="as__card"
@@ -148,15 +148,11 @@ export default {
 //     }
 
 // }
-.cont-se {
-    margin: 0 auto;
-    max-width: 1400px;
 
-    .as__grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
-    }
+.as__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
 }
 .bg-main {
     background-color: $bd-grey;

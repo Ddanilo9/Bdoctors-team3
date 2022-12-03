@@ -3,7 +3,7 @@
         <template v-if="activeSponsors.length">
             <carousel-3d
                 :loop="true"
-                :height="230"
+                :height="210"
                 :border="0"
                 :display="7"
                 :width="400"
