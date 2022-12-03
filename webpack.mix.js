@@ -14,6 +14,9 @@ const mix = require("laravel-mix");
 mix.js("resources/js/app.js", "public/js")
     .js("resources/js/front.js", "public/js")
     .js("resources/js/braintree.js", "public/js")
+    .js("resources/js/bootstrapValidation.js", "public/js")
+    .js("resources/js/firstLetterUC.js", "public/js")
+    .js("resources/js/checkboxValidation.js", "public/js")
     .sass("resources/sass/app.scss", "public/css")
     .copy(
         "node_modules/@fortawesome/fontawesome-free/webfonts",

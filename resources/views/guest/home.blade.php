@@ -23,7 +23,7 @@
                             @endforeach
                         </ul>
                     </div>
-                    <button type="submit" class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button type="submit" class="search-btn"><i class="search-icon fa-solid fa-magnifying-glass"></i></button>
                 </form>
             </div>
         </div> 

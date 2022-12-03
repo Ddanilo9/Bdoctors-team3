@@ -44,7 +44,7 @@ class DoctorSeeder extends Seeder
             $doctor->name = $user['name'];
             $doctor->surname = $user['surname'];
             $doctor->address = $faker->address();
-            $doctor->services = $faker->paragraphs(rand(1, 2), true);
+            $doctor->services = $user['services'];
             $doctor->photo = $user['photo'];
             $doctor->cv = $faker->randomElement($cvs);
             $doctor->telephone = $faker->phoneNumber();

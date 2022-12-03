@@ -19,8 +19,8 @@
 <div class="container py-1">
     <div class="row justify-content-center my-5">
         <div class="col-md-10">
-            <div class="card border-0">
-                <div class="card-header font-weight-bold text-white text-center">{{ __('Modifica il tuo profilo') }}</div>
+            <div class="card border-0 card-auth">
+                <div class="card-header header-auth font-weight-bold text-white text-center">{{ __('Modifica il tuo profilo') }}</div>
 
                 <div class="card-body">
                     <form class="contact-form" action="{{ route('admin.doctors.update', $doctor) }}" method="POST" enctype="multipart/form-data">
@@ -46,7 +46,7 @@
 
                         {{-- name --}}
                         <div class="form-group">
-                                <label for="name" class="font-weight-bold">Nome</label>
+                                <label for="name" class="font-weight-bold">Nome*</label>
                                 <input type="text" class="form-control input-text form-b @error('name') is-invalid @enderror" id="name"
                                     value="{{ old('name', $doctor->name) }}" name="name" aria-describedby="helpTitle"
                                     placeholder="inserisci il nome">
@@ -59,7 +59,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="surname" class="font-weight-bold">Cognome</label>
+                                <label for="surname" class="font-weight-bold">Cognome*</label>
                                 <input type="text" class="form-control input-text form-b @error('surname') is-invalid @enderror" id="surname"
                                     value="{{ old('surname', $doctor->surname) }}" name="surname" aria-describedby="helpSurname"
                                     placeholder="inserisci il cognome">
@@ -73,17 +73,8 @@
 
                         {{-- spec checkbox --}}
                             <div class="form-group">
-                                <label for="specialization" class="font-weight-bold">Specializzazioni</label>
-
-                                {{-- @foreach ($specializations as $key => $spec)
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" name="specializations[]"
-                                            @if (in_array($spec->id, old('specializations', $doctor->specializations->pluck('id')->all()))) checked @endif type="checkbox"
-                                            id="spec-{{ $spec->id }}" value="{{ $spec->id }}">
-                                        <label class="form-check-label"
-                                            for="spec-{{ $spec->id }}">{{ $spec->spec_name }}</label>
-                                    </div>
-                                @endforeach --}}
+                                <label for="specialization" class="font-weight-bold">Specializzazioni*</label>
+                                <small style="display: block; margin-top: -8px;">è necessaria almeno una specializzazione</small>
                                 <ul class="ks-cboxtags">
                                     @foreach ($specializations as $spec)
                                         <li>
@@ -99,7 +90,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="address" class="font-weight-bold">Indirizzo</label>
+                                <label for="address" class="font-weight-bold">Indirizzo*</label>
                                 <input type="text" class="form-control input-text form-b @error('address') is-invalid @enderror" id="address"
                                     value="{{ old('address', $doctor->address) }}" name="address"
                                     aria-describedby="helpAddress" placeholder="inserisci il tuo indirizzo">
@@ -126,9 +117,9 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="services" class="font-weight-bold pt-3">Contenuto</label>
+                                <label for="services" class="font-weight-bold pt-3">Prestazioni offerte:</label>
                                 <textarea class="form-control areat" id="services" name="services" rows="10"
-                                    placeholder="Inserisci il contenuto del post" @error('services') is-invalid @enderror>{{ old('services', $doctor->services) }}</textarea>
+                                    placeholder="Descrivi qui le prestazioni da te offerte" @error('services') is-invalid @enderror>{{ old('services', $doctor->services) }}</textarea>
                             </div>
                             @error('services')
                                 <div id="services" class="invalid-feedback">

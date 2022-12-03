@@ -1,6 +1,9 @@
 {
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
+    "/js/bootstrapValidation.js": "/js/bootstrapValidation.js",
     "/js/braintree.js": "/js/braintree.js",
+    "/js/checkboxValidation.js": "/js/checkboxValidation.js",
+    "/js/firstLetterUC.js": "/js/firstLetterUC.js",
     "/js/front.js": "/js/front.js"
 }

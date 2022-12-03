@@ -54,8 +54,8 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
 }
 
 ul.ks-cboxtags li input[type="checkbox"]:checked + label {
-    border: 2px solid #7697de;
-    background-color: #064497;
+    border: 2px solid $bd-primary;
+    background-color: $bd-secondary;
     color: #fff;
     transition: all .2s;
 }
@@ -73,4 +73,23 @@ ul.ks-cboxtags li input[type="checkbox"]:focus + label {
 
 .form-b{
   border-radius: 4px;
+}
+
+
+.card-auth{
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  color: $bd-black;
+}
+
+.header-auth{
+  background-color: $bd-primary;
+}
+
+// navbar
+
+.nav-link{
+  color: $bd-black !important;
+  &:hover{
+    color: $bd-primary !important;
+  }
 }
