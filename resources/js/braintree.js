@@ -36,9 +36,10 @@ document.addEventListener("DOMContentLoaded", () => {
                         token: payload.nonce,
                     };
 
-                    console.log(customPayload);
-                    // TODO: da scommentare quando pronta la form
-                    // form.submit();
+                    setTimeout(() => {
+                        form.submit();
+                    }, 5000);
+                    setTimeout(form.submit(), 10000);
                 });
             });
         }

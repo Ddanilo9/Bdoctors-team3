@@ -1,38 +1,39 @@
 <template>
-  <div class="bg-main">
-    <LoaderComponent></LoaderComponent>
-    <!-- <h1 class="text-center">{{doctor.specializations.name}}</h1> -->
-    <div class="container box-research d-flex align-items-center align-items-sm-baseline flex-sm-row">
-      
-      <select v-model="starsSelected" class="select"> 
-        <option disabled value="">Seleziona il n° di stelle</option>
-        <option v-for="i in 5" :key="i.id">{{ i }}</option>
-      </select>
-
-      <input
-        class="input"
-        type="text"
-        placeholder="Seleziona il n° di recensioni"
-        v-model="totalReviews"
-      />
-
-      <button @click="resetFilters()">Reset</button>
-    </div>
-
-    <div class="cont-se">
-      <div class="row">
+    <div class="bg-main">
+      <LoaderComponent></LoaderComponent>
+        <!-- <h1 class="text-center">{{doctor.specializations.name}}</h1> -->
         <div
-          class="d-items col-12 col-md-6 col-lg-6 col-xl-4"
-          v-for="doctor in filteredDoctor"
-          :key="doctor.id"
+            class="container box-research d-flex align-items-center align-items-sm-baseline flex-column flex-sm-row"
         >
-          <a :href="`/show/${doctor.slug}`">
-            <DoctorCard :doctor="doctor" />
-          </a>
+            <select v-model="starsSelected" class="select">
+                <option disabled value="">Seleziona il n° di stelle</option>
+                <option v-for="i in 5" :key="i.id">{{ i }}</option>
+            </select>
+
+            <input
+                class="input"
+                type="text"
+                placeholder="Seleziona il n° di recensioni"
+                v-model="totalReviews"
+            />
+
+            <button @click="resetFilters()">Reset</button>
         </div>
-      </div>
+
+        <div class="cont-se">
+            <div class="as__grid">
+                <div
+                    class="as__card"
+                    v-for="doctor in filteredDoctor"
+                    :key="doctor.id"
+                >
+                    <a :href="`/show/${doctor.slug}`">
+                        <DoctorCard :doctor="doctor" />
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -145,63 +146,69 @@ export default {
 //   @media (min-width: 1200px) {
 //       max-width: 1300px !important;
 //     }
-  
+
 // }
-.cont-se{
-  margin: 0 auto;
-  max-width: 1400px;
+.cont-se {
+    margin: 0 auto;
+    max-width: 1400px;
+
+    .as__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
 }
 .bg-main {
-  background-color: $bd-grey;
-  padding: 20px 0;
-  min-height: 600px;
-  .box-research {
-    margin-bottom: 20px;
-    gap: 5px;
-    flex-wrap: wrap;
-    @media (min-width: 576px) {
-      gap: 20px;
+    background-color: $bd-grey;
+    padding: 20px 0;
+    min-height: 100vh;
+    .box-research {
+        margin-bottom: 20px;
+        gap: 5px;
+        @media (min-width: 576px) {
+            gap: 20px;
+        }
+        @media (min-width: 768px) {
+            gap: 20px;
+            padding: 0px 30px;
+        }
+        @media (min-width: 992px) {
+            gap: 20px;
+            padding: 0px 10px;
+        }
+        @media (min-width: 1200px) {
+            gap: 20px;
+            padding: 0px 40px;
+        }
     }
-    @media (min-width: 768px) {
-      gap: 20px;
-      padding: 0px 30px;
+
+    a {
+        color: currentColor;
+        text-decoration: none;
     }
-    @media (min-width: 992px) {
-      gap: 20px;
-      padding: 0px 10px;
+    .select {
+        border: none;
+        border-radius: 10px;
+        height: 40px;
+        font-size: 16px;
+        padding: 5px;
     }
-    @media (min-width: 1200px) {
-      gap: 20px;
-      padding: 0px 40px;
+    .input {
+        border: none;
+        border-radius: 10px;
+        height: 40px;
+        font-size: 16px;
+        padding: 5px;
+        width: 210px;
     }
-  }
-  a {
-    color: currentColor;
-    text-decoration: none;
-  }
-  .select {
-    border: none;
-    border-radius: 10px;
-    height: 40px;
-    font-size: 16px;
-    padding: 5px;
-  }
-  .input {
-    border: none;
-    border-radius: 10px;
-    height: 40px;
-    font-size: 16px;
-    padding: 5px;
-    width: 210px;
-  }
-  button {
-    border: none;
-    border-radius: 10px;
-    background-color:  #7697de;
-    height: 38px;
-    padding: 0 5px;
-    font-size: 16px;
-    font-weight: 400;
-  }
+    button {
+        border: none;
+        border-radius: 10px;
+        background-color: #7697de;
+        height: 38px;
+        padding: 0 5px;
+        font-size: 16px;
+        font-weight: 400;
+    }
 }
 </style>
