@@ -19,3 +19,5 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('doctors','Api\SearchController');
+
+Route::get('charts','Api\ChartController');
