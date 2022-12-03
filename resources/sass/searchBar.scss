@@ -18,6 +18,7 @@
     top: 0;
     left: 0;
     width: 100%;
+
   }
   
   .chosen-value {
@@ -29,6 +30,7 @@
     padding: 1rem;
     background-color: #FAFCFD;
     border: 3px solid transparent;
+    border-radius: 8px;
     transition: .3s ease-in-out;
     
     &::-webkit-input-placeholder {
@@ -50,6 +52,7 @@
       outline: 0;
       background-color: #95BBDF;
       color: #000;
+      border-radius: 8px 8px 0px 0px;
       
       &::-webkit-input-placeholder {
         color: #000;
@@ -69,6 +72,7 @@
     &.open {
      max-height: 320px;
      overflow: auto;
+     border-radius: 0px 0px 8px 8px ;
     }
     
     .spec-li {
