@@ -2,15 +2,18 @@
     <div class="carousel">
         <template v-if="activeSponsors.length">
             <carousel-3d
-                :autoplay="true"
                 :loop="true"
-                :height="590"
+                :height="210"
                 :border="0"
                 :display="7"
                 :width="400"
-
             >
-                <slide class="slide" v-for="(slide, i) in activeSponsors" :index="i" :key="i">
+                <slide
+                    class="slide"
+                    v-for="(slide, i) in activeSponsors"
+                    :index="i"
+                    :key="i"
+                >
                     <DoctorCard
                         :style-modifier="'carousel__doctor'"
                         :doctor="slide"
@@ -75,12 +78,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .carousel-3d-container {
     overflow: visible;
 }
+
+// .carousel-3d-slide img {
+//     width: 32px;
+// }
 .slide {
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     background-color: transparent;
     margin: 10px 0;
 }

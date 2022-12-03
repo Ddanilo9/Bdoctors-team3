@@ -31,7 +31,7 @@
         </div>
         
         <div class="newspapers py-2 my-5 w-100">
-            <span class="speaks">Hanno parlato di noi:</span>
+            <h3 class="speaks">Hanno parlato di noi:</h3>
             <ul class="list_journals d-flex justify-content-center align-items-center list-unstyled flex-wrap">
                 
                 <li class="journals" v-for="item in news">
@@ -59,7 +59,9 @@
                 'la-stampa.png',
                 'ted-x.png',
                 'milano-finanza.png',
-                're_quadro_2.png'
+                're_quadro_2.png',
+                'politecnico-milano.png',
+                'avvenire_2.png'
 
             ]
             }
@@ -109,7 +111,7 @@ p {
 .speaks {
     color: #7697de;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 30px;
 }
 
 .list_journals {

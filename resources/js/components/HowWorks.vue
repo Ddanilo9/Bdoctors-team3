@@ -3,10 +3,10 @@
         <div class="container w-100%">
             <div class="row cose-block width-100%">
                 <div class="col-sm-12">
-                    <h2 class="text-center mb-5 pt-5 h1 font-weight-bold">Come funziona BDoctors?</h2>
+                    <h2 class="text-center mb-3 pt-5 h1 font-weight-bold">Come funziona BDoctors?</h2>
                 </div>
                 <div class="col-sm-4 text-center">
-                    <img src="/img/medicotitolo.svg" data-src="/img/images.jpg medico.jpg"
+                    <img src="/img/doccolor.png" data-src="img/doccolor.png"
                         class="imghome img-responsive lazyload" alt="Scegli il Medico" title="Scegli il Medico" />
                     <h3>Scegli il Medico</h3>
                     <p>Fai la <b>scelta migliore</b> secondo le tue esigenze: valuta <b>curriculum</b>, <b>prezzo</b>
@@ -14,16 +14,16 @@
                     <hr class="visible-xs" />
                 </div>
                 <div class="col-sm-4 text-center">
-                    <img src="/img/Purpole_titolo.png" data-src="/img/prenota.png"
-                        class="img-home img-responsive lazyload" alt="Prenota la visita"
+                    <img src="/img/telefonaccio.png" data-src="/img/telefonaccio.png"
+                        class="img-home img-responsive lazyload phone" alt="Prenota la visita"
                         title="Prenota la visita" />
                     <h3>Prenota la visita</h3>
                     <p>Ti bastano <b>pochi secondi</b>: è facile e veloce, non serve telefonare e non è richiesta la
                         carta di credito: <b>pagherai</b> direttamente <b>al medico</b>.</p>
                     <hr class="visible-xs" />
                 </div>
-                <div class="col-sm-4 text-center">
-                    <img src="/img/visitab_1.svg" data-src="/img/consiglidelmedico.jpg"
+                <div class="col-sm-4 text-center mb-5">
+                    <img src="/img/visiting.png" data-src="/img/visiting.png"
                         class="img-home img-responsive lazyload" alt="Vai all'appuntamento"
                         title="Vai all'appuntamento" />
                     <h3>Vai all'appuntamento</h3>
@@ -43,40 +43,43 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../sass/variables.scss";
 
 h2 {
-    color: #cabb1e;
+    color:$bd-black;
+    font-size: 50px;
 }
 
 h3 {
-    color: #041e48;
+    color:$bd-black;
     font-weight: bold;
     
 }
 
 p{
-    font-size: 0.95rem;
+    font-size: 18px;
+    color:$bd-black ;
 
 }
 
-img {
-    transition: 0.5s ease;
-
+b{
+    color:$bd-black ; 
 }
 
-img:hover {
-    transform : scale(1.5);
+.container-wrap{
+    background-color:$bd-primary;
 }
 
 .cose-block {
     min-height: 600px;
     width: 100%;
     img {
-        height: 200px;
-        width: 200px;
+        height: 300px;
+        width: 300px;
+        // margin-bottom: 30px;
     }
    
-
+    
 }
 
 // .home{

@@ -15,11 +15,11 @@
                             <li class="nav-item">
                                 {{-- <a class="nav-link h5 m-0 text-dark fw-bold" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li> --}}
-                                <a style="font-size: 18px;" class="nav-link font-weight-bold pr-3" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a style="font-size: 18px; color: #0a0f1c;" class="nav-link font-weight-bold pr-3" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a style="font-size: 18px;" class="nav-link font-weight-bold px-3" href="{{ route('register') }}">{{ __('Registrati') }}</a>
+                                    <a style="font-size: 18px; color: #0a0f1c;" class="nav-link font-weight-bold px-3" href="{{ route('register') }}">{{ __('Registrati') }}</a>
                                 </li>
                             @endif
                         @else

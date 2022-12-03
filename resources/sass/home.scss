@@ -13,13 +13,14 @@ body{
     background-position-x: left;
     background-size: contain;
     background-repeat: no-repeat;
-    background-color: rgba(148, 201, 223, 0.776);
+    background-color: $bd-primary;
     height: 550px;
     // display: flex;
     // flex-direction: column;
     // justify-content: center;
     .hero-center{
         padding-top: 150px;
+        color: $bd-black;
     }
 }
 .nav-bg{

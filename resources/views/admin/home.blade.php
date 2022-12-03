@@ -16,6 +16,12 @@ $now = Carbon::now()->format('Y-m-d H:i:s')
 
         <ul class="dashboard__links">
             <li>
+                <a class="dashboard__link is-active" href="{{ route('admin.home') }}">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
                 <a class="dashboard__link" href="{{ route('messages.index') }}">
                     <i class="fa-regular fa-envelope"></i>
                     <span>Messaggi</span>
