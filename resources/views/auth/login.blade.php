@@ -4,8 +4,8 @@
 <div class="container py-5">
     <div class="d-flex justify-content-center mt-5">
         <div class="col-md-8">
-            <div class="card border-0">
-                <div class="card-header font-weight-bold text-white text-center">{{ __('Login') }}</div>
+            <div class="card border-0 card-auth">
+                <div class="card-header header-auth font-weight-bold text-white text-center">{{ __('Login') }}</div>
 
                 <div class="card-body">
                     <form class="contact-form" method="POST" action="{{ route('login') }}">

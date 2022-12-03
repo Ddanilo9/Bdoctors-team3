@@ -19,8 +19,8 @@
 <div class="container py-1">
     <div class="row justify-content-center my-5">
         <div class="col-md-10">
-            <div class="card border-0">
-                <div class="card-header font-weight-bold text-white text-center">{{ __('Modifica il tuo profilo') }}</div>
+            <div class="card border-0 card-auth">
+                <div class="card-header header-auth font-weight-bold text-white text-center">{{ __('Modifica il tuo profilo') }}</div>
 
                 <div class="card-body">
                     <form class="contact-form" action="{{ route('admin.doctors.update', $doctor) }}" method="POST" enctype="multipart/form-data">

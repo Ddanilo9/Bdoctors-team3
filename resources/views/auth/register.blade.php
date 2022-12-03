@@ -41,8 +41,8 @@
 <div class="container py-5">
     <div class="row justify-content-center my-5">
         <div class="col-md-8">
-            <div class="card border-0">
-                <div class="card-header font-weight-bold text-white text-center">{{ __('Registrazione') }}</div>
+            <div class="card border-0 card-auth">
+                <div class="card-header header-auth font-weight-bold text-white text-center">{{ __('Registrazione') }}</div>
 
                 <div class="card-body">
                     <form class="contact-form" method="POST" action="{{ route('register') }}">

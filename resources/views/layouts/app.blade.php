@@ -37,6 +37,6 @@
     <script src="{{ mix('/js/app.js') }}" defer></script>
     @yield('extScripts')
     {{-- TODO: include sbagliato, error 404 --}}
-    {{-- <script src="{{ asset('js/bootstrapValidation.js') }}"></script> --}}
+    <script src="{{ asset('js/bootstrapValidation.js') }}"></script>
 </body>
 </html>
