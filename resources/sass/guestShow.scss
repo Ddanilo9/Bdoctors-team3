@@ -4,10 +4,10 @@
 }
 .contact-form .input-text {
     display: block;
-    width: 100%;
+    // width: 100%;
     height: 36px;
     border-width: 0 0 2px 0;
-    border-color: #5543ca;
+    border-color: $bd-primary;
     font-size: 18px;
     line-height: 26px;
     font-weight: 400;
@@ -27,7 +27,7 @@
     font-size: 18px;
     line-height: 26px;
     font-weight: 400;
-    color: #5543ca;
+    color: $bd-secondary;
     cursor: text;
     transition: -webkit-transform 0.2s ease-in-out;
     transition: transform 0.2s ease-in-out;
@@ -53,7 +53,7 @@
     border-radius: $bd-radius;
 }
 .areat {
-    border: 2px solid #5543ca !important;
+    border: 2px solid $bd-primary !important;
 }
 .wrap-no {
     flex-wrap: nowrap !important;
@@ -76,16 +76,19 @@
 .f-5 {
     font-size: 14px !important;
 }
-// .container-5 {
+.container-5 {
 //     background-color: white;
 //     text-align: center;
 //     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.58);
 //     border-radius: 16px;
 //     margin-top: 50px;
-//     overflow: auto;
+    overflow: auto;
 //     margin-bottom: 50px;
-//     max-height: 500px;
-// }
+    max-height: 500px;
+}
+.container-5::-webkit-scrollbar {
+    display: none;
+  }
 .card-5 {
     border: none;
 }
@@ -219,8 +222,19 @@
     }
 }
 
-// buttons
 
+// show guest
+.card-profile-guest{
+    min-height: 437px !important;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border-radius: $bd-radius !important;
+    img{
+        border-radius: $bd-radius;
+    }
+}
+
+
+// buttons
 .red-btn{
     display: inline-block;
     background-color: $red;

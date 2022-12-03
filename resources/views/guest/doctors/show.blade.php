@@ -18,9 +18,9 @@
             <!-- /Breadcrumb -->
 
             <div class="row gutters-sm">
-                <div class="col-md-4 mb-3">
+                <div class="col-md-4 mb-4">
                     <div class="card border-0">
-                        <div class="card-body card-profile">
+                        <div class="card-body card-profile-guest">
                             <div class="d-flex flex-column align-items-center text-center">
                                 <div class="photo">
                                     @if (!empty($doctor->photo))
@@ -74,8 +74,8 @@
 
                 </div>
                 <div class="col-md-8">
-                    <div class="card border-0 mb-3">
-                        <div class="card-body card-profile">
+                    <div class="card border-0 mb-4">
+                        <div class="card-body card-profile-guest">
                             <div class="row pt-4">
                                 <div class="col-sm-3">
                                     <h6 class="mb-0">Full Name</h6>
@@ -125,12 +125,12 @@
                 </div>
 
                 <div class="col-md-12">
-                    <div class="card border-0">
+                    <div class="card border-0 mb-4">
                         <div class="card-body card-profile">
                             <div class="row">
 
                                 <div class='container-5 mx-auto col-md-10 col-11'>
-                                    <div class=" text-muted"> Recensioni: </div>
+                                    <h4> Recensioni: </h4>
                                     <div class="row" style="justify-content: center">
                                         @forelse ($reviews as $r)
                                             <div class="card-5 col-md-3 col-11">
@@ -163,6 +163,55 @@
                         </div>
                     </div>
                 </div>
+
+
+                <div class="col-md-12">
+                    <div class="card border-0">
+                        <div class="card-body card-profile">
+                            <div class="px-3">
+                                <section class="get-in-touch">
+                                    <h4 class="title">Scrivi una recensione:</h4>
+                                    <form action="{{ route('reviews.store') }}" method="POST"
+                                        class="contact-form needs-validation" novalidate>
+                                        @csrf
+                                        @method('POST')
+
+                                        <div class="form-field col">
+                                            <input type="text"
+                                                class=" input-text js-input form-control @error('name') is-invalid @enderror"
+                                                id="name" name="name">
+                                            <label class="label" for="name">Name</label>
+                                            @error('name')
+                                                <div id="name" class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+
+                                        <div class="form-field col">
+                                            <textarea class="form-control areat" id="comment" name="comment" rows="5"
+                                                placeholder="Scrivi qui il tuo messaggio" required @error('comment') is-invalid @enderror></textarea>
+                                            @error('comment')
+                                                <div id="comment" class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+                                        <input hidden type="number" name="doctor_id" value="{{ $doctor->id }}">
+                                        <div class="form-field col-lg-12">
+                                            <input class="submit-btn" type="submit" value="Invia">
+                                        </div>
+                                    </form>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
 
             </div>
         </div>
