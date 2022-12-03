@@ -1,11 +1,11 @@
 <template>
-    <div class="d-flex flex-column">
+    <div class="d-flex flex-column px-3">
         <div class="newspapers py-2 w-100">
             <h2 class="text-center my-5">Hanno parlato di noi:</h2>
             <ul class="list_journals my-5 d-flex justify-content-center align-items-center list-unstyled flex-wrap">
                 
                 <li class="journals" v-for="item in news">
-                    <img width="100" :src="'/img/'+item">
+                    <img width="125" :src="'/img/'+item">
                 </li>
                     
             </ul>
@@ -54,7 +54,7 @@ h2 {
 }
 
 .list_journals {
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 .journals {
