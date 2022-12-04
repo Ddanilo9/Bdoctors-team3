@@ -1,7 +1,26 @@
 @extends('layouts.app')
 
 @php
-    $specList = ['Allergologia', 'Andrologia', 'Cardiologia', 'Chirurgia Generale', 'Chirurgia Maxillo-facciale', 'Chirurgia Pediatrica', 'Chirurgia Plastica', 'Dermatologia', 'Dietologia', 'Ecografia e Doppler', 'Ematologia', 'Endocrinologia', 'Fisioterapia', 'Gastroenterologia', 'Ginecologia e Ostetricia', 'Medicina dello Sport', 'Medicina Estetica', 'Medicina Legale', 'Nefrologia', 'Neurologia', 'Oculistica', 'Odontoiatria', 'Omeopatia e Agopuntura', 'Oncologia', 'Ortopedia e Traumatologia', 'Otorinolaringoiatria', 'Pediatria', 'Respiratorie', 'Psichiatria', 'Psicologia', 'Radiologia', 'Urologia'];
+           $specList = [
+            'Allergologia',
+            'Cardiologia',
+            'Chirurgia Generale',
+            'Chirurgia Plastica',
+            'Dermatologia',
+            'Dietologia',
+            'Fisioterapia',
+            'Ginecologia e Ostetricia',
+            'Medicina dello Sport',
+            'Neurologia',
+            'Oculistica',
+            'Odontoiatria',
+            'Otorinolaringoiatria',
+            'Pediatria',
+            'Psichiatria',
+            'Psicologia',
+            'Radiologia',
+            'Urologia',
+        ];
 @endphp
 
 @section('content')
