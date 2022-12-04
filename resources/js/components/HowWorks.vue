@@ -11,8 +11,8 @@
                     <div class="col-sm-4 text-center">
                         <figure class="how-works__img-box">
                             <img
-                                src="/img/doccolor.png"
-                                data-src="img/doccolor.png"
+                                src="/img/logomedico.png"
+                                data-src="img/logomedico.png"
                                 class="imghome img-responsive lazyload how-works__img"
                                 alt="Scegli il Medico"
                                 title="Scegli il Medico"
@@ -30,8 +30,8 @@
                     <div class="col-sm-4 text-center">
                         <figure class="how-works__img-box">
                             <img
-                                src="/img/telefonaccio.png"
-                                data-src="/img/telefonaccio.png"
+                                src="/img/logotel.png"
+                                data-src="/img/logotel.png"
                                 class="img-home img-responsive lazyload phone how-works__img"
                                 alt="Prenota la visita"
                                 title="Prenota la visita"
@@ -48,8 +48,8 @@
                     <div class="col-sm-4 text-center mb-5">
                         <figure class="how-works__img-box">
                             <img
-                                src="/img/visiting.png"
-                                data-src="/img/visiting.png"
+                                src="/img/logovis.png"
+                                data-src="/img/logovis.png"
                                 class="img-home img-responsive lazyload how-works__img"
                                 alt="Vai all'appuntamento"
                                 title="Vai all'appuntamento"
