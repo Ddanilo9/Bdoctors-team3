@@ -54,3 +54,12 @@ strong {
     white-space: nowrap;
     border: 0;
 }
+
+.navbar-nav{
+    .dropdown-menu{
+        top: 70% !important;
+    }
+    .dropdown-menu-right{
+        right: 30px !important;
+    }
+}
