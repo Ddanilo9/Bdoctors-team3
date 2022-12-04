@@ -2,10 +2,17 @@
     <div class="box-card">
         <div class="card-1" :class="styleModifier">
             <div class="card-1-header d-flex">
-                <figure class="avatar-box">
-                    <img
+                <figure v-if="(doctor.photo != null)" class="avatar-box">
+                    <img 
                         class="user-img"
                         :src="`/storage/${doctor.photo}`"
+                        alt="doctor avatar"
+                    />
+                </figure>
+                <figure v-else class="avatar-box">
+                    <img 
+                        class="user-img"
+                        src="\img\no-image.png"
                         alt="doctor avatar"
                     />
                 </figure>
