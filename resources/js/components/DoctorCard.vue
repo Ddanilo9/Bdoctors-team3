@@ -52,18 +52,22 @@
                     </div>
                 </div>
             </div>
-            <div class="card-1-body d-flex">
+            <div class="card-1-body">
                 <div
-                class="mb-1 d-flex"
-                v-for="spec in doctor.specializations"
-                :key="spec.id"
+                    class="mb-1 d-flex"
+                    v-for="spec in doctor.specializations"
+                    :key="spec.id"
                 >
-                <span class="tag tag-teal">{{ spec.spec_name }}</span>
+                    <span class="tag tag-teal">{{ spec.spec_name }}</span>
+                </div>
             </div>
-        </div>
-        <div class="d-flex align-items-center pl-3 mb-2 redirect">
-            <font-awesome-icon icon="fa-solid fa-arrow-right " /><a class="pl-2" :href="`/show/${doctor.slug}`">vai al profilo</a>
-        </div>
+            <div class="d-flex align-items-center p-2 redirect">
+                <font-awesome-icon icon="fa-solid fa-arrow-right " /><a
+                    class="pl-2"
+                    :href="`/show/${doctor.slug}`"
+                    >vai al profilo</a
+                >
+            </div>
         </div>
     </div>
 </template>
@@ -112,7 +116,7 @@ export default {
     height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: #fff;
+    background-color: $bd-white;
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     overflow: hidden;
@@ -127,11 +131,12 @@ export default {
         width: 100%;
     }
     h4 {
-        font-size: 22px;
+        font-size: 20px;
+        font-weight: 400;
     }
 }
 .card-1-header {
-    padding: 12px;
+    padding: 12px 12px 0;
     gap: 8px;
 
     .avatar-box {
@@ -145,6 +150,7 @@ export default {
             object-fit: cover;
             object-position: center;
             border-radius: 8px;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
         }
     }
     .user-description {
@@ -156,9 +162,7 @@ export default {
     margin-top: auto;
     display: flex;
     align-items: flex-start;
-    padding: 12px -51px;
-    padding-left: 10px;
-    padding: 9px 11px;
+    padding: 0 8px;
     gap: 10px;
 }
 
@@ -186,6 +190,7 @@ export default {
         display: flex;
         align-items: center;
         margin: 12px 0;
+        font-size: 12px;
         .pin-box {
             height: 32px;
             margin: 0;
@@ -203,7 +208,7 @@ export default {
 }
 
 .full-star {
-    color: yellow;
+    color: $bd-yellow;
 }
 .user-info small {
     color: #545d7a;
@@ -213,19 +218,20 @@ export default {
     width: 100%;
     height: 100%;
     margin: 0;
-
-    .card-1-body {
-        min-height: 0;
-    }
-
     .only-show {
         display: none;
     }
 }
-.redirect{
-    a{
-        font-size: 18px;
-        padding-bottom: 1px;
+.redirect {
+    a {
+        font-size: 14px;
+        text-decoration: none;
+        color: $bd-secondary;
+
+        &:hover {
+            text-decoration: none;
+        }
     }
+    margin-left: auto;
 }
 </style>

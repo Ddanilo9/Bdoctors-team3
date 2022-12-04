@@ -89,7 +89,7 @@ class DoctorController extends Controller
     {
         $doctor = Auth::user()->doctor;
         $stars = Star::all();
-        $avg =DB::table('stars')
+        $avg = DB::table('stars')
             ->select(DB::raw('round(avg(doctor_star.star_id), 1) as avg'))
             ->join('doctor_star', 'doctor_star.star_id', '=', 'stars.id')
             ->where('doctor_star.doctor_id', $doctor->id)
@@ -125,20 +125,20 @@ class DoctorController extends Controller
     public function update(Request $request)
     {
         $doctor = Auth::user()->doctor;
-        
+
         $params = $request->validate([
             'name' => 'required|max:50|min:2',
             'surname' => 'required|max:50|min:1',
-            'address'=> 'required',
+            'address' => 'required',
             'specializations' => 'required', 'array', 'max:255',
             'telephone' => 'nullable|max:15',
             'services' => 'nullable|max:750',
             'cv' => 'nullable|mimes:pdf|max:4096',
             'image' => 'nullable|mimes:png,jpg,jpeg,svg|max:4096'
         ]);
-        
 
-        $params['slug'] = Doctor::getUniqueSlugFrom($params['name'],$params['surname']);
+
+        $params['slug'] = Doctor::getUniqueSlugFrom($params['name'], $params['surname']);
 
         if (array_key_exists('image', $params)) {
             if ($doctor->photo) {
@@ -165,7 +165,7 @@ class DoctorController extends Controller
         } else {
             $doctor->specializations()->sync([]);
         }
-       
+
 
         return redirect()->route('admin.doctors.show', $doctor);
     }
@@ -181,20 +181,19 @@ class DoctorController extends Controller
         $doctor = Doctor::where('id', Auth::user()->id)->first();
         $user = User::where('id', Auth::user()->id)->first();
         $deleted = $doctor->delete();
-        
-        if($deleted) {
+
+        if ($deleted) {
             if (!empty($doctor->photo)) {
                 Storage::disk('public')->delete($doctor->photo);
             }
             if (!empty($doctor->cv)) {
                 Storage::disk('public')->delete($doctor->cv);
             }
-        } 
-        
-        
+        }
+
+
         $user->delete();
-        
+
         return redirect()->route('home');
-    
     }
 }

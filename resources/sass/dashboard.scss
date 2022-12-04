@@ -26,13 +26,8 @@
             li {
                 width: 100%;
 
-                // &:first-of-type {
-                //     border-top: 1px solid $bd-primary;
-                // }
-
                 .dashboard__link {
                     border-right: 8px solid transparent;
-                    // border-bottom: 1px solid $bd-primary;
                     font-size: 18px;
                     padding: 16px 0;
                     color: currentColor;
@@ -98,7 +93,7 @@
 
     .dashboard-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 16px;
 
         .dashboard-card {

@@ -24,12 +24,12 @@
                     <span>Recensioni</span>
                 </a>
             </li>
-            <li>
+            {{-- <li>
                 <a class="dashboard__link" href="{{ route('admin.stats.index') }}">
                     <i class="fa-solid fa-chart-simple"></i>
                     <span>Statistiche</span>
                 </a>
-            </li>
+            </li> --}}
         </ul>
     </nav>
     {{-- REVIEWS --}}

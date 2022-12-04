@@ -82,9 +82,6 @@ export default {
     overflow: visible;
 }
 
-// .carousel-3d-slide img {
-//     width: 32px;
-// }
 .slide {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     background-color: transparent;

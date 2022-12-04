@@ -1,23 +1,23 @@
 <template>
     <div class="bg-main">
-      <LoaderComponent></LoaderComponent>
+        <LoaderComponent></LoaderComponent>
         <!-- <h1 class="text-center">{{doctor.specializations.name}}</h1> -->
-        <div
-            class="container box-research d-flex align-items-center align-items-sm-baseline flex-column flex-sm-row"
-        >
-            <select v-model="starsSelected" class="select">
-                <option disabled value="">Seleziona il n° di stelle</option>
-                <option v-for="i in 5" :key="i.id">{{ i }}</option>
-            </select>
+        <div class="header-search">
+            <div class="box-research container py-3 d-flex">
+                <select v-model="starsSelected" class="select">
+                    <option disabled value="">Seleziona il n° di stelle</option>
+                    <option v-for="i in 5" :key="i.id">{{ i }}</option>
+                </select>
 
-            <input
-                class="input"
-                type="text"
-                placeholder="Seleziona il n° di recensioni"
-                v-model="totalReviews"
-            />
+                <input
+                    class="input"
+                    type="text"
+                    placeholder="Seleziona il n° di recensioni"
+                    v-model="totalReviews"
+                />
 
-            <button @click="resetFilters()">Reset</button>
+                <button @click="resetFilters()">Reset</button>
+            </div>
         </div>
 
         <div class="container">
@@ -44,7 +44,7 @@ import LoaderComponent from "./LoaderComponent.vue";
 export default {
     components: {
         DoctorCard,
-        LoaderComponent
+        LoaderComponent,
     },
 
     data() {
@@ -101,7 +101,7 @@ export default {
 
     methods: {
         fetchDoctors() {
-          window.emitter.emit('changeLoaderStatus', true)
+            window.emitter.emit("changeLoaderStatus", true);
             return axios.get("http://localhost:8000/api/doctors", {});
         },
 
@@ -132,7 +132,7 @@ export default {
     mounted() {
         this.fetchDoctors().then((res) => {
             this.doctors = res.data.result;
-            window.emitter.emit('changeLoaderStatus', false)
+            window.emitter.emit("changeLoaderStatus", false);
             this.filterDoctorsSpec();
         });
     },
@@ -142,39 +142,52 @@ export default {
 <style lang="scss" scoped>
 @import "../../sass/variables.scss";
 
-// .b-card{
-//   @media (min-width: 1200px) {
-//       max-width: 1300px !important;
-//     }
-
-// }
-
 .as__grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 16px;
+
+    @media (min-width: 576px) {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    @media (min-width: 768px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media (min-width: 1200px) {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.header-search {
+    background-color: $bd-primary;
+    margin-bottom: 48px;
 }
 .bg-main {
     background-color: $bd-grey;
-    padding: 20px 0;
     min-height: 100vh;
+    padding-bottom: 48px;
     .box-research {
         margin-bottom: 20px;
-        gap: 5px;
-        @media (min-width: 576px) {
-            gap: 20px;
+        gap: 8px;
+
+        button {
+            border: none;
+            border-radius: 10px;
+            background-color: $bd-secondary;
+            color: $bd-white;
+            height: 38px;
+            padding: 4px 8px;
+            font-size: 16px;
+            font-weight: 400;
+            margin-left: auto !important;
         }
+
         @media (min-width: 768px) {
-            gap: 20px;
-            padding: 0px 30px;
-        }
-        @media (min-width: 992px) {
-            gap: 20px;
-            padding: 0px 10px;
-        }
-        @media (min-width: 1200px) {
-            gap: 20px;
-            padding: 0px 40px;
+            button {
+                margin-left: 0 !important;
+            }
         }
     }
 
@@ -192,19 +205,10 @@ export default {
     .input {
         border: none;
         border-radius: 10px;
-        height: 40px;
         font-size: 16px;
-        padding: 5px;
+        padding: 4px 8px;
         width: 210px;
-    }
-    button {
-        border: none;
-        border-radius: 10px;
-        background-color: #7697de;
-        height: 38px;
-        padding: 0 5px;
-        font-size: 16px;
-        font-weight: 400;
+        line-height: 1.2 !important;
     }
 }
 </style>

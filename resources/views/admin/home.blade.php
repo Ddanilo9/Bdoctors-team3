@@ -33,12 +33,12 @@ $now = Carbon::now()->format('Y-m-d H:i:s')
                     <span>Recensioni</span>
                 </a>
             </li>
-            <li>
+            {{-- <li>
                 <a class="dashboard__link" href="{{ route('admin.stats.index') }}">
                     <i class="fa-solid fa-chart-simple"></i>
                     <span>Statistiche</span>
                 </a>
-            </li>
+            </li> --}}
         </ul>
     </nav>
 
@@ -75,8 +75,9 @@ $now = Carbon::now()->format('Y-m-d H:i:s')
                 <h4 class="font-weight-bold">Nessun messaggio</h4>
                 @endif
 
-                <a href="{{ route('reviews.index') }}">vedi tutti</a></div>
-            <div class="dashboard-card">ciao</div>
+                <a href="{{ route('reviews.index') }}">vedi tutti</a>
+            </div>
+            {{-- <div class="dashboard-card">ciao</div> --}}
         </div>
     </div>
 </div>

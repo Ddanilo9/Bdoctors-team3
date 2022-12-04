@@ -8,11 +8,25 @@
                 @csrf
 
                 <h2>Scegli il piano che fa per te</h2>
-                @foreach ($plans as $plan)
-                <input class="radioCustom" type="radio" id="{{$plan->id}}" name="plan" value="{{$plan->id}}">
-                <label class="badge badge-info p-2 my-2 text-white text" for="{{$plan->type}}">{{$plan->type}}: Durata {{ $plan->duration }}h - Prezzo
-                    {{ $plan->price }}€ </label><br>
-                @endforeach
+
+                <div class="plans__box">
+                    @foreach ($plans as $plan)
+                    <div class="plans__wrapper">
+                        <input class="plans__radio visually-hidden" type="radio" id="{{$plan->id}}" name="plan" value="{{$plan->id}}">
+                        <label class="plans__card" for="{{$plan->id}}">
+                            <h6 class="plans__card-title">Piano {{$plan->type}}</h6>
+
+                            <p class="plans__price">
+                                {{ $plan->price }}€
+                            </p>
+
+                            <p class="plans__duration">
+                                Durata {{ $plan->duration }}h
+                            </p>
+                    </label>
+                    </div>
+                    @endforeach
+                </div>
 
                 <div class="js-payment__container"></div>
                 <button type="submit" class="js-payment__button">Purchase</button>

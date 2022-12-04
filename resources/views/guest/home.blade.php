@@ -10,9 +10,7 @@
                 <h2 style="color: #031737;" class="text-center display-3 font-weight-bold">Come possiamo aiutarti?</h2>
                 <h5 style="color: #031737;" class="text-center h2">Ricerca medico in questa specializzazione:</h5>
             </div>
-            
-            {{-- search bar --}}
-            
+
             <div class="search-container d-flex justify-content-center">
                 <form class="searchbar-home d-flex justify-content-end" action="http://127.0.0.1:8000/research"  method="GET">
                     <div>
@@ -26,15 +24,15 @@
                     <button type="submit" class="search-btn"><i class="search-icon fa-solid fa-magnifying-glass"></i></button>
                 </form>
             </div>
-        </div> 
+        </div>
     </section>
 
-    <div>
+    <section class="section-carousel">
         <h3 style="color: #55a4e5;" class="text-center mb-5 pt-5 h1 font-weight-bold">I medici consigliati da noi:</h3>
         <carousel></carousel>
-    </div>
+    </section class="carousel">
     <howworks></howworks>
-     {{-- <about-us></about-us> --}}
+    {{-- <about-us></about-us> --}}
     <they-talks></they-talks>
     {{-- <about-us></about-us> --}}
 
