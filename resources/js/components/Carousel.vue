@@ -78,6 +78,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .carousel-3d-container {
     overflow: visible;
 }

@@ -1,11 +1,16 @@
 .plans__box {
-    display: flex;
     justify-content: space-between;
-    gap: 16px;
+    gap: 20px;
 
     // border-radius: 8px;
     // box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    padding: 24px 0;
+    padding: 35px 0;
+    @media (min-width: 768px) {
+        gap: 40px;
+    }
+    @media (min-width: 992px) {
+        gap: 55px;
+    }
 }
 
 .plans__radio {
@@ -15,32 +20,62 @@
     // background-color: #bad;
     border: 2px solid $bd-primary;
 }
-
+.display-6{
+    font-size: 25px;
+}
 h2 {
     color: $bd-black;
+    @media (min-width: 768px) {
+        font-size: 40px !important;
+    }
 }
 
 .plans__card-title {
     color: $bd-secondary;
-    font-size: 20px;
+    font-size: 25px;
     text-align: center;
 }
 
 .plans__card {
-    padding: 24px 80px 80px;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 26px 50px 25px;
+    box-shadow: rgb(0 0 0 / 16%) 0px 1px 4px;
     min-width: 240px;
     min-height: 360px;
     border-radius: 8px;
-    border: 2px solid transparent;
-    background-color: $bd-grey;
+    /* border: 2px solid transparent; */
+    background-image: linear-gradient(
+        0deg,
+        hsl(215deg, 78%, 45%) 0%,
+        hsl(213deg, 78%, 46%) 12%,
+        hsl(212deg, 77%, 47%) 18%,
+        hsl(211deg, 75%, 48%) 21%,
+        hsl(210deg, 71%, 50%) 24%,
+        hsl(210deg, 71%, 51%) 26%,
+        hsl(209deg, 72%, 53%) 28%,
+        hsl(209deg, 72%, 55%) 29%,
+        hsl(208deg, 73%, 56%) 31%,
+        hsl(208deg, 73%, 58%) 33%,
+        hsl(208deg, 73%, 60%) 34%,
+        hsl(207deg, 73%, 62%) 36%,
+        hsl(209deg, 72%, 65%) 39%,
+        hsl(210deg, 71%, 69%) 41%,
+        hsl(212deg, 69%, 71%) 44%,
+        hsl(213deg, 67%, 74%) 48%,
+        hsl(214deg, 66%, 77%) 52%,
+        hsl(215deg, 63%, 79%) 56%,
+        hsl(216deg, 61%, 81%) 62%,
+        hsl(218deg, 58%, 84%) 69%,
+        hsl(219deg, 54%, 86%) 77%,
+        hsl(220deg, 49%, 88%) 87%,
+        hsl(221deg, 42%, 90%) 100%
+    );
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: space-between;
     gap: 24px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
-
 .plans__price {
     font-size: 32px;
     color: $bd-secondary;
@@ -52,4 +87,52 @@ h2 {
     // margin-top: auto;
     text-align: center;
     font-size: 20px;
+    font-weight: 500;
 }
+
+.plans__c {
+    text-align: unset;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.js-payment__container {
+    border: 1px solid #0a0f1c;
+    box-shadow: rgb(0 0 0 / 40%) 2px 2px 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+.braintree-sheet__header {
+    align-items: center;
+    border-bottom: 1px solid #b5b5b5;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 12px 15px 0 12px;
+    position: relative;
+    border-bottom: 1px solid rgb(47, 46, 46);
+    border-top: 1px solid rgb(47, 46, 46);
+}
+.braintree-sheet__header .braintree-sheet__text {
+    font-size: 18px;
+}
+.braintree-sheet__content--form .braintree-form__field-group .braintree-form__label {
+    
+    font-size: 16px;
+}
+.braintree-sheet__content--form .braintree-form__field-group .braintree-form__field .braintree-form__hosted-field:hover {
+    border: 1px solid black;
+}
+.js-payment__button {
+    margin-bottom: 50px;
+    display: inline-block;
+    background-color: #55a4e5;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+    

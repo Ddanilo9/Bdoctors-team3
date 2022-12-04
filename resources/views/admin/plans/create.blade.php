@@ -7,9 +7,9 @@
             <form class="js-payment__form" action="{{ route('admin.plans.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
-                <h2>Scegli il piano che fa per te</h2>
+                <h2 class="display-6 pt-3 text-center">Scegli il piano adatto a te</h2>
 
-                <div class="plans__box">
+                <div class="plans__box d-flex flex-column flex-lg-row">
                     @foreach ($plans as $plan)
                     <div class="plans__wrapper">
                         <input class="plans__radio visually-hidden" type="radio" id="{{$plan->id}}" name="plan" value="{{$plan->id}}">
@@ -22,6 +22,9 @@
 
                             <p class="plans__duration">
                                 Durata {{ $plan->duration }}h
+                            </p>
+                            <p class="plans__c">
+                                Scegli il piano più adeguato alle tue esigenze e sarai visibile nella nostra Hompage.
                             </p>
                     </label>
                     </div>
