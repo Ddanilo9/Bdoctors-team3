@@ -48,8 +48,8 @@
                     <div class="col-sm-4 text-center mb-5">
                         <figure class="how-works__img-box">
                             <img
-                                src="/img/logovis.png"
-                                data-src="/img/logovis.png"
+                                src="/img/logovisit.png"
+                                data-src="/img/logovisit.png"
                                 class="img-home img-responsive lazyload how-works__img"
                                 alt="Vai all'appuntamento"
                                 title="Vai all'appuntamento"
@@ -115,6 +115,7 @@ b {
     .how-works__img {
         width: 100%;
         height: 100%;
+        fill: aquamarine;
     }
 }
 </style>
