@@ -28,7 +28,7 @@
     </section>
 
     <section class="section-carousel">
-        <h3 style="color: #55a4e5;" class="text-center mb-5 pt-5 h1 font-weight-bold">I medici consigliati da noi:</h3>
+        <h3 style="color: #0d53b3;" class="text-center mb-5 pt-5 h1 font-weight-bold">I medici consigliati da noi:</h3>
         <carousel></carousel>
     </section class="carousel">
     <howworks></howworks>
