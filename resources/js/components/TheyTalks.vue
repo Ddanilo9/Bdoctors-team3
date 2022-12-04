@@ -48,7 +48,7 @@
 <style lang="scss" scoped>
 
 h2 {
-    color: #55a4e5;
+    color: #0d53b3;
     font-weight: bold;
     font-size: 32px;
 }
