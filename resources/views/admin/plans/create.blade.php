@@ -14,8 +14,9 @@
                     <div class="plans__wrapper">
                         <input class="plans__radio visually-hidden" type="radio" id="{{$plan->id}}" name="plan" value="{{$plan->id}}">
                         <label class="plans__card" for="{{$plan->id}}">
-                            <h6 class="plans__card-title">Piano {{$plan->type}}</h6>
-
+                            {{-- <div class="plans__header"> --}}
+                                <h6 class="plans__card-title">Piano {{$plan->type}}</h6>
+                            {{-- </div> --}}
                             <p class="plans__price">
                                 {{ $plan->price }}€
                             </p>
@@ -24,7 +25,7 @@
                                 Durata {{ $plan->duration }}h
                             </p>
                             <p class="plans__c">
-                                Scegli il piano più adeguato alle tue esigenze e sarai visibile nella nostra Hompage.
+                                Sarai visibile nella nostra Homepage.
                             </p>
                     </label>
                     </div>

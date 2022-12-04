@@ -1,9 +1,6 @@
 .plans__box {
     justify-content: space-between;
     gap: 20px;
-
-    // border-radius: 8px;
-    // box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     padding: 35px 0;
     @media (min-width: 768px) {
         gap: 40px;
@@ -20,7 +17,7 @@
     // background-color: #bad;
     border: 2px solid $bd-primary;
 }
-.display-6{
+.display-6 {
     font-size: 25px;
 }
 h2 {
@@ -30,10 +27,15 @@ h2 {
     }
 }
 
+// .plans__header {
+//     background-color: $bd-primary;
+// }
+
 .plans__card-title {
     color: $bd-secondary;
     font-size: 25px;
     text-align: center;
+    font-style: italic;
 }
 
 .plans__card {
@@ -42,33 +44,34 @@ h2 {
     min-width: 240px;
     min-height: 360px;
     border-radius: 8px;
-    /* border: 2px solid transparent; */
-    background-image: linear-gradient(
-        0deg,
-        hsl(215deg, 78%, 45%) 0%,
-        hsl(213deg, 78%, 46%) 12%,
-        hsl(212deg, 77%, 47%) 18%,
-        hsl(211deg, 75%, 48%) 21%,
-        hsl(210deg, 71%, 50%) 24%,
-        hsl(210deg, 71%, 51%) 26%,
-        hsl(209deg, 72%, 53%) 28%,
-        hsl(209deg, 72%, 55%) 29%,
-        hsl(208deg, 73%, 56%) 31%,
-        hsl(208deg, 73%, 58%) 33%,
-        hsl(208deg, 73%, 60%) 34%,
-        hsl(207deg, 73%, 62%) 36%,
-        hsl(209deg, 72%, 65%) 39%,
-        hsl(210deg, 71%, 69%) 41%,
-        hsl(212deg, 69%, 71%) 44%,
-        hsl(213deg, 67%, 74%) 48%,
-        hsl(214deg, 66%, 77%) 52%,
-        hsl(215deg, 63%, 79%) 56%,
-        hsl(216deg, 61%, 81%) 62%,
-        hsl(218deg, 58%, 84%) 69%,
-        hsl(219deg, 54%, 86%) 77%,
-        hsl(220deg, 49%, 88%) 87%,
-        hsl(221deg, 42%, 90%) 100%
-    );
+    border: 2px solid transparent;
+    background-color: $bd-white;
+    // background-image: linear-gradient(
+    //     0deg,
+    //     hsl(215deg, 78%, 45%) 0%,
+    //     hsl(213deg, 78%, 46%) 12%,
+    //     hsl(212deg, 77%, 47%) 18%,
+    //     hsl(211deg, 75%, 48%) 21%,
+    //     hsl(210deg, 71%, 50%) 24%,
+    //     hsl(210deg, 71%, 51%) 26%,
+    //     hsl(209deg, 72%, 53%) 28%,
+    //     hsl(209deg, 72%, 55%) 29%,
+    //     hsl(208deg, 73%, 56%) 31%,
+    //     hsl(208deg, 73%, 58%) 33%,
+    //     hsl(208deg, 73%, 60%) 34%,
+    //     hsl(207deg, 73%, 62%) 36%,
+    //     hsl(209deg, 72%, 65%) 39%,
+    //     hsl(210deg, 71%, 69%) 41%,
+    //     hsl(212deg, 69%, 71%) 44%,
+    //     hsl(213deg, 67%, 74%) 48%,
+    //     hsl(214deg, 66%, 77%) 52%,
+    //     hsl(215deg, 63%, 79%) 56%,
+    //     hsl(216deg, 61%, 81%) 62%,
+    //     hsl(218deg, 58%, 84%) 69%,
+    //     hsl(219deg, 54%, 86%) 77%,
+    //     hsl(220deg, 49%, 88%) 87%,
+    //     hsl(221deg, 42%, 90%) 100%
+    // );
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -77,10 +80,11 @@ h2 {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 .plans__price {
-    font-size: 32px;
-    color: $bd-secondary;
+    font-size: 48px;
+    color: $main;
+
     text-align: center;
-    margin: 16px 0;
+    font-weight: 600;
 }
 
 .plans__duration {
@@ -91,7 +95,7 @@ h2 {
 }
 
 .plans__c {
-    text-align: unset;
+    text-align: center;
     font-weight: 600;
     font-size: 16px;
 }
@@ -115,11 +119,15 @@ h2 {
 .braintree-sheet__header .braintree-sheet__text {
     font-size: 18px;
 }
-.braintree-sheet__content--form .braintree-form__field-group .braintree-form__label {
-    
+.braintree-sheet__content--form
+    .braintree-form__field-group
+    .braintree-form__label {
     font-size: 16px;
 }
-.braintree-sheet__content--form .braintree-form__field-group .braintree-form__field .braintree-form__hosted-field:hover {
+.braintree-sheet__content--form
+    .braintree-form__field-group
+    .braintree-form__field
+    .braintree-form__hosted-field:hover {
     border: 1px solid black;
 }
 .js-payment__button {
@@ -135,4 +143,3 @@ h2 {
     border: none;
     cursor: pointer;
 }
-    
