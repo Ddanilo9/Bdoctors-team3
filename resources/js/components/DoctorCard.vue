@@ -226,10 +226,12 @@ export default {
     a {
         font-size: 14px;
         text-decoration: none;
-        color: $bd-secondary;
+        color: $bd-black;
+        padding-bottom: 3px;
 
         &:hover {
             text-decoration: none;
+            color: $bd-secondary;
         }
     }
     margin-left: auto;
